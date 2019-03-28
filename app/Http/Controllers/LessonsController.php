@@ -64,6 +64,24 @@ class LessonsController extends Controller
         return view('lessons.lessons')->with('data', ['subtitle' => $subtitle,'title' => $title,'lessons' => $all_lessons,'subscriptions' => $user_lessons]);
     }
 
+    // emfanisei mathimatwn pou exei eggrafei o xristis
+    public function subscriptions()
+    {
+        $user_id = auth()->user()->id;
+        $user = User::find($user_id);
+
+        if ($user->role =="student") {
+            $user_lessons=$user->subscribed_lessons()->orderBy('eksamino')->get();
+        } else {
+            $user_lessons=$user->teaching_lessons()->orderBy('eksamino')->get();
+        }
+
+        $title ='Μαθήματα';
+        $subtitle = 'Τα μαθήματα μου';
+
+        return view('lessons.lessons')->with('data', ['subtitle' => $subtitle,'title' => $title,'lessons' => $user_lessons]);
+    }
+
 
     // grigori anazitisi mathimatos
     public function search(Request $request)
@@ -94,25 +112,6 @@ class LessonsController extends Controller
 );
     }
 
-
-    // emfanisei mathimatwn pou exei eggrafei o xristis
-    public function subscriptions()
-    {
-        $user_id = auth()->user()->id;
-        $user = User::find($user_id);
-
-        if ($user->role =="student") {
-            $user_lessons=$user->subscribed_lessons()->orderBy('eksamino')->get();
-
-        } else {
-            $user_lessons=$user->teaching_lessons()->orderBy('eksamino')->get();
-        }
-
-        $title ='Μαθήματα';
-        $subtitle = 'Τα μαθήματα μου';
-
-        return view('lessons.lessons')->with('data', ['subtitle' => $subtitle,'title' => $title,'lessons' => $user_lessons]);
-    }
 
     //eggrafi se mathima
     public function subscribe_to_lesson(Request $request)
