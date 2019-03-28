@@ -1,0 +1,51 @@
+body {
+    background: #2193b0;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #6dd5ed, #2193b0);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #6dd5ed, #2193b0);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    font-family: 'Roboto', sans-serif;
+
+    font-size: 16px;
+
+}
+
+/* classes */
+.footer {
+    background: white;
+    /* margin-top: 20%!important; */
+}
+
+.navbar-brand,
+.navbar-tabs {
+    min-height: 0% !important;
+}
+
+/* ids */
+#side-menu {
+    margin-left: 5% !important;
+}
+
+#main-content{
+    margin-right: 7%!important;
+}
+
+#sign-in{
+    margin-bottom: 20%!important;
+}
+
+#whereami {
+    padding: 10px;
+    font-size: 20px;
+}
+
+#basic-user-info figure,
+#basic-user-info a {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+
+
