@@ -11,4 +11,4 @@
 6. Έπειτα πληκτρολογίστε: "php artisan key:generate"  
 7. Πληκτρολογήστε "php artisan migrate" ,"php artisan db:seed","php artisan serve".
 
-**Σημείωση:**Για να συνδεθείτε ως φοιτητής στο σύστημα χρησιμοποιήστε τα στοιχεία 
+**Σημείωση:** Για να συνδεθείτε ως φοιτητής στο σύστημα χρησιμοποιήστε τα στοιχεία email:"foit@ceid.upatras.gr" pass:"kodikos" και ως καθηγητής με τα στοιχεία email:"papad@ceid.upatras.gr" pass:"kodikos".
