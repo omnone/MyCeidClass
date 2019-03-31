@@ -17,8 +17,8 @@ class DatabaseSeeder extends Seeder
         // $this->call(UsersTableSeeder::class);
            DB::table('users')->insert([
             'name' => 'Kostas',
-            'surname' => 'Bourantas',
-            'email' => 'bour'.'@ceid.upatras.gr',
+            'surname' => 'Foititis',
+            'email' => 'foit'.'@ceid.upatras.gr',
             'role' => 'student',
             'password' => Hash::make('kodikos'),
         ]);
