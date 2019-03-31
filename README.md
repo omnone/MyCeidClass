@@ -10,3 +10,5 @@
 5. Μεταβείτε στον αρχικό φάκελο του project και τρέξτε την εντολή "composer install".
 6. Έπειτα πληκτρολογίστε: "php artisan key:generate"  
 7. Πληκτρολογήστε "php artisan migrate" ,"php artisan db:seed","php artisan serve".
+
+**Σημείωση:**Για να συνδεθείτε ως φοιτητής στο σύστημα χρησιμοποιήστε τα στοιχεία 
