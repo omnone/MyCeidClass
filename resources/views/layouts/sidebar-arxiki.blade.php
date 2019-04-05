@@ -46,9 +46,9 @@
                         <hr>
                     </li>
                     <li>
-                        <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                        <a class="button is-info is-outlined" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                            Αποσύνδεση
+                          <i class="fa fa-sign-out" aria-hidden="true"></i> Αποσύνδεση
                         </a>
                     </li>
                 </ul>
@@ -78,9 +78,9 @@
                         <hr>
                     </li>
                     <li>
-                        <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                        <a class="button is-info is-outlined" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                            Αποσύνδεση
+                          <i class="fa fa-sign-out" aria-hidden="true"></i> Αποσύνδεση
                         </a>
                     </li>
                 </ul>
