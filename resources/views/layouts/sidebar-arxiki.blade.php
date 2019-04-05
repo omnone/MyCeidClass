@@ -20,8 +20,7 @@
                     </ul>
                 </div>
 
-                <hr> {{-- student sidebar --}}
-                @if(Auth::user()->role =='student')
+                <hr> {{-- student sidebar --}} @if(Auth::user()->role =='student')
                 <p class="menu-label">
                     <i class="fa fa-university" aria-hidden="true"></i> Μαθήματα
                 </p>
@@ -43,6 +42,9 @@
                 <ul class="menu-list">
                     <li><a>Διαχείριση Προφίλ</a></li>
                     <li><a>Στατιστικά Στοιχεία</a></li>
+                    <li>
+                        <hr>
+                    </li>
                     <li>
                         <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -73,6 +75,9 @@
                     <li><a>Διαχείριση Προφίλ</a></li>
                     <li><a>Στατιστικά Στοιχεία</a></li>
                     <li>
+                        <hr>
+                    </li>
+                    <li>
                         <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                             Αποσύνδεση
@@ -85,4 +90,4 @@
         </div>
     </div>
     <div class="column" id="main-content">
-@endif
+        @endif

@@ -36,17 +36,6 @@ class LessonsController extends Controller
         }
     }
 
-    // metabasi stin selida mathimatos
-    public function lesson_index($lesson_name)
-    {
-        $user_id = auth()->user()->id;
-        $user = User::find($user_id);
-
-        $lesson = Lesson::where('name', $lesson_name)->first();
-        $is_subscribed = $user->subscribed_lessons()->where('name', $lesson_name)->get();
-
-        return view('lessons.lesson_page')->with('data', ['lesson' => $lesson,'has_sub' => $is_subscribed]);
-    }
 
     // dikse ola ta diathesima mathimata
     public function lesson_show()
@@ -128,5 +117,115 @@ class LessonsController extends Controller
             $user->subscribed_lessons()->detach($request->input('lesson_id'));
             return redirect('lessons/subscriptions')->with('success', 'Απεγγραφήκατε επιτυχώς από μάθημα: '.$lesson->name);
         }
+    }
+
+    // metabasi stin selida mathimatos
+    public function lesson_index($lesson_name)
+    {
+        $user_id = auth()->user()->id;
+        $user = User::find($user_id);
+
+        $lesson = Lesson::where('name', $lesson_name)->first();
+        $is_subscribed = $user->subscribed_lessons()->where('name', $lesson_name)->get();
+
+        return view('lessons.lesson_page')->with('data', ['lesson' => $lesson,'has_sub' => $is_subscribed]);
+    }
+
+    // emfanisi anakoinosewn mathimatos
+    public function show_announcement($lesson_name)
+    {
+        $lesson = Lesson::where('name', $lesson_name)->first();
+
+        $title = "Ανακοινώσεις";
+
+        $innerHTML = <<<'EOT'
+         <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+            <thead class="has-background-light">
+                <tr>
+                    <th>Ανακοίνωση</th>
+                    <th>Ημερομηνία</th>
+                    <th>Από</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+EOT;
+
+
+        return view('lessons.lessons_main')->with('data', ['lesson' => $lesson , 'table' => $innerHTML , 'title' => $title]);
+    }
+
+    //  emfanisi ergasiwn mathimatos
+    public function show_homework($lesson_name)
+    {
+        $lesson = Lesson::where('name', $lesson_name)->first();
+
+        $title = "Εργασίες";
+
+        $innerHTML = <<<'EOT'
+         <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+            <thead class="has-background-light">
+                <tr>
+                    <th>Τίτλος</th>
+                    <th>Προθεσμία Υποβολής</th>
+                    <th>Έχει Αποσταλέι</th>
+                    <th>Βαθμός</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr>
+                                <td><a href="">1o σετ ασκήσεων</a>
+                                    </td>
+                                <td class="text-center">19-03-2018 12:00:00<br> (<small><span class="text-danger">έχει λήξει</span></small>)</td><td class="text-center"><i class="fa fa-square-o"></i><br></td><td width="30" align="center"></td></tr>
+
+            </tbody>
+        </table>
+EOT;
+
+
+        return view('lessons.lessons_main')->with('data', ['lesson' => $lesson , 'table' => $innerHTML , 'title' => $title]);
+    }
+
+
+    //emfanisi olwn twn arxeiwn tou mathimatos
+    public function show_files($lesson_name)
+    {
+        $lesson = Lesson::where('name', $lesson_name)->first();
+
+        $title = "Έγγραφα";
+
+
+        $innerHTML = <<<'EOT'
+         <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+            <thead class="has-background-light">
+                <tr>
+                    <th>Τύπος</th>
+                    <th>Όνομα</th>
+                    <th>Μέγεθος</th>
+                    <th>Ημερομηνία</th>
+                    <th><i class="fa fa-cogs" aria-hidden="true"></i></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr class="visible">
+                    <td class="text-center"><span class="fa fa-file-pdf-o"></span></td>
+                    <td><input type="hidden" value="/modules/document/index.php?course=CEID1030&amp;download=/5c6fb6e1kRRi.pdf">
+                        <a href="" class="fileURL fileModal" target="_blank" title="Διαφάνειες 1ης διάλεξης">Διαφάνειες 1ης διάλεξης</a>
+                       <br>
+                        <span class="comment text-muted"><small>Σημειώσεις για το μάθημα</small></span>
+                    </td>
+                    <td>6.84 MB</td>
+                    <td title="22-02-2019 10:46:25">22-02-2019</td>
+                    <td class="text-center"><a href="/modules/document/index.php?course=CEID1030&amp;download=/5c6fb6e1kRRi.pdf"><span class="fa fa-download" title="" data-toggle="tooltip" data-original-title="Αποθήκευση"></span></a></td>
+                </tr>
+            </tbody>
+        </table>
+EOT;
+
+
+        return view('lessons.lessons_main')->with('data', ['lesson' => $lesson , 'table' => $innerHTML ,'title' => $title]);
     }
 }

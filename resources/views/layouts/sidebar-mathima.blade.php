@@ -22,15 +22,17 @@
 
                 <hr> {{-- student sidebar --}} @if(Auth::user()->role =='student')
                 <p class="menu-label">
-                    <i class="fa fa-university" aria-hidden="true"></i> Μαθήματα
+                    <i class="fa fa-university" aria-hidden="true"></i>  Επιλογές Μαθήματος
                 </p>
                 <ul class="menu-list">
-                    <li><a>Έγγραφα</a></li>
-                    <li><a>Ανακοινώσεις</a></li>
-                    <li><a>Εργασίες</a></li>
-                    <li><a>Εξεταστική</a></li>
-                    <li><a>Εργαστήριο</a></li>
-                    <li><a>Forum</a></li>
+                    <li><a href="/lessons/{{$data['lesson']->name}}/files"><i class="fa fa-folder-o" aria-hidden="true"></i> Έγγραφα</a></li>
+                    <li><a href="/lessons/{{$data['lesson']->name}}/announcements"><i class="fa fa-bullhorn" aria-hidden="true"></i> Ανακοινώσεις</a></li>
+                    <li><a href="/lessons/{{$data['lesson']->name}}/homework"><i class="fa fa-flask" aria-hidden="true"></i> Εργασίες</a></li>
+                    <li><a><i class="fa fa-graduation-cap" aria-hidden="true"></i> Εξεταστική</a></li>
+                    <li><a><i class="fa fa-microchip" aria-hidden="true"></i> Εργαστήριο</a></li>
+                    <li><a><i class="fa fa-commenting-o" aria-hidden="true"></i> Forum</a></li>
+                    <li><hr></li>
+                    <li><a href="/"><i class="fa fa-chevron-left" aria-hidden="true"></i> Πίσω</a></li>
                 </ul>
 
                 {{-- profesor sidebar --}} @else

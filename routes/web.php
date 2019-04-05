@@ -25,6 +25,12 @@ Route::get('lessons', 'LessonsController@lesson_show')->name('lessons.lesson_sho
 Route::get('lessons/search_result', 'LessonsController@search_result')->name('lessons.search_result');
 Route::get('lessons/subscriptions', 'LessonsController@subscriptions')->name('lessons.subscriptions');
 Route::get('lessons/{lesson_name}','LessonsController@lesson_index');
+Route::get('lessons/{lesson_name}/files', 'LessonsController@show_files');
+Route::get('lessons/{lesson_name}/announcements', 'LessonsController@show_announcement');
+Route::get('lessons/{lesson_name}/homework', 'LessonsController@show_homework');
+
+
+
 
 Route::resource('posts','PostsContoller');
 

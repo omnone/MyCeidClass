@@ -35,7 +35,7 @@
     </div>
     <div class="card-body">
         <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
-            <thead>
+            <thead class="has-background-light">
                 <tr>
                     <th scope="col">Μάθημα</th>
                     <th scope="col">Εξάμηνο</th>
@@ -85,7 +85,7 @@
     </div>
     <div class="card-body">
         <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
-            <thead>
+            <thead class="has-background-light">
                 <tr>
                     <th scope="col">Όνομα</th>
                     <th scope="col">Εξάμηνο</th>
@@ -119,7 +119,7 @@
     </div>
     <div class="card-body">
         <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
-            <thead>
+            <thead class="has-background-light">
                 <tr>
                     <th scope="col">Μάθημα</th>
                     <th scope="col">Θέμα</th>
@@ -147,7 +147,7 @@
     </div>
     <div class="card-body">
         <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
-            <thead>
+            <thead class="has-background-light">
                 <tr>
                     <th scope="col">Μάθημα</th>
                     <th scope="col">Θέμα</th>
