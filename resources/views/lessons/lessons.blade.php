@@ -47,7 +47,7 @@
                     <th scope="col">Ημ/νια Εγγραφής</th>
                     @endif
 
-                    <th scope="col"></th>
+                    <th scope="col"><i class="fa fa-cogs" aria-hidden="true"></i></th>
                 </tr>
             </thead>
             <tbody>

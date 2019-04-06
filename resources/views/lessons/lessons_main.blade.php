@@ -4,7 +4,7 @@
 @else
     @include('layouts.sidebar-arxiki') @endif
 <div class="card" id='whereami'>
-    <h1 class="subtitle">{{$data['title']}}</h1>
+  {{$data['title']}}
 </div>
 
 <br />
@@ -14,7 +14,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-9">
-                    <h1 class="subtitle">{{$data['subtitle']}}</h1>
+                 {{$data['subtitle']}}
                 </div>
             </div>
         </div>
