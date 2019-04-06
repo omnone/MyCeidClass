@@ -20,11 +20,11 @@
                     {!! Form::open(array('method' => 'Get', 'route' => array('lessons.search_result'))) !!}
                     <div class="field has-addons ">
                         <div class="control">
-                            {{-- <input class="form-control" type="text" name='searchlesson' id="searchBox" placeholder="Αναζήτηση Μαθήματος"> --}}
-                            {!! Form::text('searchlesson',null,['id' => 'searchBox','class'=>'input','placeholder'=>"Αναζήτηση Μαθήματος"]) !!}
+                            {{-- <input class="form-control" type="text" name='searchlesson' id="searchBox" placeholder="Αναζήτηση Μαθήματος">                            --}} {!! Form::text('searchlesson',null,['id' => 'searchBox','class'=>'input','placeholder'=>"Αναζήτηση
+                            Μαθήματος"]) !!}
                         </div>
                         <div class="control">
-                           <button class='button is-primary'>Αναζήτηση</button>
+                            <button class='button is-primary'>Αναζήτηση</button>
                         </div>
                     </div>
                     {!! Form::close() !!}
@@ -94,8 +94,7 @@
                 </tr>
             </thead>
             <tbody>
-                @isset($lessons)
-                @foreach ($lessons as $lesson)
+                @isset($lessons) @foreach ($lessons as $lesson)
                 <tr>
                     <th scope="row"><a href="/">{{$lesson->name}}<a></th>
                                                     <td>{{$lesson->eksamino}}</td>

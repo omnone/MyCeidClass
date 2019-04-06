@@ -32,7 +32,7 @@
                     <li><a><i class="fa fa-microchip" aria-hidden="true"></i> Εργαστήριο</a></li>
                     <li><a><i class="fa fa-commenting-o" aria-hidden="true"></i> Forum</a></li>
                     <li><hr></li>
-                    <li><a href="/"><i class="fa fa-chevron-left" aria-hidden="true"></i> Πίσω</a></li>
+                    <li><a class="button is-info is-outlined" href="/"><i class="fa fa-chevron-left" aria-hidden="true"></i> Πίσω</a></li>
                 </ul>
 
                 {{-- profesor sidebar --}} @else

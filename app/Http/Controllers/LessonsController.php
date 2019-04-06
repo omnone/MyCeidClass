@@ -136,7 +136,11 @@ class LessonsController extends Controller
     {
         $lesson = Lesson::where('name', $lesson_name)->first();
 
-        $title = "Ανακοινώσεις";
+        $title = $lesson_name;
+
+        $subtitle = "Ανακοινώσεις";
+
+
 
         $innerHTML = <<<'EOT'
          <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
@@ -154,17 +158,46 @@ class LessonsController extends Controller
 EOT;
 
 
-        return view('lessons.lessons_main')->with('data', ['lesson' => $lesson , 'table' => $innerHTML , 'title' => $title]);
+        return view('lessons.lessons_main')->with('data', ['lesson' => $lesson , 'table' => $innerHTML , 'title' => $title,'subtitle' => $subtitle]);
     }
 
     //  emfanisi ergasiwn mathimatos
     public function show_homework($lesson_name)
     {
-        $lesson = Lesson::where('name', $lesson_name)->first();
+        //girna oles tis energes ergasies tou foititi gia ola ta mathimata
+        if ($lesson_name!="all") {
+            $lesson = Lesson::where('name', $lesson_name)->first();
 
-        $title = "Εργασίες";
+            $title = $lesson_name;
+            $subtitle = "Εργασίες";
 
-        $innerHTML = <<<'EOT'
+            $innerHTML = <<<'EOT'
+         <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+            <thead class="has-background-light">
+                <tr>
+                    <th>Τίτλος</th>
+                    <th>Προθεσμία Υποβολής</th>
+                    <th>Έχει Αποσταλέι</th>
+                    <th>Βαθμός</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr>
+                                <td><a href="">1o σετ ασκήσεων</a>
+                                    </td>
+                                <td class="text-center">19-03-2018 12:00:00<br> (<small><span class="text-danger">έχει λήξει</span></small>)</td><td class="text-center"><i class="fa fa-square-o"></i><br></td><td width="30" align="center"></td></tr>
+
+            </tbody>
+        </table>
+EOT;
+
+            return view('lessons.lessons_main')->with('data', ['lesson' => $lesson , 'table' => $innerHTML , 'title' => $title , 'subtitle' => $subtitle]);
+        } else {//girna tis ergasies gia to sigkekrimeno mathima
+
+            $title = "Μαθήματα";
+            $subtitle = "Οι εργασίες μου";
+
+            $innerHTML = <<<'EOT'
          <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
             <thead class="has-background-light">
                 <tr>
@@ -185,7 +218,8 @@ EOT;
 EOT;
 
 
-        return view('lessons.lessons_main')->with('data', ['lesson' => $lesson , 'table' => $innerHTML , 'title' => $title]);
+            return view('lessons.lessons_main')->with('data', [ 'table' => $innerHTML , 'title' => $title, 'subtitle' => $subtitle]);
+        }
     }
 
 
@@ -194,7 +228,9 @@ EOT;
     {
         $lesson = Lesson::where('name', $lesson_name)->first();
 
-        $title = "Έγγραφα";
+        $subtitle = "Έγγραφα";
+        $title = $lesson_name;
+
 
 
         $innerHTML = <<<'EOT'
@@ -226,6 +262,6 @@ EOT;
 EOT;
 
 
-        return view('lessons.lessons_main')->with('data', ['lesson' => $lesson , 'table' => $innerHTML ,'title' => $title]);
+        return view('lessons.lessons_main')->with('data', ['lesson' => $lesson , 'table' => $innerHTML ,'title' => $title ,'subtitle'=>$subtitle]);
     }
 }
