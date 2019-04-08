@@ -4,7 +4,7 @@
 <div class="container" id="sign-in">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card" id="login-card">
                 <div class="card-header">Καλωσήρθατε στο MyCeidClass</div>
 
                 <div class="card-body">
