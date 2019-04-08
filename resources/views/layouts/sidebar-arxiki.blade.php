@@ -33,15 +33,15 @@
                     <i class="fa fa-book" aria-hidden="true"></i> Εξεταστική
                 </p>
                 <ul class="menu-list">
-                    <li><a>Προβολή Προγράμματος</a></li>
-                    <li><a>Δήλωση Συμμετοχής</a></li>
+                    <li><a href="/exams/program">Προβολή Προγράμματος</a></li>
+                    <li><a href="/exams/participation">Δήλωση Συμμετοχής</a></li>
                 </ul>
                 <p class="menu-label">
                     <i class="fa fa-user" aria-hidden="true"></i> Προφίλ
                 </p>
                 <ul class="menu-list">
-                    <li><a>Διαχείριση Προφίλ</a></li>
-                    <li><a>Στατιστικά Στοιχεία</a></li>
+                    <li><a href="/profile/settings">Διαχείριση Προφίλ</a></li>
+                    <li><a href="/profile/statistics">Στατιστικά Στοιχεία</a></li>
                     <li>
                         <hr>
                     </li>

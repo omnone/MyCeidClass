@@ -22,7 +22,7 @@
 
                 <hr> {{-- student sidebar --}} @if(Auth::user()->role =='student')
                 <p class="menu-label">
-                    <i class="fa fa-university" aria-hidden="true"></i>  Επιλογές Μαθήματος
+                    <i class="fa fa-university" aria-hidden="true"></i> Επιλογές Μαθήματος
                 </p>
                 <ul class="menu-list">
                     <li><a href="/lessons/{{$data['lesson']->name}}/files"><i class="fa fa-folder-o" aria-hidden="true"></i> Έγγραφα</a></li>
@@ -30,8 +30,10 @@
                     <li><a href="/lessons/{{$data['lesson']->name}}/homework"><i class="fa fa-flask" aria-hidden="true"></i> Εργασίες</a></li>
                     <li><a><i class="fa fa-graduation-cap" aria-hidden="true"></i> Εξεταστική</a></li>
                     <li><a><i class="fa fa-microchip" aria-hidden="true"></i> Εργαστήριο</a></li>
-                    <li><a><i class="fa fa-commenting-o" aria-hidden="true"></i> Forum</a></li>
-                    <li><hr></li>
+                    <li><a href="/lessons/{{$data['lesson']->name}}/forum"><i class="fa fa-commenting-o" aria-hidden="true"></i> Forum</a></li>
+                    <li>
+                        <hr>
+                    </li>
                     <li><a class="button is-info is-outlined" href="/"><i class="fa fa-chevron-left" aria-hidden="true"></i> Πίσω</a></li>
                 </ul>
 
@@ -71,3 +73,5 @@
     </div>
     <div class="column" id="main-content">
         @endif
+
+

@@ -12,6 +12,15 @@ $(document).ready(function () {
         source: baseUrl
 
     });
+
+    // const back_button = document.getElementById("back-button");
+
+    // back_button.addEventListener('click', event => {
+    //     window.history.back();
+    // });
+
+
 });
+
 
 

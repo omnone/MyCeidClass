@@ -20,6 +20,7 @@ Route::get('/', 'LessonsController@index');
 
 Route::get('search', 'LessonsController@search');
 
+// lesson routes
 Route::post('lessons', 'LessonsController@subscribe_to_lesson')->name('lessons.subscribe_to_lesson');
 Route::get('lessons', 'LessonsController@lesson_show')->name('lessons.lesson_show');
 Route::get('lessons/search_result', 'LessonsController@search_result')->name('lessons.search_result');
@@ -28,6 +29,17 @@ Route::get('lessons/{lesson_name}', 'LessonsController@lesson_index');
 Route::get('lessons/{lesson_name}/files', 'LessonsController@show_files');
 Route::get('lessons/{lesson_name}/announcements', 'LessonsController@show_announcement');
 Route::get('lessons/{lesson_name}/homework', 'LessonsController@show_homework');
+// forum routes
+Route::get('lessons/{lesson_name}/forum', 'ForumController@show_forum');
+//profile routes
+Route::get('profile/settings', 'ProfileController@profile_index');
+Route::get('profile/statistics', 'ProfileController@foititis_statistika');
+// eksetastiki routes
+Route::get('exams/program', 'ExamsController@show_exams_program');
+Route::get('exams/participation', 'ExamsController@participation_index');
+
+
+
 
 
 // Route::resource('posts', 'PostsContoller');
