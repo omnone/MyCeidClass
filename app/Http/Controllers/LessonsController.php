@@ -161,72 +161,7 @@ EOT;
         return view('lessons.lessons_main')->with('data', ['lesson' => $lesson , 'table' => $innerHTML , 'title' => $title,'subtitle' => $subtitle]);
     }
 
-    //  emfanisi ergasiwn mathimatos
-    public function show_homework($lesson_name)
-    {
-        //girna oles tis energes ergasies tou foititi gia ola ta mathimata
-        if ($lesson_name!="all") {
-            $lesson = Lesson::where('name', $lesson_name)->first();
 
-            $title = $lesson_name;
-            $subtitle = "Εργασίες";
-
-            $innerHTML = <<<'EOT'
-           <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
-            <thead class="has-background-light">
-                <tr>
-                    <th class="has-text-centered">Τίτλος</th>
-                    <th class="has-text-centered">Προθεσμία Υποβολής</th>
-                    <th class="has-text-centered">Έχει Αποσταλεί</th>
-                    <th class="has-text-centered">Βαθμός</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="has-text-centered"><a href="">1o σετ ασκήσεων</a>
-                    </td>
-                    <td class="text-center">19-03-2018 12:00:00<br> (<small><span class="text-danger">έχει λήξει</span></small>)</td>
-                    <td class="text-center"><i class="fa fa-square-o"></i><br></td>
-                    <td width="30" align="center"></td>
-                </tr>
-
-            </tbody>
-        </table>
-EOT;
-
-            return view('lessons.lessons_main')->with('data', ['lesson' => $lesson , 'table' => $innerHTML , 'title' => $title , 'subtitle' => $subtitle]);
-        } else {//girna tis ergasies gia to sigkekrimeno mathima
-
-            $title = "Μαθήματα";
-            $subtitle = "Οι εργασίες μου";
-
-            $innerHTML = <<<'EOT'
-           <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
-            <thead class="has-background-light">
-                <tr>
-                    <th class="has-text-centered">Τίτλος</th>
-                    <th class="has-text-centered">Προθεσμία Υποβολής</th>
-                    <th class="has-text-centered">Έχει Αποσταλέι</th>
-                    <th class="has-text-centered">Βαθμός</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="has-text-centered"><a href="">1o σετ ασκήσεων</a>
-                    </td>
-                    <td class="text-center">19-03-2018 12:00:00<br> (<small><span class="text-danger">έχει λήξει</span></small>)</td>
-                    <td class="text-center"><i class="fa fa-square-o"></i><br></td>
-                    <td width="30" align="center"></td>
-                </tr>
-
-            </tbody>
-        </table>
-EOT;
-
-
-            return view('lessons.lessons_main')->with('data', [ 'table' => $innerHTML , 'title' => $title, 'subtitle' => $subtitle]);
-        }
-    }
 
 
     //emfanisi olwn twn arxeiwn tou mathimatos

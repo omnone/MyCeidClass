@@ -1,8 +1,10 @@
 @extends('layouts.app')
-@section('content') {{-- titlos selidas --}} @if ($data['title'] != "Μαθήματα")
+@section('content') {{-- titlos selidas --}}
+@if ($data['title'] != "Μαθήματα")
     @include('layouts.sidebar-mathima')
 @else
-    @include('layouts.sidebar-arxiki') @endif
+    @include('layouts.sidebar-arxiki')
+@endif
 <div class="card" id='whereami'>
   {{$data['title']}}
 </div>

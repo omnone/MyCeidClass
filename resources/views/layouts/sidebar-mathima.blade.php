@@ -1,5 +1,5 @@
 @if (Auth::check())
-<div class="columns ">
+<div class="columns " id="main-window">
     <div class="is-one-quarter" id="side-menu">
         <div class="container card">
             <aside class="menu">
@@ -73,5 +73,3 @@
     </div>
     <div class="column" id="main-content">
         @endif
-
-

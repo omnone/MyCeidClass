@@ -17,7 +17,7 @@
 
 
 Route::get('/', 'LessonsController@index');
-
+// quick search gia mathimata
 Route::get('search', 'LessonsController@search');
 
 // lesson routes
@@ -28,7 +28,7 @@ Route::get('lessons/subscriptions', 'LessonsController@subscriptions')->name('le
 Route::get('lessons/{lesson_name}', 'LessonsController@lesson_index');
 Route::get('lessons/{lesson_name}/files', 'LessonsController@show_files');
 Route::get('lessons/{lesson_name}/announcements', 'LessonsController@show_announcement');
-Route::get('lessons/{lesson_name}/homework', 'LessonsController@show_homework');
+
 // forum routes
 Route::get('lessons/{lesson_name}/forum', 'ForumController@show_forum');
 //profile routes
@@ -37,12 +37,17 @@ Route::get('profile/statistics', 'ProfileController@foititis_statistika');
 // eksetastiki routes
 Route::get('exams/program', 'ExamsController@show_exams_program');
 Route::get('exams/participation', 'ExamsController@participation_index');
+// ergasies routes
+Route::get('lessons/{lesson_name}/homework', 'ErgasiesController@show_homework');
+Route::get('lessons/{lesson_name}/homework/{ergasia_id}', 'ErgasiesController@show_ergasia');
 
+
+// anakoinoseis routes
 
 
 
 
 // Route::resource('posts', 'PostsContoller');
 
-
+// authentication routes
 Auth::routes();
