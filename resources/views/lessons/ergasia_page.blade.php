@@ -40,6 +40,8 @@
                             <li>Ημερομηνία Έναρξης:</li>
                             <li>Προθεσμία Υποβολής:</li>
                             <li>Βαθμός:</li>
+                            <li>Συνοδευτικό Αρχείο:</li>
+                            <li>Σχόλια:</li>
                         </ul>
                     </div>
                     <div class="column is-4">
@@ -49,6 +51,30 @@
                             <li>test</li>
                             <li>test</li>
                         </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    <hr>
+        {{-- parodosi ergasias --}}
+        <div class="card">
+            <div class="card-header">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-9">
+                            Παράδοση Εργασίας
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="columns is-0">
+                    <div class="column is-4">
+
+                    </div>
+                    <div class="column is-4">
+
                     </div>
 
                 </div>
