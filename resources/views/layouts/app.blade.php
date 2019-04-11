@@ -22,6 +22,7 @@
     <!--fontawesome links -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
     <!-- Scripts -->
     <script src="http://code.jquery.com/jquery-1.10.2.js" type="text/javascript"></script>
     <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>

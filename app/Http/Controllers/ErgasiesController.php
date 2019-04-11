@@ -43,10 +43,10 @@ class ErgasiesController extends Controller
             </thead>
             <tbody>
                 <tr>
-                    <td>Τεχνολογία Λογισμικού</td>
+                    <td><a href="/lessons/$lesson_name/">Τεχνολογία Λογισμικού</a></td>
                     <td class=""><a href="lessons/$lesson_name/homework/$ergasia_id">1o σετ ασκήσεων</a></td>
                     <td class="">19-03-2018 12:00:00<br> (<small><span class="text-danger">έχει λήξει</span></small>)</td>
-                    <td class=""><i class="fa fa-square-o"></i><br></td>
+                    <td class="">Ναι</td>
                     <td width="30" align="center"></td>
                 </tr>
 
@@ -79,7 +79,7 @@ EOD;
                     <td class=""><a href="homework/$ergasia_id">1o σετ ασκήσεων</a>
                     </td>
                     <td class="">19-03-2018 12:00:00<br> (<small><span class="text-danger">έχει λήξει</span></small>)</td>
-                    <td class=""><i class="fa fa-square-o"></i><br></td>
+                    <td class="">Ναι</td>
                     <td width="30" align="center"></td>
                 </tr>
 

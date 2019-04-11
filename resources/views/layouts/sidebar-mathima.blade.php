@@ -28,8 +28,8 @@
                     <li><a href="/lessons/{{$data['lesson']->name}}/files"><i class="fa fa-folder-o" aria-hidden="true"></i> Έγγραφα</a></li>
                     <li><a href="/lessons/{{$data['lesson']->name}}/announcements"><i class="fa fa-bullhorn" aria-hidden="true"></i> Ανακοινώσεις</a></li>
                     <li><a href="/lessons/{{$data['lesson']->name}}/homework"><i class="fa fa-flask" aria-hidden="true"></i> Εργασίες</a></li>
-                    <li><a><i class="fa fa-graduation-cap" aria-hidden="true"></i> Εξεταστική</a></li>
-                    <li><a><i class="fa fa-microchip" aria-hidden="true"></i> Εργαστήριο</a></li>
+                    <li><a><i class="fa fa-users" aria-hidden="true"></i> Ομάδες Χρηστών</a></li>
+                    {{-- <li><a><i class="fa fa-microchip" aria-hidden="true"></i> Εργαστήριο</a></li> --}}
                     <li><a href="/lessons/{{$data['lesson']->name}}/forum"><i class="fa fa-commenting-o" aria-hidden="true"></i> Forum</a></li>
                     <li>
                         <hr>

@@ -5,8 +5,8 @@
 @else
     @include('layouts.sidebar-arxiki')
 @endif
-<div class="card" id='whereami'>
-  {{$data['title']}}
+<div class="card " id='whereami'>
+    {{$data['title']}}
 </div>
 
 <br />
@@ -16,7 +16,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-9">
-                 {{$data['subtitle']}}
+                     <span class="animated fadeInUp">{{$data['subtitle']}}</span>
                 </div>
             </div>
         </div>

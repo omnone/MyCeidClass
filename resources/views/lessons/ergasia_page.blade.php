@@ -56,8 +56,7 @@
                 </div>
             </div>
         </div>
-    <hr>
-        {{-- parodosi ergasias --}}
+        <hr> {{-- parodosi ergasias --}}
         <div class="card">
             <div class="card-header">
                 <div class="container-fluid">
@@ -69,15 +68,13 @@
                 </div>
             </div>
             <div class="card-body">
-                <div class="columns is-0">
-                    <div class="column is-4">
+                {!! Form::open() !!}
 
-                    </div>
-                    <div class="column is-4">
-
-                    </div>
-
+                <div class="form-group">
+                    {!! Form::label('name', 'Αρχείο: ', []) !!}
+                    {{Form::file('notes')}}
                 </div>
+                {{Form::submit('Υποβολή', ['class'=>'button is-info','disabled'])}} {!! Form::close() !!}
             </div>
         </div>
 
