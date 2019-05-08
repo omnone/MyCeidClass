@@ -11,15 +11,12 @@
 |
 */
 
-// Route::get('/users/{id}',function($id){
-//   return 'this is user '.$id;
-// });
-
 
 Route::get('/', 'LessonsController@index');
 // quick search gia mathimata
 Route::get('search', 'LessonsController@search');
 
+// **student routes////////////////////////////////////////////////////////////////////////////////////////////
 // lesson routes
 Route::post('lessons', 'LessonsController@subscribe_to_lesson')->name('lessons.subscribe_to_lesson');
 Route::get('lessons', 'LessonsController@lesson_show')->name('lessons.lesson_show');
@@ -39,15 +36,13 @@ Route::get('exams/program', 'ExamsController@show_exams_program');
 Route::get('exams/participation', 'ExamsController@participation_index');
 // ergasies routes
 Route::get('lessons/{lesson_name}/homework', 'ErgasiesController@show_homework');
+Route::get('lessons/{lesson_name}/homework/create', 'ErgasiesController@create_ergasia');
+Route::post('lessons/{lesson_name}/homework/store', 'ErgasiesController@store_ergasia');
 Route::get('lessons/{lesson_name}/homework/{ergasia_id}', 'ErgasiesController@show_ergasia');
+Route::get('lessons/{lesson_name}/homework/{ergasia_id}/{file_name}', 'ErgasiesController@download_file');
 
 
 // anakoinoseis routes
-
-
-
-
-// Route::resource('posts', 'PostsContoller');
 
 // authentication routes
 Auth::routes();

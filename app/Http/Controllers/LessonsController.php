@@ -205,6 +205,4 @@ EOT;
 
         return view('lessons.lessons_main')->with('data', ['lesson' => $lesson , 'table' => $innerHTML ,'title' => $title ,'subtitle'=>$subtitle]);
     }
-
-
 }

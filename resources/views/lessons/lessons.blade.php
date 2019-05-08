@@ -149,7 +149,7 @@
         <tbody>
             @foreach ($data['lessons'] as $lesson)
             <tr>
-                <th scope="row"><a href="/">{{$lesson->name}}<a></th>
+                <th scope="row"><a href="/lessons/{{$lesson->name}}">{{$lesson->name}}<a></th>
                                                     <td>{{$lesson->eksamino}}</td>
                                                     <td>{{$lesson->periodos}}</td>
                                                     <td>{{count($lesson->subscribers)}}</td>

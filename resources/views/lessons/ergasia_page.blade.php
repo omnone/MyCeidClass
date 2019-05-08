@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content') {{-- titlos selidas --}} @if ($data['title'] != "Μαθήματα")
-    @include('layouts.sidebar-mathima')
+@include('layouts.sidebar-mathima')
 @else
-    @include('layouts.sidebar-arxiki') @endif
+@include('layouts.sidebar-arxiki') @endif
 <div class="card" id='whereami'>
     {{$data['title']}}
 </div>
@@ -46,10 +46,14 @@
                     </div>
                     <div class="column is-4">
                         <ul>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
-                            <li>test</li>
+                            <li>{{$data['ergasia']->title}}</li>
+                            <li>{{$data['title']}}</li>
+                            <li>{{$data['ergasia']->created_at}}</li>
+                            <li>{{$data['ergasia']->deadline}}</li>
+                            <li>0</li>
+                            <td class=""><a href='/lessons/{{$data['title']}}/homework/{{$data['ergasia']->id}}/{{$data['ergasia']->file_path}}''><i
+                                        class="fa fa-download" aria-hidden="true"></i>{{$data['ergasia']->file_path}}</a></td>
+                            <li>{{$data['ergasia']->description}}</li>
                         </ul>
                     </div>
 
@@ -79,4 +83,4 @@
         </div>
 
     </div>
-@endsection
+    @endsection

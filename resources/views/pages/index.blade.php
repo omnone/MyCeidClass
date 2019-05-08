@@ -66,18 +66,20 @@
                     Τα μαθήματα μου
                 </div>
 
-                {{-- search a lesson box - add a form --}}
+               {{-- search a lesson box - add a form --}}
                 <div class="col-md-3 is-pulled-right">
+                    {!! Form::open(array('method' => 'Get', 'route' => array('lessons.search_result'))) !!}
                     <div class="field has-addons ">
                         <div class="control">
-                            <input class="input" type="text" placeholder="Αναζήτηση Μαθήματος">
+                            {{-- <input class="form-control" type="text" name='searchlesson' id="searchBox" placeholder="Αναζήτηση Μαθήματος">                            --}}
+                            {!! Form::text('searchlesson',null,['id' => 'searchBox','class'=>'input','placeholder'=>"Αναζήτηση
+                            Μαθήματος"]) !!}
                         </div>
                         <div class="control">
-                            <a class="button is-primary">
-                                  Αναζήτηση
-                                </a>
+                            <button class='button is-primary'>Αναζήτηση</button>
                         </div>
                     </div>
+                    {!! Form::close() !!}
                 </div>
                 {{-- --- --}}
             </div>
@@ -96,7 +98,7 @@
             <tbody>
                 @isset($lessons) @foreach ($lessons as $lesson)
                 <tr>
-                    <th scope="row"><a href="/">{{$lesson->name}}<a></th>
+                    <th scope="row"><a href="/lessons/{{$lesson->name}}">{{$lesson->name}}<a></th>
                                                     <td>{{$lesson->eksamino}}</td>
                                                     <td>{{$lesson->periodos}}</td>
                                                     <td>{{count($lesson->subscribers)}}</td>
@@ -128,7 +130,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <th scope="row"><a href="/lessons/">Τεχνολογία Λογισμικού</a></th>
+                    <th scope="row"><a href="/lessons/{{$lesson->name}}">Τεχνολογία Λογισμικού</a></th>
                     <td>Παράδοση Εργασίων Εξαμήνου</td>
                     <td>12-09-2019</td>
                     <td>Ξοε Ντοε</td>
@@ -158,7 +160,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <th scope="row"><a href="/">Τεχνολογία Λογισμικού</a></th>
+                    <th scope="row"><a href="/lessons/{{$lesson->name}}">Τεχνολογία Λογισμικού</a></th>
                     <td>Παράδοση Εργασίων Εξαμήνου</td>
                     <td>12-09-2019</td>
                     <td>Ξοε Ντοε</td>
