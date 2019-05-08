@@ -16,10 +16,10 @@ use App\Ergasia;
 class ErgasiesController extends Controller
 {
     /**
-   * Create a new controller instance.
-   *
-   * @return void
-   */
+     * Create a new controller instance.
+     *
+     * @return void
+     */
     public function __construct()
     {
         $this->middleware('auth');
@@ -29,7 +29,7 @@ class ErgasiesController extends Controller
     public function show_homework($lesson_name)
     {
         //girna oles tis energes ergasies tou foititi gia ola ta mathimata
-        if ($lesson_name=="all") {
+        if ($lesson_name == "all") {
             $title = "Μαθήματα";
             $subtitle = "Οι εργασίες μου";
             $ergasia_id = "1o σετ ασκήσεων";
@@ -60,16 +60,16 @@ class ErgasiesController extends Controller
         </table>
 EOD;
 
-            return view('lessons.lessons_main')->with('data', [ 'table' => $innerHTML , 'title' => $title , 'subtitle' => $subtitle]);
-        } else {//girna tis ergasies gia to sigkekrimeno mathima
+            return view('lessons.lessons_main')->with('data', ['table' => $innerHTML, 'title' => $title, 'subtitle' => $subtitle]);
+        } else { //girna tis ergasies gia to sigkekrimeno mathima
 
             $lesson = Lesson::where('name', $lesson_name)->first();
             $title = $lesson_name;
             $subtitle = "Εργασίες";
 
-            $ergasies=$lesson->ergasies()->orderBy('created_at')->get();
+            $ergasies = $lesson->ergasies()->orderBy('created_at')->get();
 
-            if (auth()->user()->role =="student") {
+            if (auth()->user()->role == "student") {
                 $table_head =  <<<EOD
            <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
             <thead class="has-background-light">
@@ -93,7 +93,7 @@ EOD;
                     <td width="30" align="center"></td>
                 </tr>
 EOD;
-                    $table_head= $table_head.$innerHTML;
+                    $table_head = $table_head . $innerHTML;
                 }
             } else {
                 $table_head =  <<<EOD
@@ -121,16 +121,16 @@ EOD;
                     <td class="">0</td>
                 </tr>
 EOD;
-                    $table_head= $table_head.$innerHTML;
+                    $table_head = $table_head . $innerHTML;
                 }
             }
 
-            $table = $table_head.'
+            $table = $table_head . '
             </tbody>
         </table>';
 
 
-            return view('lessons.lessons_main')->with('data', ['lesson' => $lesson , 'table' => $table , 'title' => $title, 'subtitle' => $subtitle]);
+            return view('lessons.lessons_main')->with('data', ['lesson' => $lesson, 'table' => $table, 'title' => $title, 'subtitle' => $subtitle]);
         }
     }
 
@@ -142,11 +142,14 @@ EOD;
 
 
         $title = $lesson_name;
-        $subtitle = "Εργασίες: "."\"".$ergasia->title."\"";
-        $url = 'lessons/'.$title.'/homework/store';
+        $subtitle = "Εργασίες: " . "\"" . $ergasia->title . "\"";
+        $url = 'lessons/' . $title . '/homework/store';
 
-        return view("lessons.ergasia_page")->with('data', ['lesson' => $lesson  , 'title' => $title, 'subtitle' => $subtitle,'go_url' => $url,'ergasia' => $ergasia]);
-        ;
+        if (auth()->user()->role == "student") {
+            return view("lessons.ergasia_page")->with('data', ['lesson' => $lesson, 'title' => $title, 'subtitle' => $subtitle, 'go_url' => $url, 'ergasia' => $ergasia]);;
+        }else{
+            return view("lessons.ergasia_vathmologisi")->with('data', ['lesson' => $lesson, 'title' => $title, 'subtitle' => $subtitle, 'go_url' => $url, 'ergasia' => $ergasia]);;
+        }
     }
 
     // dimiourgia ergasias
@@ -158,7 +161,7 @@ EOD;
         $title = $lesson_name;
         $subtitle = 'Δημιουργία Εργασίας';
 
-        return view("lessons.ergasia_create")->with('data', ['lesson' => $lesson  , 'title' => $title, 'subtitle' => $subtitle]);
+        return view("lessons.ergasia_create")->with('data', ['lesson' => $lesson, 'title' => $title, 'subtitle' => $subtitle]);
     }
 
 
@@ -184,25 +187,25 @@ EOD;
             $extension = $request->file('ergasia_file')->getClientOriginalExtension();
 
 
-            $store_filename= $filename.'_'.time().'.'.$extension;
+            $store_filename = $filename . '_' . time() . '.' . $extension;
             $path = $request->file('ergasia_file')->storeAs('public/ergasia_files', $store_filename);
         } else {
             $store_filename = '-';
         }
 
-        // Create Post
+
         $ergasia = new Ergasia;
         $ergasia->title = $request->input('title');
         if ($request->input('description')) {
             $ergasia->description = $request->input('description');
         } else {
-            $ergasia->description ='Δεν υπάρχει περιγραφή.';
+            $ergasia->description = 'Δεν υπάρχει περιγραφή.';
         }
 
-        $ergasia->file_path = $fileNameToStore;
+        $ergasia->file_path = $store_filename;
 
-        $time = $request->input('deadline_hour') ;
-        $date = $request->input('deadline_date') ;
+        $time = $request->input('deadline_hour');
+        $date = $request->input('deadline_date');
 
         $ergasia->deadline = date('Y-m-d H:i', strtotime("$date $time"));
 
@@ -210,15 +213,18 @@ EOD;
 
         $ergasia->save();
 
-        return redirect('/lessons')->with('success', 'Η εργασία δημιουργήθηκε επιτυχώς!');
+        return redirect('http://localhost:8000/lessons/' . $lesson->name . '/homework')->with('success', 'Η εργασία δημιουργήθηκε επιτυχώς!');
     }
 
 
     // katevasma arxeiwn ergasiwn
     public function download_file($lesson_name, $ergasia_id, $file_name)
     {
-        $file_path= 'public/ergasia_files/'.$file_name;
+        $file_path = 'public/ergasia_files/' . $file_name;
 
+        if (!Storage::disk('local')->exists($storage_path)) {
+            return redirect('http://localhost:8000/lessons/' . $lesson->name . '/homework')->with('error', 'Το αρχείο δεν βρέθηκε!');
+        }
 
         $file_in_storage = Storage::disk('local')->get($file_path);
 

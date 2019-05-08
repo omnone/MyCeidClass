@@ -11,12 +11,12 @@
     <div class="card-header">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-9">
+                <div class="col-md-7">
                     Τα μαθήματά μου
                 </div>
 
                 {{-- search a lesson box - add a form --}}
-                <div class="col-md-3 is-pulled-right">
+                <div class="col-md-5 is-pulled-right">
                     {!! Form::open(array('method' => 'Get', 'route' => array('lessons.search_result'))) !!}
                     <div class="field has-addons ">
                         <div class="control">
@@ -44,6 +44,7 @@
                 </tr>
             </thead>
             <tbody>
+                @if($lessons->count() >=1)
                 @foreach ($lessons as $lesson)
                 <tr>
                     <th scope="row"><a href="/lessons/{{$lesson->name}}">{{$lesson->name}}<a></th>
@@ -52,6 +53,7 @@
                                         <td><a href="/lessons/{{$lesson->name}}"><i class="fa fa-sign-in" aria-hidden="true"></i></a></td>
                 </tr>
                 @endforeach
+                @endif
             </tbody>
         </table>
     </div>
@@ -129,12 +131,14 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row"><a href="/lessons/{{$lesson->name}}">Τεχνολογία Λογισμικού</a></th>
+                    @if($lessons->count() >=1)
+                    <tr>
+                    <td scope="row"><a href="/lessons/{{$lesson->name}}">Τεχνολογία Λογισμικού</a></td>
                     <td>Παράδοση Εργασίων Εξαμήνου</td>
                     <td>12-09-2019</td>
                     <td>Ξοε Ντοε</td>
                 </tr>
+                @endif
 
             </tbody>
         </table>

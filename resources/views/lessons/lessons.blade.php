@@ -11,13 +11,13 @@
     <div class="card-header">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-9">
+                <div class="col-md-7">
                     {{$data['subtitle']}}
 
                 </div>
 
                 {{-- search a lesson box - add a form --}}
-                <div class="col-md-3 is-pulled-right">
+                <div class="col-md-5 is-pulled-right">
                     {!! Form::open(array('method' => 'Get', 'route' => array('lessons.search_result'))) !!}
                     <div class="field has-addons ">
                         <div class="control">
@@ -43,10 +43,7 @@
                     <th scope="col">Υπεύθυνος</th>
                     @if($data['subtitle'] != 'Τα μαθήματα μου')
                     <th scope="col">Εγγεγραμμένοι</th>
-                    @else
-                    <th scope="col">Ημ/νια Εγγραφής</th>
                     @endif
-
                     <th scope="col"><i class="fa fa-cogs" aria-hidden="true"></i></th>
                 </tr>
             </thead>
@@ -87,7 +84,6 @@
                                             </td>
                                             {{-- ta mathimata mou --}}
                                             @else
-                                                <td>{{$lesson->created_at->diffForHumans()}}</td>
                                                 <td>
                                                 {!! Form::open(array('method' => 'Post', 'route' => array('lessons.subscribe_to_lesson'))) !!}
                                                 {{ Form::hidden('lesson_id', $lesson->id) }}

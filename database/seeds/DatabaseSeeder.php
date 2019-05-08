@@ -23,12 +23,20 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('kodikos'),
         ]);
 
-                DB::table('users')->insert([
+            DB::table('users')->insert([
             'name' => 'Giorgos',
             'surname' => 'Papadopoulos',
             'email' => 'papad'.'@ceid.upatras.gr',
             'role' => 'prof',
             'password' => Hash::make('kodikos'),
+        ]);
+
+        DB::table('lessons')->insert([
+            'name' => 'Τεχνολογία Λογισμικού',
+            'description' => 'ΠεριγραφήΠεριγραφήΠεριγραφήΠεριγραφήΠεριγραφήΠεριγραφήΠεριγραφή',
+            'periodos' => 'εαρινό',
+            'eksamino' => '8o εξάμηνο',
+            'user_id' => 2,
         ]);
     }
 }
