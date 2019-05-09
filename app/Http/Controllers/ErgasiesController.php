@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Storage;
 use App\User;
 use App\Lesson;
 use App\Ergasia;
+use App\Ypovoli;
+
 
 class ErgasiesController extends Controller
 {
@@ -35,13 +37,11 @@ class ErgasiesController extends Controller
         if ($lesson_name == "all") {
             $title = "Μαθήματα";
             $subtitle = "Οι εργασίες μου";
-            $ergasia_id = "1o σετ ασκήσεων";
 
-
-            if ($user->role =="student") {
-                $user_lessons=$user->subscribed_lessons()->orderBy('eksamino')->get();
+            if ($user->role == "student") {
+                $user_lessons = $user->subscribed_lessons()->orderBy('eksamino')->get();
             } else {
-                $user_lessons=$user->teaching_lessons()->orderBy('eksamino')->get();
+                $user_lessons = $user->teaching_lessons()->orderBy('eksamino')->get();
             }
 
             $ergasies = array();
@@ -124,7 +124,7 @@ EOD;
 
             $lesson = Lesson::where('name', $lesson_name)->first();
             $title = $lesson_name;
-            $subtitle = "Εργασίες";
+            $subtitle = "Εργασία";
 
             $ergasies = $lesson->ergasies()->orderBy('created_at')->get();
 
@@ -200,29 +200,30 @@ EOD;
         $lesson = Lesson::where('id', $ergasia->lesson_id)->first();
 
 
-        $title = $lesson_name;
-        $subtitle = "Εργασίες: " . "\"" . $ergasia->title . "\"";
+        $title = $lesson->name;
+        $subtitle = "Εργασία: " . "\"" . $ergasia->title . "\"";
         $url = 'lessons/' . $title . '/homework/store';
 
         if (auth()->user()->role == "student") {
-            return view("lessons.ergasia_page")->with('data', ['lesson' => $lesson, 'title' => $title, 'subtitle' => $subtitle, 'go_url' => $url, 'ergasia' => $ergasia]);
-            ;
+            return view("lessons.ergasia_page")->with('data', ['lesson' => $lesson, 'title' => $title, 'subtitle' => $subtitle, 'go_url' => $url, 'ergasia' => $ergasia]);;
         } else {
-            return view("lessons.ergasia_vathmologisi")->with('data', ['lesson' => $lesson, 'title' => $title, 'subtitle' => $subtitle, 'go_url' => $url, 'ergasia' => $ergasia]);
-            ;
+            $ypovoles  = $ergasia->submittions()->get();
+
+            return view("lessons.ergasia_vathmologisi")->with('data', ['lesson' => $lesson, 'title' => $title, 'subtitle' => $subtitle, 'go_url' => $url, 'ergasia' => $ergasia, 'ypovoles' => $ypovoles]);;
         }
     }
 
     // dimiourgia ergasias
-
     public function create_ergasia($lesson_name)
     {
-        $lesson = Lesson::where('name', $lesson_name)->first();
+        // $lesson = Lesson::where('name', $lesson_name)->first();
+
+        $lessons = auth()->user()->teaching_lessons()->orderBy('eksamino')->get()->pluck('name', 'id');
 
         $title = $lesson_name;
         $subtitle = 'Δημιουργία Εργασίας';
 
-        return view("lessons.ergasia_create")->with('data', ['lesson' => $lesson, 'title' => $title, 'subtitle' => $subtitle]);
+        return view("lessons.ergasia_create")->with('data', ['lessons' => $lessons, 'title' => $title, 'subtitle' => $subtitle]);
     }
 
 
@@ -231,12 +232,14 @@ EOD;
     {
         $this->validate($request, [
             'title' => 'required',
+            'lesson_id' => 'required',
             'deadline_date' => 'required',
             'deadline_hour' => 'required',
             'ergasia_file' => 'file|nullable|max:1999'
         ]);
 
-        $lesson = Lesson::where('name', $lesson_name)->first();
+
+        $lesson = Lesson::where('id', $request->lesson_id)->first();
 
 
         if ($request->hasFile('ergasia_file')) {
@@ -246,7 +249,6 @@ EOD;
             $filename = pathinfo($filename_full, PATHINFO_FILENAME);
             //ext
             $extension = $request->file('ergasia_file')->getClientOriginalExtension();
-
 
             $store_filename = $filename . '_' . time() . '.' . $extension;
             $path = $request->file('ergasia_file')->storeAs('public/ergasia_files', $store_filename);
@@ -274,6 +276,8 @@ EOD;
 
         $ergasia->save();
 
+        return $ergasia;
+
         return redirect('http://localhost:8000/lessons/' . $lesson->name . '/homework')->with('success', 'Η εργασία δημιουργήθηκε επιτυχώς!');
     }
 
@@ -284,7 +288,11 @@ EOD;
         $file_path = 'public/ergasia_files/' . $file_name;
 
         if (!Storage::disk('local')->exists($file_path)) {
-            return redirect('http://localhost:8000/lessons/' . $lesson->name . '/homework')->with('error', 'Το αρχείο δεν βρέθηκε!');
+            $file_path = 'public/ypovoles_ergasiwn/' . $file_name;
+
+            if (!Storage::disk('local')->exists($file_path)) {
+                return redirect('http://localhost:8000/lessons/' . $lesson_name . '/homework')->with('error', 'Το αρχείο δεν βρέθηκε!');
+            }
         }
 
         $file_in_storage = Storage::disk('local')->get($file_path);
@@ -295,5 +303,45 @@ EOD;
         $download->header("Content-Type", $type);
 
         return $download;
+    }
+
+    // paradosi ergasias apo foititi
+    public function paradosi_ergasias(Request $request, $lesson_name, $ergasia_id)
+    {
+        $this->validate($request, [
+            'ergasia_file' => 'file|nullable|max:1999'
+        ]);
+
+        $ergasia_prev = Ypovoli::where('user_id', auth()->user()->id)->where('ergasia_id', $ergasia_id)->first();
+
+
+        if ($ergasia_prev !== null) {
+            $ergasia_prev->delete();
+        }
+
+        if ($request->hasFile('ergasia_file')) {
+            // filename with the extension
+            $filename_full = $request->file('ergasia_file')->getClientOriginalName();
+            // filename
+            $filename = pathinfo($filename_full, PATHINFO_FILENAME);
+            //ext
+            $extension = $request->file('ergasia_file')->getClientOriginalExtension();
+
+
+            $store_filename = $filename . '_' . auth()->user()->surname . '_' . time() . '.' . $extension;
+            $path = $request->file('ergasia_file')->storeAs('public/ypovoles_ergasiwn', $store_filename);
+        } else {
+            $store_filename = '-';
+        }
+
+
+        $ypovoli_ergasias = new Ypovoli;
+        $ypovoli_ergasias->user_id = auth()->user()->id;
+        $ypovoli_ergasias->file_path = $store_filename;
+        $ypovoli_ergasias->ergasia_id = $ergasia_id;
+
+        $ypovoli_ergasias->save();
+
+        return redirect('http://localhost:8000/lessons/' . $lesson_name . '/homework')->with('success', 'Η εργασία παραδόθηκε επιτυχώς!');
     }
 }

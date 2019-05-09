@@ -72,13 +72,14 @@
                 </div>
             </div>
             <div class="card-body">
-                {!! Form::open() !!}
-
-                <div class="form-group">
-                    {!! Form::label('name', 'Αρχείο: ', []) !!}
-                    {{Form::file('notes')}}
-                </div>
-                {{Form::submit('Υποβολή', ['class'=>'button is-info','disabled'])}} {!! Form::close() !!}
+                {!! Form::open(['action' => ['ErgasiesController@paradosi_ergasias',$data['title'],$data['ergasia']->id], 'method' => 'POST',
+                    'enctype' => 'multipart/form-data']) !!}
+                    <div class="form-group">
+                        {{Form::label('ergasia_file', 'Αρχείο Εργασίας')}}
+                        {{Form::file('ergasia_file')}}
+                    </div>
+                    {{Form::submit('Παράδοση', ['class'=>'btn btn-primary'])}}
+                    {!! Form::close() !!}
             </div>
         </div>
 

@@ -39,6 +39,7 @@ Route::get('lessons/{lesson_name}/homework', 'ErgasiesController@show_homework')
 Route::get('lessons/{lesson_name}/homework/create', 'ErgasiesController@create_ergasia');
 Route::post('lessons/{lesson_name}/homework/store', 'ErgasiesController@store_ergasia');
 Route::get('lessons/{lesson_name}/homework/{ergasia_id}', 'ErgasiesController@show_ergasia');
+Route::post('lessons/{lesson_name}/homework/{ergasia_id}', 'ErgasiesController@paradosi_ergasias');
 Route::get('lessons/{lesson_name}/homework/{ergasia_id}/{file_name}', 'ErgasiesController@download_file');
 
 

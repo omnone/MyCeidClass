@@ -50,7 +50,7 @@
                             <li>{{$data['title']}}</li>
                             <li>{{$data['ergasia']->created_at}}</li>
                             <li>{{$data['ergasia']->deadline}}</li>
-                            <li>0</li>
+                            <li>{{$data['ypovoles']->count()}}</li>
                             <td class=""><a href='/lessons/{{$data['title']}}/homework/{{$data['ergasia']->id}}/{{$data['ergasia']->file_path}}''><i
                                         class="fa fa-download" aria-hidden="true"></i>{{$data['ergasia']->file_path}}</a></td>
                             <li>{{$data['ergasia']->description}}</li>
@@ -60,7 +60,41 @@
                 </div>
             </div>
         </div>
-        <hr> {{-- parodosi ergasias --}}
+        <hr>
+        <div class="card">
+            <div class="card-header">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-9">
+                            Υποβολές
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+                    <thead class="has-background-light">
+                        <tr>
+                            <th class="">Φοιτητής</th>
+                            <th class="">Αρχείο</th>
+                            <th class="">Ημ/νια Υποβολής</th>
+                            <th class="">Βαθμός</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($data['ypovoles'] as $ypovoli)
+                            <tr>
+                                    <td class="">{{$ypovoli->student->name}} {{$ypovoli->student->surname}}</td>
+                                    <td class="" ><a href='/lessons/{{$data['title']}}/homework/{{$data['ergasia']->id}}/{{$ypovoli->file_path}}'><i class="fa fa-download" aria-hidden="true"></i> {{$ypovoli->file_path}}</a></td>
+                                    <td class="">{{$ypovoli->created_at}}</td>
+                                    <td>{{$ypovoli->grade}}</td>
+                                </tr>
+                        @endforeach
+                            </tbody>
+                        </table>
+            </div>
+        </div>
+        <hr>
         <div class="card">
             <div class="card-header">
                 <div class="container-fluid">

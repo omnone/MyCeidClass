@@ -36,6 +36,9 @@
 
                     {!! Form::open(['action' => ['ErgasiesController@store_ergasia',$data['title']], 'method' => 'POST',
                     'enctype' => 'multipart/form-data']) !!}
+                     <div class="form-group">
+                        {{Form::label('lesson_id', 'Μάθημα')}}
+                        {{ Form::select('lesson_id', $data['lessons'], null, array('class'=>'form-control', 'placeholder'=>'Επίλεξε Μάθημα...')) }}                    </div>
                     <div class="form-group">
                         {{Form::label('title', 'Τίτλος')}}
                         {{Form::text('title', '', ['class' => 'form-control', 'placeholder' => 'Τίτλος'])}}
