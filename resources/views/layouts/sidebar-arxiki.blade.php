@@ -58,7 +58,7 @@
                 </p>
                 <ul class="menu-list">
                     <li><a href="/lessons/subscriptions">Τα μαθήματά μου</a></li>
-                    <li><a>Οι εργασίες μου</a></li>
+                    <li><a href="/lessons/all/homework">Οι εργασίες μου</a></li>
                     <li><a>Τα εργαστηριά μου</a></li>
                 </ul>
                 <p class="menu-label">

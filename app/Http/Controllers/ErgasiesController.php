@@ -28,6 +28,9 @@ class ErgasiesController extends Controller
     //  emfanisi ergasiwn mathimatos
     public function show_homework($lesson_name)
     {
+        $user_id = auth()->user()->id;
+        $user = User::find($user_id);
+
         //girna oles tis energes ergasies tou foititi gia ola ta mathimata
         if ($lesson_name == "all") {
             $title = "Μαθήματα";
@@ -35,32 +38,88 @@ class ErgasiesController extends Controller
             $ergasia_id = "1o σετ ασκήσεων";
 
 
+            if ($user->role =="student") {
+                $user_lessons=$user->subscribed_lessons()->orderBy('eksamino')->get();
+            } else {
+                $user_lessons=$user->teaching_lessons()->orderBy('eksamino')->get();
+            }
 
-            $innerHTML = <<<EOD
+            $ergasies = array();
+
+            foreach ($user_lessons as $lesson) {
+                $ergasies = $lesson->ergasies()->orderBy('lesson_id')->get()->toArray();
+            }
+
+
+            if (auth()->user()->role == "student") {
+                $table_head =  <<<EOD
            <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
             <thead class="has-background-light">
                 <tr>
                     <th class="">Μάθημα</th>
                     <th class="">Τίτλος</th>
                     <th class="">Προθεσμία Υποβολής</th>
-                    <th class="">Έχει Αποσταλεί</th>
+                    <th class="">Έχει Αποσταλέι</th>
                     <th class="">Βαθμός</th>
                 </tr>
             </thead>
             <tbody>
+EOD;
+
+                foreach ($ergasies as $ergasia) {
+                    $lesson = Lesson::where('id', $ergasia['lesson_id'])->first();
+
+                    $innerHTML = <<<EOD
                 <tr>
-                    <td><a href="/lessons/$lesson_name/">Τεχνολογία Λογισμικού</a></td>
-                    <td class=""><a href="lessons/$lesson_name/homework/$ergasia_id">1o σετ ασκήσεων</a></td>
-                    <td class="">19-03-2018 12:00:00<br> (<small><span class="text-danger">έχει λήξει</span></small>)</td>
+                    <td class=""><a href="/lessons/$lesson->name">$lesson->name</a></td>
+                    <td class=""><a href="homework/{$ergasia['id']}">{$ergasia['title']}</a>
+                    </td>
+                    <td class="">{$ergasia['deadline']}</td>
                     <td class="">Ναι</td>
                     <td width="30" align="center"></td>
                 </tr>
-
-            </tbody>
-        </table>
+EOD;
+                    $table_head = $table_head . $innerHTML;
+                }
+            } else {
+                $table_head =  <<<EOD
+           <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+            <thead class="has-background-light">
+                <tr>
+                    <th class="">Μάθημα</th>
+                    <th class="">Τίτλος</th>
+                    <th class="">Αρχείο</th>
+                    <th class="">Ημ/νια Δημιουργίας</th>
+                    <th class="">Προθεσμία Υποβολής</th>
+                    <th class="">Υποβολές</th>
+                </tr>
+            </thead>
+            <tbody>
 EOD;
 
-            return view('lessons.lessons_main')->with('data', ['table' => $innerHTML, 'title' => $title, 'subtitle' => $subtitle]);
+                foreach ($ergasies as $ergasia) {
+                    $lesson = Lesson::where('id', $ergasia['lesson_id'])->first();
+
+                    $innerHTML = <<<EOD
+                <tr>
+                    <td class=""><a href="/lessons/$lesson->name">$lesson->name</a></td>
+                    <td class=""><a href="homework/{$ergasia['id']}">{$ergasia['title']}</a>
+                    </td>
+                    <td class="" ><a href='/lessons/$lesson_name}/homework/{$ergasia['id']}/{$ergasia['file_path']}'><i class="fa fa-download" aria-hidden="true"></i>{$ergasia['file_path']}</a></td>
+                    <td class="">{$ergasia['created_at']}</td>
+                    <td class="">{$ergasia['deadline']}</td>
+                    <td class="">0</td>
+                </tr>
+EOD;
+                    $table_head = $table_head . $innerHTML;
+                }
+            }
+
+            $table = $table_head . '
+            </tbody>
+        </table>';
+
+            return view('lessons.lessons_main')->with('data', ['table' => $table, 'title' => $title, 'subtitle' => $subtitle]);
         } else { //girna tis ergasies gia to sigkekrimeno mathima
 
             $lesson = Lesson::where('name', $lesson_name)->first();
@@ -88,7 +147,7 @@ EOD;
                 <tr>
                     <td class=""><a href="homework/$ergasia->id">$ergasia->title</a>
                     </td>
-                    <td class="">$ergasia->deadline<br> (<small><span class="text-danger">έχει λήξει</span></small>)</td>
+                    <td class="">$ergasia->deadline</td>
                     <td class="">Ναι</td>
                     <td width="30" align="center"></td>
                 </tr>
@@ -137,8 +196,8 @@ EOD;
     // emfanisi selida ergasias
     public function show_ergasia($lesson_name, $ergasia_id)
     {
-        $lesson = Lesson::where('name', $lesson_name)->first();
         $ergasia = Ergasia::where('id', $ergasia_id)->first();
+        $lesson = Lesson::where('id', $ergasia->lesson_id)->first();
 
 
         $title = $lesson_name;
@@ -146,9 +205,11 @@ EOD;
         $url = 'lessons/' . $title . '/homework/store';
 
         if (auth()->user()->role == "student") {
-            return view("lessons.ergasia_page")->with('data', ['lesson' => $lesson, 'title' => $title, 'subtitle' => $subtitle, 'go_url' => $url, 'ergasia' => $ergasia]);;
-        }else{
-            return view("lessons.ergasia_vathmologisi")->with('data', ['lesson' => $lesson, 'title' => $title, 'subtitle' => $subtitle, 'go_url' => $url, 'ergasia' => $ergasia]);;
+            return view("lessons.ergasia_page")->with('data', ['lesson' => $lesson, 'title' => $title, 'subtitle' => $subtitle, 'go_url' => $url, 'ergasia' => $ergasia]);
+            ;
+        } else {
+            return view("lessons.ergasia_vathmologisi")->with('data', ['lesson' => $lesson, 'title' => $title, 'subtitle' => $subtitle, 'go_url' => $url, 'ergasia' => $ergasia]);
+            ;
         }
     }
 
@@ -222,7 +283,7 @@ EOD;
     {
         $file_path = 'public/ergasia_files/' . $file_name;
 
-        if (!Storage::disk('local')->exists($storage_path)) {
+        if (!Storage::disk('local')->exists($file_path)) {
             return redirect('http://localhost:8000/lessons/' . $lesson->name . '/homework')->with('error', 'Το αρχείο δεν βρέθηκε!');
         }
 
