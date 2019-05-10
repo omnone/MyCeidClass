@@ -2,8 +2,11 @@
 /public/hot
 /public/storage
 /progress/*.exe
+/progress/*.csv
 /storage/*.key
 /vendor
+/__pycache__
+.vscode
 .env
 .phpunit.result.cache
 Homestead.json
