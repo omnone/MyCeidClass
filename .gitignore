@@ -5,7 +5,7 @@
 /progress/*.csv
 /storage/*.key
 /vendor
-/__pycache__
+__pycache__/
 .vscode
 .env
 .phpunit.result.cache
