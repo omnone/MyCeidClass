@@ -29,9 +29,8 @@ class User extends Authenticatable
     ];
 
 
-   // user has many posts - edw vazw ta relationships
-    public function posts(){
-      return $this->hasMany('App\Post');
+    public function grades(){
+      return $this->hasMany('App\Bathmologia');
     }
 
      public function teaching_lessons(){

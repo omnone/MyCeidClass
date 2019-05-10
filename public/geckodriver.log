@@ -1,0 +1,483 @@
+1557484917363	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\9757~1\\AppData\\Local\\Temp\\rust_mozprofile.QZcUzzkfK3Lv"
+*** You are running in headless mode.
+1557484917708	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1557484917708	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1557484917708	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1557484918691	Marionette	INFO	Listening on port 53231
+1557484918996	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://progress.upatras.gr/com.sap.portal.navigation.afp.dtn/scripts/dtn_functions.js?rid=7904fbadcb531e6bfbda1364fba541af, line 1: unreachable code after return statement
+JavaScript warning: https://progress.upatras.gr/com.sap.portal.navigation.afp.dtn/scripts/dtn_functions.js?rid=7904fbadcb531e6bfbda1364fba541af, line 1: unreachable code after return statement
+[Parent 11784, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:190:13
+
+1557485010224	Marionette	INFO	Stopped listening on port 53231
+[Parent 11784, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 5640, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 5640, Chrom[Child 8240, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 82401557485054700	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\9757~1\\AppData\\Local\\Temp\\rust_mozprofile.OGUiptwcToQr"
+*** You are running in headless mode.
+1557485055058	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1557485055058	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1557485055059	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1557485055940	Marionette	INFO	Listening on port 53365
+1557485056315	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://progress.upatras.gr/com.sap.portal.navigation.afp.dtn/scripts/dtn_functions.js?rid=7904fbadcb531e6bfbda1364fba541af, line 1: unreachable code after return statement
+JavaScript warning: https://progress.upatras.gr/com.sap.portal.navigation.afp.dtn/scripts/dtn_functions.js?rid=7904fbadcb531e6bfbda1364fba541af, line 1: unreachable code after return statement
+[Parent 13600, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+1557485145761	Marionette	INFO	Stopped listening on port 53365
+[Child 9808, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 9808, Chrome_Child[Parent 13600, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 11240, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 11240, Chrome_[Parent 13600, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 1276, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 1276, 1557485360799	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\9757~1\\AppData\\Local\\Temp\\rust_mozprofile.bz4iuSxf1gnT"
+*** You are running in headless mode.
+1557485361161	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1557485361161	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1557485361161	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1557485362112	Marionette	INFO	Listening on port 53471
+1557485362420	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://progress.upatras.gr/com.sap.portal.navigation.afp.dtn/scripts/dtn_functions.js?rid=7904fbadcb531e6bfbda1364fba541af, line 1: unreachable code after return statement
+JavaScript warning: https://progress.upatras.gr/com.sap.portal.navigation.afp.dtn/scripts/dtn_functions.js?rid=7904fbadcb531e6bfbda1364fba541af, line 1: unreachable code after return statement
+JavaScript error: resource://pdf.js/PdfStreamConverter.jsm, line 664: TypeError: can't access dead object
+JavaScript error: resource://pdf.js/PdfStreamConverter.jsm, line 664: TypeError: can't access dead object
+JavaScript error: resource://pdf.js/PdfStreamConverter.jsm, line 664: TypeError: can't access dead object
+JavaScript error: resource://pdf.js/PdfStreamConverter.jsm, line 657: TypeError: can't access dead object
+JavaScript error: resource://pdf.js/PdfStreamConverter.jsm, line 664: TypeError: can't access dead object
+JavaScript error: resource://pdf.js/PdfStreamConverter.jsm, line 664: TypeError: can't access dead object
+JavaScript error: resource://pdf.js/PdfStreamConverter.jsm, line 657: TypeError: can't access dead object
+JavaScript error: resource://pdf.js/PdfStreamConverter.jsm, line 664: TypeError: can't access dead object
+JavaScript error: resource://pdf.js/PdfStreamConverter.jsm, line 664: TypeError: can't access dead object
+JavaScript error: resource://pdf.js/PdfStreamConverter.jsm, line 664: TypeError: can't access dead object
+JavaScript error: resource://pdf.js/PdfStreamConverter.jsm, line 657: TypeError: can't access dead object
+[Parent 9360, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:190:13
+
+1557485450282	Marionette	INFO	Stopped listening on port 53471
+[Parent 9360, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 6468, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 6468, Chrome[Parent 9360, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 13072, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 13072, Chrom[Parent 9360, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+1557485621416	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\9757~1\\AppData\\Local\\Temp\\rust_mozprofile.6sroRAi3NYIt"
+*** You are running in headless mode.
+1557485621692	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1557485621692	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1557485621692	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1557485622719	Marionette	INFO	Listening on port 53598
+1557485623026	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://progress.upatras.gr/com.sap.portal.navigation.afp.dtn/scripts/dtn_functions.js?rid=7904fbadcb531e6bfbda1364fba541af, line 1: unreachable code after return statement
+JavaScript warning: https://progress.upatras.gr/com.sap.portal.navigation.afp.dtn/scripts/dtn_functions.js?rid=7904fbadcb531e6bfbda1364fba541af, line 1: unreachable code after return statement
+1557485708340	Marionette	INFO	Stopped listening on port 53598
+[Child 3748, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 3748, [Child 4064, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 4064, Ch[Parent 12068, Gecko_IOThread] WARNING: file z:/build/build/src/ipc/chromium/src/base/process_util_win.cc, line 166
+1557485799969	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\9757~1\\AppData\\Local\\Temp\\rust_mozprofile.rE987Ukfgk8V"
+*** You are running in headless mode.
+1557485800292	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1557485800292	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1557485800292	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1557485801222	Marionette	INFO	Listening on port 53697
+1557485801586	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://progress.upatras.gr/com.sap.portal.navigation.afp.dtn/scripts/dtn_functions.js?rid=7904fbadcb531e6bfbda1364fba541af, line 1: unreachable code after return statement
+JavaScript warning: https://progress.upatras.gr/com.sap.portal.navigation.afp.dtn/scripts/dtn_functions.js?rid=7904fbadcb531e6bfbda1364fba541af, line 1: unreachable code after return statement
+[Parent 4884, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+1557485890557	Marionette	INFO	Stopped listening on port 53697
+[Child 8640, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 8640, Ch[Child 12632, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 12632, Chro1557485941582	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\9757~1\\AppData\\Local\\Temp\\rust_mozprofile.3VlOwcjM3zfK"
+*** You are running in headless mode.
+1557485941890	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1557485941890	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1557485941890	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1557485942803	Marionette	INFO	Listening on port 53792
+1557485943205	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://progress.upatras.gr/com.sap.portal.navigation.afp.dtn/scripts/dtn_functions.js?rid=7904fbadcb531e6bfbda1364fba541af, line 1: unreachable code after return statement
+JavaScript warning: https://progress.upatras.gr/com.sap.portal.navigation.afp.dtn/scripts/dtn_functions.js?rid=7904fbadcb531e6bfbda1364fba541af, line 1: unreachable code after return statement
+[Parent 13352, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+1557485976105	Marionette	INFO	Stopped listening on port 53792
+[Child 13256, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 13256, ChJavaScript error: resource://gre/modules/WebProgressChild.jsm, line 61: TypeError: this.mm.content is null
+[Child 9048, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 9048, Chr1557486059276	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\9757~1\\AppData\\Local\\Temp\\rust_mozprofile.xjttViOb1Qaj"
+*** You are running in headless mode.
+1557486059600	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1557486059601	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1557486059601	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1557486060517	Marionette	INFO	Listening on port 53885
+1557486060890	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://progress.upatras.gr/com.sap.portal.navigation.afp.dtn/scripts/dtn_functions.js?rid=7904fbadcb531e6bfbda1364fba541af, line 1: unreachable code after return statement
+JavaScript warning: https://progress.upatras.gr/com.sap.portal.navigation.afp.dtn/scripts/dtn_functions.js?rid=7904fbadcb531e6bfbda1364fba541af, line 1: unreachable code after return statement
+[Parent 13412, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+1557486148126	Marionette	INFO	Stopped listening on port 53885
+[Child 5224, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 5224, Chrome_Chi[Parent 13412, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 1428, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 1428, C1557486341607	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\9757~1\\AppData\\Local\\Temp\\rust_mozprofile.8NGoQkw6ab4Q"
+*** You are running in headless mode.
+1557486341944	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1557486341944	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1557486341945	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1557486342855	Marionette	INFO	Listening on port 54009
+1557486343220	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://progress.upatras.gr/com.sap.portal.navigation.afp.dtn/scripts/dtn_functions.js?rid=7904fbadcb531e6bfbda1364fba541af, line 1: unreachable code after return statement
+JavaScript warning: https://progress.upatras.gr/com.sap.portal.navigation.afp.dtn/scripts/dtn_functions.js?rid=7904fbadcb531e6bfbda1364fba541af, line 1: unreachable code after return statement
+[Parent 13748, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+1557486429249	Marionette	INFO	Stopped listening on port 54009
+[Child 764, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 764, C[Child 6680, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 6680, Chrome_C[Parent 13748, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 8720, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 8720, 1557486465273	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\9757~1\\AppData\\Local\\Temp\\rust_mozprofile.stpSOeZM3qkf"
+*** You are running in headless mode.
+1557486465582	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1557486465582	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1557486465583	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1557486466633	Marionette	INFO	Listening on port 54118
+1557486466899	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://progress.upatras.gr/com.sap.portal.navigation.afp.dtn/scripts/dtn_functions.js?rid=7904fbadcb531e6bfbda1364fba541af, line 1: unreachable code after return statement
+JavaScript warning: https://progress.upatras.gr/com.sap.portal.navigation.afp.dtn/scripts/dtn_functions.js?rid=7904fbadcb531e6bfbda1364fba541af, line 1: unreachable code after return statement
+[Parent 13472, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+1557486558177	Marionette	INFO	Stopped listening on port 54118
+[Parent 13472, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 6904, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 6904,[Parent 13472, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 13136, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 13136, Chrom[Parent 13472, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 1488, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 1488, Ch1557488731448	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\9757~1\\AppData\\Local\\Temp\\rust_mozprofile.4q37p5MGkZxg"
+*** You are running in headless mode.
+1557488731769	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1557488731769	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1557488731769	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1557488732712	Marionette	INFO	Listening on port 54406
+1557488733061	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://progress.upatras.gr/com.sap.portal.navigation.afp.dtn/scripts/dtn_functions.js?rid=7904fbadcb531e6bfbda1364fba541af, line 1: unreachable code after return statement
+JavaScript warning: https://progress.upatras.gr/com.sap.portal.navigation.afp.dtn/scripts/dtn_functions.js?rid=7904fbadcb531e6bfbda1364fba541af, line 1: unreachable code after return statement
+[Parent 11360, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:190:13
+
+1557488821063	Marionette	INFO	Stopped listening on port 54406
+[Child 6016, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 6016, Chrome_Chil[Parent 11360, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 11508, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 11508, Chrome_[Parent 11360, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 9396, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 9396, Ch1557488906209	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\9757~1\\AppData\\Local\\Temp\\rust_mozprofile.YyVD2eyidruN"
+*** You are running in headless mode.
+1557488906563	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1557488906563	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1557488906563	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1557488907564	Marionette	INFO	Listening on port 54483
+1557488907829	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://progress.upatras.gr/com.sap.portal.navigation.afp.dtn/scripts/dtn_functions.js?rid=7904fbadcb531e6bfbda1364fba541af, line 1: unreachable code after return statement
+JavaScript warning: https://progress.upatras.gr/com.sap.portal.navigation.afp.dtn/scripts/dtn_functions.js?rid=7904fbadcb531e6bfbda1364fba541af, line 1: unreachable code after return statement
+[Parent 6248, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:190:13
+
+1557488996001	Marionette	INFO	Stopped listening on port 54483
+[Parent 6248, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 11168, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 11168, Chrom[Parent 6248, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+1557489239910	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\9757~1\\AppData\\Local\\Temp\\rust_mozprofile.ctzeUaB7Exy9"
+*** You are running in headless mode.
+1557489240237	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1557489240237	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1557489240237	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1557489241131	Marionette	INFO	Listening on port 54574
+1557489241538	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://progress.upatras.gr/com.sap.portal.navigation.afp.dtn/scripts/dtn_functions.js?rid=7904fbadcb531e6bfbda1364fba541af, line 1: unreachable code after return statement
+JavaScript warning: https://progress.upatras.gr/com.sap.portal.navigation.afp.dtn/scripts/dtn_functions.js?rid=7904fbadcb531e6bfbda1364fba541af, line 1: unreachable code after return statement
+[Parent 564, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:190:13
+
+1557489330985	Marionette	INFO	Stopped listening on port 54574
+[Child 8492, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 8492, Chrome[Child 14300, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 14300, Chrome[Parent 564, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 8580, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 8580, Chro1557489414942	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\9757~1\\AppData\\Local\\Temp\\rust_mozprofile.bAiOLpackEnM"
+*** You are running in headless mode.
+1557489415230	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1557489415230	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1557489415230	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1557489416277	Marionette	INFO	Listening on port 54658
+1557489416554	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://progress.upatras.gr/com.sap.portal.navigation.afp.dtn/scripts/dtn_functions.js?rid=7904fbadcb531e6bfbda1364fba541af, line 1: unreachable code after return statement
+JavaScript warning: https://progress.upatras.gr/com.sap.portal.navigation.afp.dtn/scripts/dtn_functions.js?rid=7904fbadcb531e6bfbda1364fba541af, line 1: unreachable code after return statement
+[Parent 5792, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:190:13
+
+1557489503540	Marionette	INFO	Stopped listening on port 54658
+[Child 12984, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 12984[Child 5360, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 5360, Chrome_Chil[Child 6104, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 6104, Chr1557505433248	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\9757~1\\AppData\\Local\\Temp\\rust_mozprofile.HHvIDTaV0rRp"
+*** You are running in headless mode.
+1557505433617	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1557505433617	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1557505433617	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1557505434704	Marionette	INFO	Listening on port 50205
+1557505434892	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://progress.upatras.gr/com.sap.portal.navigation.afp.dtn/scripts/dtn_functions.js?rid=7904fbadcb531e6bfbda1364fba541af, line 1: unreachable code after return statement
+JavaScript warning: https://progress.upatras.gr/com.sap.portal.navigation.afp.dtn/scripts/dtn_functions.js?rid=7904fbadcb531e6bfbda1364fba541af, line 1: unreachable code after return statement
+[Parent 9544, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:190:13
+
+1557505521204	Marionette	INFO	Stopped listening on port 50205
+[Child 9272, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 9272, Chrome_C[Parent 9544, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 9876, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 9876, Chrome_[Parent 9544, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 9356, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 9356, Chr1557505574860	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\9757~1\\AppData\\Local\\Temp\\rust_mozprofile.jAvXsiquNGVo"
+*** You are running in headless mode.
+1557505575166	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1557505575167	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1557505575167	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1557505576089	Marionette	INFO	Listening on port 50289
+1557505576473	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://progress.upatras.gr/com.sap.portal.navigation.afp.dtn/scripts/dtn_functions.js?rid=7904fbadcb531e6bfbda1364fba541af, line 1: unreachable code after return statement
+JavaScript warning: https://progress.upatras.gr/com.sap.portal.navigation.afp.dtn/scripts/dtn_functions.js?rid=7904fbadcb531e6bfbda1364fba541af, line 1: unreachable code after return statement
+[Parent 5016, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:190:13
+
+1557505662081	Marionette	INFO	Stopped listening on port 50289
+[Parent 5016, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 10376, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 10376, Chrome[Child 10700, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 10700, Chrom[Parent 5016, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 10372, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 10372, 1557505665897	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\9757~1\\AppData\\Local\\Temp\\rust_mozprofile.MuM3Koj2ctWK"
+*** You are running in headless mode.
+1557505666198	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1557505666198	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1557505666198	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1557505667068	Marionette	INFO	Listening on port 50368
+1557505667505	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://progress.upatras.gr/com.sap.portal.navigation.afp.dtn/scripts/dtn_functions.js?rid=7904fbadcb531e6bfbda1364fba541af, line 1: unreachable code after return statement
+JavaScript warning: https://progress.upatras.gr/com.sap.portal.navigation.afp.dtn/scripts/dtn_functions.js?rid=7904fbadcb531e6bfbda1364fba541af, line 1: unreachable code after return statement
+[Parent 4832, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:190:13
+
+1557505751851	Marionette	INFO	Stopped listening on port 50368
+[Child 10212, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 10212,[Child 4028, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 4028, Chro[Child 4812, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 4812, 1557505878840	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\9757~1\\AppData\\Local\\Temp\\rust_mozprofile.ePto1glEFtuO"
+*** You are running in headless mode.
+1557505879149	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1557505879149	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1557505879149	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1557505880141	Marionette	INFO	Listening on port 50472
+1557505880454	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://progress.upatras.gr/com.sap.portal.navigation.afp.dtn/scripts/dtn_functions.js?rid=7904fbadcb531e6bfbda1364fba541af, line 1: unreachable code after return statement
+JavaScript warning: https://progress.upatras.gr/com.sap.portal.navigation.afp.dtn/scripts/dtn_functions.js?rid=7904fbadcb531e6bfbda1364fba541af, line 1: unreachable code after return statement
+[Parent 10292, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+1557505968964	Marionette	INFO	Stopped listening on port 50472
+[Child 8324, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 8324, Ch[Child 1448, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 1448, Chr[Parent 10292, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 6088, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 6088, C1557506045414	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\9757~1\\AppData\\Local\\Temp\\rust_mozprofile.c0jq0F7MxBVx"
+*** You are running in headless mode.
+1557506045735	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1557506045735	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1557506045735	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1557506046712	Marionette	INFO	Listening on port 50570
+1557506047022	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://progress.upatras.gr/com.sap.portal.navigation.afp.dtn/scripts/dtn_functions.js?rid=7904fbadcb531e6bfbda1364fba541af, line 1: unreachable code after return statement
+JavaScript warning: https://progress.upatras.gr/com.sap.portal.navigation.afp.dtn/scripts/dtn_functions.js?rid=7904fbadcb531e6bfbda1364fba541af, line 1: unreachable code after return statement
+[Parent 11040, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+1557506136929	Marionette	INFO	Stopped listening on port 50570
+[Child 3384, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 3384[Child 11224, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 1[Parent 11040, Gecko_IOThread] WARNING: file z:/build/build/src/ipc/chromium/src/base/process_util_win.cc, line 166
+1557507395866	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\9757~1\\AppData\\Local\\Temp\\rust_mozprofile.yxmqVW261193"
+*** You are running in headless mode.
+1557507396160	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1557507396160	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1557507396160	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1557507397110	Marionette	INFO	Listening on port 50839
+1557507397475	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://progress.upatras.gr/com.sap.portal.navigation.afp.dtn/scripts/dtn_functions.js?rid=7904fbadcb531e6bfbda1364fba541af, line 1: unreachable code after return statement
+JavaScript warning: https://progress.upatras.gr/com.sap.portal.navigation.afp.dtn/scripts/dtn_functions.js?rid=7904fbadcb531e6bfbda1364fba541af, line 1: unreachable code after return statement
+[Parent 10252, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:190:13
+
+1557507482399	Marionette	INFO	Stopped listening on port 50839
+[Child 10152, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 10152, Chrom[Parent 10252, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 9660, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 9660, Chr1557507734821	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\9757~1\\AppData\\Local\\Temp\\rust_mozprofile.K1vdqhDx86gj"
+*** You are running in headless mode.
+1557507735110	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1557507735110	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1557507735110	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1557507735988	Marionette	INFO	Listening on port 50953
+1557507736429	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://progress.upatras.gr/com.sap.portal.navigation.afp.dtn/scripts/dtn_functions.js?rid=7904fbadcb531e6bfbda1364fba541af, line 1: unreachable code after return statement
+JavaScript warning: https://progress.upatras.gr/com.sap.portal.navigation.afp.dtn/scripts/dtn_functions.js?rid=7904fbadcb531e6bfbda1364fba541af, line 1: unreachable code after return statement
+[Parent 5756, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+1557507824237	Marionette	INFO	Stopped listening on port 50953
+[Child 11768, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 11768, C[Child 7560, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 7560, Chrome[Parent 5756, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 10740, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 10740, 1557507953777	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\9757~1\\AppData\\Local\\Temp\\rust_mozprofile.fgH3hkqmzLiA"
+*** You are running in headless mode.
+1557507954104	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1557507954104	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1557507954104	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1557507955046	Marionette	INFO	Listening on port 51034
+1557507955397	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://progress.upatras.gr/com.sap.portal.navigation.afp.dtn/scripts/dtn_functions.js?rid=7904fbadcb531e6bfbda1364fba541af, line 1: unreachable code after return statement
+JavaScript warning: https://progress.upatras.gr/com.sap.portal.navigation.afp.dtn/scripts/dtn_functions.js?rid=7904fbadcb531e6bfbda1364fba541af, line 1: unreachable code after return statement
+[Parent 11984, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+1557508042559	Marionette	INFO	Stopped listening on port 51034
+[Child 10256, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 10256, Chro[Parent 11984, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 12204, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 12204,1557508046479	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\9757~1\\AppData\\Local\\Temp\\rust_mozprofile.hAeS2VLqTjcF"
+*** You are running in headless mode.
+1557508046799	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1557508046800	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1557508046800	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1557508047727	Marionette	INFO	Listening on port 51127
+1557508048094	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://progress.upatras.gr/com.sap.portal.navigation.afp.dtn/scripts/dtn_functions.js?rid=7904fbadcb531e6bfbda1364fba541af, line 1: unreachable code after return statement
+JavaScript warning: https://progress.upatras.gr/com.sap.portal.navigation.afp.dtn/scripts/dtn_functions.js?rid=7904fbadcb531e6bfbda1364fba541af, line 1: unreachable code after return statement
+[Parent 12020, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+1557508081249	Marionette	INFO	Stopped listening on port 51127
+[Child 11504, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 11504, Chrome[Parent 12020, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 9092, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 9092, Chrome_[Parent 12020, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 1432, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 1432, Chr1557508225706	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\9757~1\\AppData\\Local\\Temp\\rust_mozprofile.4kGeodh2YSC7"
+*** You are running in headless mode.
+1557508226017	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1557508226017	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1557508226017	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1557508226944	Marionette	INFO	Listening on port 51212
+1557508227343	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://progress.upatras.gr/com.sap.portal.navigation.afp.dtn/scripts/dtn_functions.js?rid=7904fbadcb531e6bfbda1364fba541af, line 1: unreachable code after return statement
+JavaScript warning: https://progress.upatras.gr/com.sap.portal.navigation.afp.dtn/scripts/dtn_functions.js?rid=7904fbadcb531e6bfbda1364fba541af, line 1: unreachable code after return statement
+[Parent 32, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:190:13
+
+1557508315416	Marionette	INFO	Stopped listening on port 51212
+[Parent 32, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 9996, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 9996, Ch[Child 12120, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 1211557508470814	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\9757~1\\AppData\\Local\\Temp\\rust_mozprofile.CRAoxX0n4bto"
+*** You are running in headless mode.
+1557508471142	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1557508471142	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1557508471142	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1557508472003	Marionette	INFO	Listening on port 51311
+1557508472427	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://progress.upatras.gr/com.sap.portal.navigation.afp.dtn/scripts/dtn_functions.js?rid=7904fbadcb531e6bfbda1364fba541af, line 1: unreachable code after return statement
+JavaScript warning: https://progress.upatras.gr/com.sap.portal.navigation.afp.dtn/scripts/dtn_functions.js?rid=7904fbadcb531e6bfbda1364fba541af, line 1: unreachable code after return statement
+[Parent 9720, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+1557508505903	Marionette	INFO	Stopped listening on port 51311
+[Child 5736, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 5736, Ch[Parent 9720, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 3024, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 3024, Chrome_ChildTh[Parent 9720, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 5528, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 5528, Chr1557508579437	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\9757~1\\AppData\\Local\\Temp\\rust_mozprofile.fJQyBdqmM7Wi"
+*** You are running in headless mode.
+1557508579750	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1557508579750	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1557508579750	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1557508580777	Marionette	INFO	Listening on port 51390
+1557508581055	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://progress.upatras.gr/com.sap.portal.navigation.afp.dtn/scripts/dtn_functions.js?rid=7904fbadcb531e6bfbda1364fba541af, line 1: unreachable code after return statement
+JavaScript warning: https://progress.upatras.gr/com.sap.portal.navigation.afp.dtn/scripts/dtn_functions.js?rid=7904fbadcb531e6bfbda1364fba541af, line 1: unreachable code after return statement
+[Parent 6748, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+1557508670405	Marionette	INFO	Stopped listening on port 51390
+[Child 11356, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 11356, Chrom[Parent 6748, Gecko_IOThread] WARNING: file z:/build/build/src/ipc/chromium/src/base/process_util_win.cc, line 166
+1557509703148	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\9757~1\\AppData\\Local\\Temp\\rust_mozprofile.sTd4ZMd8Q457"
+*** You are running in headless mode.
+1557509703440	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1557509703440	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1557509703440	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1557509704383	Marionette	INFO	Listening on port 51615
+1557509704763	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://progress.upatras.gr/com.sap.portal.navigation.afp.dtn/scripts/dtn_functions.js?rid=7904fbadcb531e6bfbda1364fba541af, line 1: unreachable code after return statement
+JavaScript warning: https://progress.upatras.gr/com.sap.portal.navigation.afp.dtn/scripts/dtn_functions.js?rid=7904fbadcb531e6bfbda1364fba541af, line 1: unreachable code after return statement
+[Parent 9620, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+1557509791560	Marionette	INFO	Stopped listening on port 51615
+[Child 10300, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 10300,[Child 10720, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 10720, Chro[Parent 9620, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 11844, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 11844, 

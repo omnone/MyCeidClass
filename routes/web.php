@@ -30,7 +30,9 @@ Route::get('lessons/{lesson_name}/announcements', 'LessonsController@show_announ
 Route::get('lessons/{lesson_name}/forum', 'ForumController@show_forum');
 //profile routes
 Route::get('profile/settings', 'ProfileController@profile_index');
-Route::get('profile/statistics', 'ProfileController@foititis_statistika');
+Route::get('profile/statistics', 'ProfileController@get_statistika_foititi');
+Route::post('profile/statistics', 'ProfileController@scrape_progress');
+
 // eksetastiki routes
 Route::get('exams/program', 'ExamsController@show_exams_program');
 Route::get('exams/participation', 'ExamsController@participation_index');
