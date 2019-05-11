@@ -8,7 +8,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.firefox.options import Options
-import config
+import sys
 
 # ***DISCLAIMER: To sigkekrimeno programma anaptixthike sta plaisia tou mathimatos gia akadimaikous logous.
 # Gia tin pragmatopoihsh scraping se opoiadipote selida apaitite adeia tou katoxou tis.
@@ -110,13 +110,15 @@ def alternative_lessons():
 ##################################################################################################################
 def save_results_csv(xrostoumena, perasmena):
     """Export data to a csv file"""
-    print('[+]Writing data to .csv file')
+    # print('[+]Writing data to .csv file')
+
+    # print(perasmena)
 
     path = (os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir)).replace(
         "\\progress", "\\storage\\app\\public\\grades_files"))
 
     with open(path+"\\grades.csv", mode='w', newline='') as file:
-        headers = ['Όνομα Μαθήματος', 'Περίοδος', 'Εξάμηνο']
+        headers = ['Όνομα Μαθήματος', 'Περίοδος', 'Εξάμηνο', 'Βαθμός']
         csv_writer = DictWriter(file, delimiter=',',
                                 quotechar='"', fieldnames=headers)
         csv_writer.writeheader()
@@ -125,14 +127,16 @@ def save_results_csv(xrostoumena, perasmena):
             csv_writer.writerow({
                 'Όνομα Μαθήματος': row[0],
                 'Περίοδος': row[1],
-                'Εξάμηνο': row[2]
+                'Εξάμηνο': row[2],
+                'Βαθμός': 0.0
             })
 
         for row in perasmena:
             csv_writer.writerow({
                 'Όνομα Μαθήματος': row[0],
                 'Περίοδος': row[1],
-                'Εξάμηνο': row[2]
+                'Εξάμηνο': row[2],
+                'Βαθμός': row[3]
             })
 
 
@@ -183,30 +187,30 @@ def data_manipulation(rows):
 
                 if int(grade) >= 5:
                     temp_lesson = [lesson_name, item[6],
-                                   item[19], item[10], grade]
-                    perasmena.append(lesson_name)
+                                   item[19], grade]
+                    perasmena.append(temp_lesson)
 
                 else:
                     temp_lesson = [lesson_name, item[6], item[19], item[10]]
                     xrostoumena.append(temp_lesson)
-                    ECTS_xeim, ECTS_ear = calculate_ECTS(
-                        item[10], ECTS_xeim, ECTS_ear, item[6])
+                    # ECTS_xeim, ECTS_ear = calculate_ECTS(
+                    #     item[10], ECTS_xeim, ECTS_ear, item[6])
 
             except TypeError:
                 if item[4] == 'NS' or item[4] == ' ':
                     temp_lesson = [lesson_name, item[6], item[19], item[10]]
                     xrostoumena.append(temp_lesson)
-                    ECTS_xeim, ECTS_ear = calculate_ECTS(
-                        item[10], ECTS_xeim, ECTS_ear, item[6])
+                    # ECTS_xeim, ECTS_ear = calculate_ECTS(
+                    #     item[10], ECTS_xeim, ECTS_ear, item[6])
 
             except ValueError:
                 if item[4] == 'NS' or item[4] == ' ':
                     temp_lesson = [item[3], item[6], item[19], item[10]]
                     xrostoumena.append(temp_lesson)
-                    ECTS_xeim, ECTS_ear = calculate_ECTS(
-                        item[10], ECTS_xeim, ECTS_ear, item[6])
+                    # ECTS_xeim, ECTS_ear = calculate_ECTS(
+                    #     item[10], ECTS_xeim, ECTS_ear, item[6])
 
-    return sorted(xrostoumena, key=lambda x: (x[1], x[2]), reverse=True), perasmena
+    return xrostoumena, perasmena
 
 
 ##################################################################################################################
@@ -221,7 +225,8 @@ browser = webdriver.Firefox(
 browser.get("https://progress.upatras.gr")
 
 # login to progress.upatras.gr
-login(config.user, config.passw)
+print(sys.argv)
+login(sys.argv[1], sys.argv[2])
 
 wait_for_element(5, 'welcomeText')
 

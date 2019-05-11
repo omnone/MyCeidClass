@@ -16,7 +16,7 @@
                 </div>
                 <div class="col-md-3">
                     <a class="button is-primary" href="/profile/statistics/download">
-                        <i class="fa fa-download" aria-hidden="true"></i>  Αρχείο Βαθμολογίας</a>
+                        <i class="fa fa-download" aria-hidden="true"></i> Αρχείο Βαθμολογίας</a>
                 </div>
             </div>
         </div>
@@ -65,8 +65,27 @@
                     </div>
                 </div>
             </div>
-            <div class="card-body">
-
+            <div class="card-body table-container">
+                <table class="table is-scrollable is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+                    <thead class="has-background-light">
+                        <tr>
+                            <th class="">Μάθημα</th>
+                            <th class="">Περίοδος</th>
+                            <th class="">Εξάμηνο</th>
+                            <th class="">Βαθμός</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($data['perasmena'] as $lesson)
+                        <tr>
+                            <td class="">{{$lesson->name}}</td>
+                            <td class="">{{$lesson->periodos}}</td>
+                            <td class="">{{$lesson->eksamino}}</td>
+                            <td class="">{{$lesson->grade}}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

@@ -44,12 +44,15 @@ class ProfileController extends Controller
         $user = User::find($user_id);
 
         $bathmoi = $user->grades()->get();
+        $perasmena = $user->grades()->where('grade', '>', 5.0)->orderBy('periodos')->get();
+        $xrostoumena = $user->grades()->where('grade', '=', 0.0)->orderBy('periodos')->get();
+
 
         if ($bathmoi->isEmpty()) {
             return view('user.connect_to_progress');
         }
 
-        return view('user.student_statistics')->with('data', ['xrostoumena'=>$bathmoi]);
+        return view('user.student_statistics')->with('data', ['xrostoumena'=>$xrostoumena,'perasmena' =>$perasmena]);
         ;
     }
 
@@ -76,9 +79,7 @@ class ProfileController extends Controller
         }
 
 
-        return Storage::disk('local')->download( $file_path);
-
-
+        return Storage::disk('local')->download($file_path);
     }
 
 
@@ -88,12 +89,16 @@ class ProfileController extends Controller
     {
         set_time_limit(10000);
 
-        $cmd = 'python '.base_path().'\progress\progress-scraper.py 2>&1';
+        $username = $request->username;
+        $password = $request->password;
+
+
+
+        $cmd = 'python '.base_path().'\progress\progress-scraper.py '.$username.' '.$password.' 2>&1';
         $output = [];
 
         exec($cmd, $output);
 
-        // return $output;
 
         $all_lessons = [];
         $file = fopen(base_path().'\storage\app\public\grades_files\grades.csv', 'r');
@@ -123,7 +128,7 @@ class ProfileController extends Controller
             $bathmologia->name = $lesson_t[0];
             $bathmologia->periodos = $lesson_t[1];
             $bathmologia->eksamino= $lesson_t[2];
-            $bathmologia->grade = 0;
+            $bathmologia->grade = $lesson_t[3];
             $bathmologia->user_id = auth()->user()->id;
             $bathmologia->save();
         }
