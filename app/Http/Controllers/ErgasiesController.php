@@ -14,7 +14,6 @@ use App\Lesson;
 use App\Ergasia;
 use App\Ypovoli;
 
-
 class ErgasiesController extends Controller
 {
     /**
@@ -205,11 +204,13 @@ EOD;
         $url = 'lessons/' . $title . '/homework/store';
 
         if (auth()->user()->role == "student") {
-            return view("lessons.ergasia_page")->with('data', ['lesson' => $lesson, 'title' => $title, 'subtitle' => $subtitle, 'go_url' => $url, 'ergasia' => $ergasia]);;
+            return view("lessons.ergasia_page")->with('data', ['lesson' => $lesson, 'title' => $title, 'subtitle' => $subtitle, 'go_url' => $url, 'ergasia' => $ergasia]);
+            ;
         } else {
             $ypovoles  = $ergasia->submittions()->get();
 
-            return view("lessons.ergasia_vathmologisi")->with('data', ['lesson' => $lesson, 'title' => $title, 'subtitle' => $subtitle, 'go_url' => $url, 'ergasia' => $ergasia, 'ypovoles' => $ypovoles]);;
+            return view("lessons.ergasia_vathmologisi")->with('data', ['lesson' => $lesson, 'title' => $title, 'subtitle' => $subtitle, 'go_url' => $url, 'ergasia' => $ergasia, 'ypovoles' => $ypovoles]);
+            ;
         }
     }
 
@@ -295,14 +296,7 @@ EOD;
             }
         }
 
-        $file_in_storage = Storage::disk('local')->get($file_path);
-
-        $type = Storage::disk('local')->mimeType($file_path);
-
-        $download = Response::make($file_in_storage, 200);
-        $download->header("Content-Type", $type);
-
-        return $download;
+        return Storage::disk('local')->download($file_path);
     }
 
     // paradosi ergasias apo foititi

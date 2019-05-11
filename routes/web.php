@@ -32,6 +32,8 @@ Route::get('lessons/{lesson_name}/forum', 'ForumController@show_forum');
 Route::get('profile/settings', 'ProfileController@profile_index');
 Route::get('profile/statistics', 'ProfileController@get_statistika_foititi');
 Route::post('profile/statistics', 'ProfileController@scrape_progress');
+Route::get('profile/statistics/download', 'ProfileController@download_grades_file');
+
 
 // eksetastiki routes
 Route::get('exams/program', 'ExamsController@show_exams_program');

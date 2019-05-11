@@ -14,6 +14,7 @@ use App\Lesson;
 use App\Ergasia;
 use App\Ypovoli;
 use App\Bathmologia;
+use App\Arxeio;
 
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
@@ -48,22 +49,54 @@ class ProfileController extends Controller
             return view('user.connect_to_progress');
         }
 
-        return view('user.student_statistics')->with('data', ['xrostoumena'=>$bathmoi]);;
+        return view('user.student_statistics')->with('data', ['xrostoumena'=>$bathmoi]);
+        ;
     }
 
+    public function download_grades_file()
+    {
+        return $this->generate_grades_file();
+    }
+
+    public function generate_grades_file()
+    {
+        $user_id = auth()->user()->id;
+        $user = User::find($user_id);
+
+        $file= $user->grades_file()->first();
+
+        $file_path = 'public/grades_files/' . $file->filepath;
+
+        if (!Storage::disk('local')->exists($file_path)) {
+            $file_path = 'public/ypovoles_ergasiwn/' . $file_name;
+
+            if (!Storage::disk('local')->exists($file_path)) {
+                return redirect('http://localhost:8000/lessons/' . $lesson_name . '/homework')->with('error', 'Το αρχείο δεν βρέθηκε!');
+            }
+        }
+
+
+        return Storage::disk('local')->download( $file_path);
+
+
+    }
+
+
+
+    // scrape progress grades
     public function scrape_progress(Request $request)
     {
         set_time_limit(10000);
 
-        // $cmd = 'python '.base_path().'\progress\progress-scraper.py 2>&1';
-        // $output = [];
+        $cmd = 'python '.base_path().'\progress\progress-scraper.py 2>&1';
+        $output = [];
 
-        // exec($cmd, $output);
+        exec($cmd, $output);
 
         // return $output;
 
         $all_lessons = [];
-        $file = fopen(base_path().'\progress\grades.csv', 'r');
+        $file = fopen(base_path().'\storage\app\public\grades_files\grades.csv', 'r');
         while (($line = fgetcsv($file)) !== false) {
             $lesson = [];
 
@@ -73,6 +106,15 @@ class ProfileController extends Controller
             $all_lessons[] = $lesson;
         }
         fclose($file);
+
+        $grade_file = new Arxeio;
+        $grade_file->filepath = 'grades_'.auth()->user()->id.'.csv';
+        $grade_file->user_id = auth()->user()->id;
+        $grade_file->save();
+
+
+        Storage::disk('local')->move('public/grades_files/grades.csv', 'public/grades_files/grades_'.auth()->user()->id.'.csv');
+
 
         array_shift($all_lessons);
 
@@ -87,6 +129,5 @@ class ProfileController extends Controller
         }
 
         return redirect()->action('ProfileController@get_statistika_foititi');
-
     }
 }

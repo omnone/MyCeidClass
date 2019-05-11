@@ -29,16 +29,23 @@ class User extends Authenticatable
     ];
 
 
-    public function grades(){
-      return $this->hasMany('App\Bathmologia');
+    public function grades()
+    {
+        return $this->hasMany('App\Bathmologia');
     }
 
-     public function teaching_lessons(){
-      return $this->hasMany('App\Lesson');
+    public function teaching_lessons()
+    {
+        return $this->hasMany('App\Lesson');
     }
 
     public function subscribed_lessons()
     {
         return $this->belongsToMany('App\Lesson')->withTimestamps();
+    }
+
+    public function grades_file()
+    {
+        return $this->hasOne('App\Arxeio');
     }
 }

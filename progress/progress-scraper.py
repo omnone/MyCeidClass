@@ -10,6 +10,9 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.firefox.options import Options
 import config
 
+# ***DISCLAIMER: To sigkekrimeno programma anaptixthike sta plaisia tou mathimatos gia akadimaikous logous.
+# Gia tin pragmatopoihsh scraping se opoiadipote selida apaitite adeia tou katoxou tis.
+
 ##################################################################################################################
 
 
@@ -105,23 +108,32 @@ def alternative_lessons():
 
 
 ##################################################################################################################
-def save_results_csv(rows):
+def save_results_csv(xrostoumena, perasmena):
     """Export data to a csv file"""
     print('[+]Writing data to .csv file')
 
-    with open(os.path.dirname(os.path.abspath(__file__))+"\\grades.csv", mode='w', newline='') as file:
+    path = (os.path.abspath(os.path.join(os.path.abspath(__file__), os.pardir)).replace(
+        "\\progress", "\\storage\\app\\public\\grades_files"))
+
+    with open(path+"\\grades.csv", mode='w', newline='') as file:
         headers = ['Όνομα Μαθήματος', 'Περίοδος', 'Εξάμηνο']
         csv_writer = DictWriter(file, delimiter=',',
                                 quotechar='"', fieldnames=headers)
         csv_writer.writeheader()
 
-        for row in rows:
+        for row in xrostoumena:
             csv_writer.writerow({
                 'Όνομα Μαθήματος': row[0],
                 'Περίοδος': row[1],
                 'Εξάμηνο': row[2]
             })
 
+        for row in perasmena:
+            csv_writer.writerow({
+                'Όνομα Μαθήματος': row[0],
+                'Περίοδος': row[1],
+                'Εξάμηνο': row[2]
+            })
 
 
 ##################################################################################################################
@@ -148,7 +160,6 @@ def data_manipulation(rows):
             if len(lesson) > 10:
                 sorted_lessons.append(lesson)
 
-
     #     progress_bar.next()
     # progress_bar.finish()
 
@@ -171,21 +182,10 @@ def data_manipulation(rows):
                 grade = float(item[4].replace(',', '.'))
 
                 if int(grade) >= 5:
+                    temp_lesson = [lesson_name, item[6],
+                                   item[19], item[10], grade]
                     perasmena.append(lesson_name)
-                    # try:
-                    #     if float(item[10].replace(',', '.')) >= 5.0:
-                    #         varos = 2.0
-                    #     elif (float(item[10].replace(',', '.')) == 4.0) or (float(item[10].replace(',', '.')) == 3.0):
-                    #         varos = 1.5
-                    #     else:
-                    #         varos = 1.0
-                    #
-                    #     mo = mo + varos*grade
-                    #     sinoliko_varos = sinoliko_varos + varos
-                    #     print(mo)
-                    #
-                    # except ValueError:
-                    #     pass
+
                 else:
                     temp_lesson = [lesson_name, item[6], item[19], item[10]]
                     xrostoumena.append(temp_lesson)
@@ -206,21 +206,13 @@ def data_manipulation(rows):
                     ECTS_xeim, ECTS_ear = calculate_ECTS(
                         item[10], ECTS_xeim, ECTS_ear, item[6])
 
-    # print("Χρωστούμενα Μαθήματα:\n-----------------------")
-    for lesson in sorted(xrostoumena, key=lambda x: (x[1], x[2]), reverse=True):
-        print(type(lesson[0]))
-    # print(f"---------------------\nΣυνολικά: {len(xrostoumena)} μαθήματα.")
-    # print(f'ECTS xeim: {ECTS_xeim} ECTS_ear: {ECTS_ear}')
-
-    # print(mo/sinoliko_varos)
-    return sorted(xrostoumena, key=lambda x: (x[1], x[2]), reverse=True)
+    return sorted(xrostoumena, key=lambda x: (x[1], x[2]), reverse=True), perasmena
 
 
 ##################################################################################################################
 
 # mprevent firefox from opening windows
 options = Options()
-
 
 options.headless = True
 browser = webdriver.Firefox(
@@ -256,7 +248,8 @@ finally:
 try:
     # data_manipulation(rows)
     # save results to csv file
-    save_results_csv(data_manipulation(lessons))
+    xrostoumena, perasmena = data_manipulation(lessons)
+    save_results_csv(xrostoumena, perasmena)
 finally:
     # close browser
     # browser.quit()
