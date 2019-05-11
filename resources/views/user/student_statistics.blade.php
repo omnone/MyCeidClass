@@ -28,7 +28,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body table-container" >
                         <table class="table is-scrollable is-bordered is-striped is-narrow is-hoverable is-fullwidth">
                             <thead class="has-background-light">
                                 <tr>

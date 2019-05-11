@@ -3,6 +3,7 @@
 /public/storage
 /progress/*.exe
 /progress/*.csv
+/progress/__pycache__/
 /storage/*.key
 /vendor
 __pycache__/
