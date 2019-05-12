@@ -11,7 +11,11 @@
                     <ul class="menu-list">
                         <div id='basic-user-info'>
                             <figure class="image is-128x128">
-                                <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+                                @if(Auth::user()->profile_photo!==null)
+                                <img src={{url('/storage/profile_photos/'.Auth::user()->profile_photo->filepath) }}>
+                                @else
+                                <img src="https://bulma.io/images/placeholders/128x128.png">
+                                @endif
                             </figure>
 
                             <li><a>{{ Auth::user()->surname  }} {{ Auth::user()->name  }}</a></li>
@@ -48,7 +52,7 @@
                     <li>
                         <a class="button is-info is-outlined" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                          <i class="fa fa-sign-out" aria-hidden="true"></i> Αποσύνδεση
+                            <i class="fa fa-sign-out" aria-hidden="true"></i> Αποσύνδεση
                         </a>
                     </li>
                 </ul>
@@ -72,7 +76,7 @@
                     <i class="fa fa-user" aria-hidden="true"></i> Προφίλ
                 </p>
                 <ul class="menu-list">
-                    <li><a>Διαχείριση Προφίλ</a></li>
+                    <li><a href="/profile/settings">Διαχείριση Προφίλ</a></li>
                     <li><a>Στατιστικά Στοιχεία</a></li>
                     <li>
                         <hr>
@@ -80,7 +84,7 @@
                     <li>
                         <a class="button is-info is-outlined" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                          <i class="fa fa-sign-out" aria-hidden="true"></i> Αποσύνδεση
+                            <i class="fa fa-sign-out" aria-hidden="true"></i> Αποσύνδεση
                         </a>
                     </li>
                 </ul>

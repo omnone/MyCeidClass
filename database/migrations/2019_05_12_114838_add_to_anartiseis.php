@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Test extends Migration
+class AddToAnartiseis extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,12 @@ class Test extends Migration
      */
     public function up()
     {
-        Schema::create('bathmologies', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
-            $table->string('periodos');
-            $table->string('eksamino');
-            $table->double('grade')->default(0)->nullable();
+        Schema::table('anartiseis', function (Blueprint $table) {
+            $table->integer('lesson_id');
             $table->integer('user_id');
-            $table->timestamps();
-        }
+            $table->string('title');
+            $table->mediumText('description');
+        });
     }
 
     /**
@@ -31,6 +28,8 @@ class Test extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('anartiseis', function (Blueprint $table) {
+            //
+        });
     }
 }

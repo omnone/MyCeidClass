@@ -15,6 +15,7 @@ use App\Ergasia;
 use App\Ypovoli;
 use App\Bathmologia;
 use App\Arxeio;
+use App\Fwtografia;
 
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
@@ -34,8 +35,62 @@ class ProfileController extends Controller
     //selida diaxeirisi profile xristi
     public function profile_index()
     {
-        return view('user.settings');
+        $user_id = auth()->user()->id;
+        $user = User::find($user_id);
+
+        return view('user.settings')->with('user', $user);
     }
+
+    // update profile info
+    public function profile_update(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required',
+            'surname' => 'required',
+            'email' => 'required',
+            'profile_photo' => 'file|nullable|max:1999'
+        ]);
+
+        $user_id = auth()->user()->id;
+        $user = User::find($user_id);
+
+        $user->name=$request->name;
+        $user->surname=$request->surname;
+        $user->email=$request->email;
+
+
+        if ($request->hasFile('profile_photo')) {
+            // filename with the extension
+            $filename_full = $request->file('profile_photo')->getClientOriginalName();
+            // filename
+            $filename = pathinfo($filename_full, PATHINFO_FILENAME);
+            //ext
+            $extension = $request->file('profile_photo')->getClientOriginalExtension();
+
+            $store_filename = 'profile_photo_' . time() . '.' . $extension;
+            $path = $request->file('profile_photo')->storeAs('public/profile_photos', $store_filename);
+        } else {
+            $store_filename = '-';
+        }
+
+        $profile_photo = $user->profile_photo()->first();
+
+        if ($profile_photo === null) {
+            $profile_photo = new Fwtografia;
+            $profile_photo->filepath = $store_filename;
+            $profile_photo->user_id = auth()->user()->id;
+        } else {
+            $file_path = 'public/profile_photos/' .  $profile_photo->filepath;
+
+            Storage::disk('local')->delete($file_path);
+            $profile_photo->filepath = $store_filename;
+        }
+
+        $profile_photo->save();
+
+        return redirect()->action('ProfileController@profile_index');
+    }
+
 
     //statistika foititi
     public function get_statistika_foititi()

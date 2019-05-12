@@ -10,8 +10,12 @@
                 <div class="container ">
                     <ul class="menu-list">
                         <div id='basic-user-info'>
-                            <figure class="image is-128x128">
-                                <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+                          <figure class="image is-128x128">
+                                @if(Auth::user()->profile_photo!==null)
+                                <img src={{url('/storage/profile_photos/'.Auth::user()->profile_photo->filepath) }}>
+                                @else
+                                <img src="https://bulma.io/images/placeholders/128x128.png">
+                                @endif
                             </figure>
 
                             <li><a>{{ Auth::user()->surname  }} {{ Auth::user()->name  }}</a></li>

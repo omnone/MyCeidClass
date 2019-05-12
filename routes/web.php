@@ -28,8 +28,18 @@ Route::get('lessons/{lesson_name}/announcements', 'LessonsController@show_announ
 
 // forum routes
 Route::get('lessons/{lesson_name}/forum', 'ForumController@show_forum');
+Route::get('lessons/{lesson_name}/forum/{sizitisi_id}', 'ForumController@show_sizitisi');
+Route::get('lessons/{lesson_name}/forum/create', 'ForumController@create_sizitisi');
+Route::post('lessons/{lesson_name}/forum/create', 'ForumController@save_sizitisi');
+Route::get('lessons/{lesson_name}/forum/{sizitisi_id}/{post_id}', 'ForumController@show_post');
+Route::get('lessons/{lesson_name}/forum/create/{sizitisi_id}/{post_id}', 'ForumController@add_post');
+Route::post('lessons/{lesson_name}/forum/create/{sizitisi_id}/{post_id}', 'ForumController@create_post');
+
+
+
 //profile routes
 Route::get('profile/settings', 'ProfileController@profile_index');
+Route::post('profile/settings', 'ProfileController@profile_update');
 Route::get('profile/statistics', 'ProfileController@get_statistika_foititi');
 Route::post('profile/statistics', 'ProfileController@scrape_progress');
 Route::get('profile/statistics/download', 'ProfileController@download_grades_file');

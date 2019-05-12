@@ -48,4 +48,14 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\Arxeio');
     }
+
+    public function profile_photo()
+    {
+        return $this->hasOne('App\Fwtografia');
+    }
+
+    public function anartiseis()
+    {
+        return $this->hasMany('App\Anartisi');
+    }
 }
