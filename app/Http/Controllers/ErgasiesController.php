@@ -142,13 +142,23 @@ EOD;
 EOD;
 
                 foreach ($ergasies as $ergasia) {
+                    $ypovoli = $ergasia->submittions()->where('user_id', auth()->user()->id)->first();
+
+                    if($ypovoli){
+                        $grade = $ypovoli->grade;
+                        $send = 'Ναι';
+                    }else{
+                        $send = 'Όχι';
+                        $grade = '-';
+                    }
+
                     $innerHTML = <<<EOD
                 <tr>
                     <td class=""><a href="homework/$ergasia->id">$ergasia->title</a>
                     </td>
                     <td class="">$ergasia->deadline</td>
-                    <td class="">Ναι</td>
-                    <td width="30" align="center"></td>
+                    <td class="">$send</td>
+                    <td width="30" align="center">$grade</td>
                 </tr>
 EOD;
                     $table_head = $table_head . $innerHTML;
@@ -204,8 +214,9 @@ EOD;
         $url = 'lessons/' . $title . '/homework/store';
 
         if (auth()->user()->role == "student") {
-            return view("lessons.ergasia_page")->with('data', ['lesson' => $lesson, 'title' => $title, 'subtitle' => $subtitle, 'go_url' => $url, 'ergasia' => $ergasia]);
-            ;
+            $ypovoli  = $ergasia->submittions()->where('user_id', auth()->user()->id)->first();
+
+            return view("lessons.ergasia_page")->with('data', ['lesson' => $lesson, 'title' => $title, 'subtitle' => $subtitle, 'go_url' => $url, 'ergasia' => $ergasia ,'ypovoli'=>$ypovoli]);
         } else {
             $ypovoles  = $ergasia->submittions()->get();
 
@@ -306,6 +317,13 @@ EOD;
             'ergasia_file' => 'file|nullable|max:1999'
         ]);
 
+        $ergasia = Ergasia::where('id', $ergasia_id)->first();
+
+        if ($ergasia->deadline < date('Y-m-d H:i')) {
+            return redirect('http://localhost:8000/lessons/' . $lesson_name . '/homework')->with('error', 'Η προθεσμία παράδοσης έχει παρέλθει!');
+        }
+
+
         $ergasia_prev = Ypovoli::where('user_id', auth()->user()->id)->where('ergasia_id', $ergasia_id)->first();
 
 
@@ -337,5 +355,68 @@ EOD;
         $ypovoli_ergasias->save();
 
         return redirect('http://localhost:8000/lessons/' . $lesson_name . '/homework')->with('success', 'Η εργασία παραδόθηκε επιτυχώς!');
+    }
+
+
+    // vathmologisi ergasiwn
+    public function grade_homework($lesson_name, $ergasia_id, Request $request)
+    {
+        $messages = [ 'required' => 'Παρακαλώ επιλέξτε αρχείο βαθμολόγησης.',
+                      'mimes' => 'Μη συμβατός τύπος αρχείου! Το αρχείο πρέπει να είναι τύπου csv.',
+                      'max' => 'Το μέγεθος του αρχείου υπερβαίνει το μέγιστο όριο.'
+                    ];
+
+
+        $validator = \Validator::make($request->all(), [
+          'bathmologia_file' => '|required|mimes:csv,txt|max:1999'
+        ], $messages)->validate();
+
+
+        // filename with the extension
+        $filename_full = $request->file('bathmologia_file')->getClientOriginalName();
+        // filename
+        $filename = pathinfo($filename_full, PATHINFO_FILENAME);
+        //ext
+        $extension = $request->file('bathmologia_file')->getClientOriginalExtension();
+
+
+        $store_filename = $filename . '_' . auth()->user()->surname . '_' . time() . '.' . $extension;
+        $path = $request->file('bathmologia_file')->storeAs('public/bathmologies_ergasiwn', $store_filename);
+
+
+        $bathmologies_ergasiwn = [];
+        $file = fopen(base_path().'\storage\app\public\bathmologies_ergasiwn\\'.$store_filename, 'r');
+        while (($line = fgetcsv($file)) !== false) {
+            $lesson = [];
+
+            foreach ($line as $word) {
+                $lesson[] = iconv("ISO-8859-7", "UTF-8", $word);
+            }
+            $bathmologies_ergasiwn[] = $lesson;
+        }
+        fclose($file);
+
+        $ergasia = Ergasia::where('id', $ergasia_id)->first();
+
+        $errors = 0;
+        $error_mes = 'Η βαθμολογία καταχωρήθηκε! Δεν βρέθηκαν οι φοιτητές με τα ακόλουθα ΑΜ: ';
+
+        foreach ($bathmologies_ergasiwn as $bathmologia) {
+            $ypovoli  = $ergasia->submittions()->where('user_id', $bathmologia[0])->first();
+
+            if ($ypovoli!==null) {
+                $ypovoli->grade = $bathmologia[1];
+                $ypovoli->save();
+            } else {
+                $errors++;
+                $error_mes.= ','.$bathmologia[0];
+            }
+        }
+
+        if ($errors == 0) {
+            return redirect('lessons/'.$lesson_name.'/homework/'.$ergasia_id)->with('success', 'Η βαθμολογία καταχωρήθηκε επιτυχώς!');
+        } else {
+            return redirect('lessons/'.$lesson_name.'/homework/'.$ergasia_id)->with('error', $error_mes);
+        }
     }
 }

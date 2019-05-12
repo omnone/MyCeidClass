@@ -36,9 +36,11 @@
                 </tr>
             </thead>
             <tbody>
+                @if(count($data['anartiseis']) > 0)
                 @foreach ($data['anartiseis'] as $anartisi)
                 <tr>
-                    <td class=""><a href="/lessons/{{$data['title']}}/forum/{{$data['sizitisi']->id}}/{{$anartisi->id}}">
+                    <td class=""><a
+                            href="/lessons/{{$data['title']}}/forum/{{$data['sizitisi']->id}}/{{$anartisi->id}}">
                             <b>{{$anartisi->title}}</b>
                         </a>
                         <div class="smaller">{{$anartisi->created_at}}</div>
@@ -53,8 +55,13 @@
 
                 </tr>
                 @endforeach
+
+                @endif
+
+
             </tbody>
         </table>
+        {{$data['anartiseis']->links()}}
 
 
     </div>

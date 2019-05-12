@@ -113,7 +113,7 @@ class LessonsController extends Controller
         if ($request->input('mode') == 'subscribe') {
             $user->subscribed_lessons()->attach($request->input('lesson_id'));
             return redirect('lessons/subscriptions')->with('success', 'Εγγραφήκατε επιτυχώς στο μάθημα: '.$lesson->name);
-        } else {//aliws ksegrapston
+        } else {//aliws ksegrapse ton
             $user->subscribed_lessons()->detach($request->input('lesson_id'));
             return redirect('lessons/subscriptions')->with('success', 'Απεγγραφήκατε επιτυχώς από μάθημα: '.$lesson->name);
         }
@@ -139,8 +139,6 @@ class LessonsController extends Controller
         $title = $lesson_name;
 
         $subtitle = "Ανακοινώσεις";
-
-
 
         $innerHTML = <<<'EOT'
          <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">

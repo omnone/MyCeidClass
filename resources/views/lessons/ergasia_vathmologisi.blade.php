@@ -51,7 +51,8 @@
                             <li>{{$data['ergasia']->created_at}}</li>
                             <li>{{$data['ergasia']->deadline}}</li>
                             <li>{{$data['ypovoles']->count()}}</li>
-                            <td class=""><a href='/lessons/{{$data['title']}}/homework/{{$data['ergasia']->id}}/{{$data['ergasia']->file_path}}''><i
+                            <td class=""><a
+                                    href='/lessons/{{$data['title']}}/homework/{{$data['ergasia']->id}}/{{$data['ergasia']->file_path}}''><i
                                         class="fa fa-download" aria-hidden="true"></i>{{$data['ergasia']->file_path}}</a></td>
                             <li>{{$data['ergasia']->description}}</li>
                         </ul>
@@ -66,7 +67,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-9">
-                            Υποβολές
+                            Υποβολές Φοιτητών
                         </div>
                     </div>
                 </div>
@@ -75,46 +76,53 @@
                 <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
                     <thead class="has-background-light">
                         <tr>
-                            <th class="">Φοιτητής</th>
+                            <th class="">Αριθμός Μητρώου</th>
+                            <th class="">Όνοματεπώνυμο</th>
                             <th class="">Αρχείο</th>
                             <th class="">Ημ/νια Υποβολής</th>
                             <th class="">Βαθμός</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($data['ypovoles'] as $ypovoli)
-                            <tr>
-                                    <td class="">{{$ypovoli->student->name}} {{$ypovoli->student->surname}}</td>
-                                    <td class="" ><a href='/lessons/{{$data['title']}}/homework/{{$data['ergasia']->id}}/{{$ypovoli->file_path}}'><i class="fa fa-download" aria-hidden="true"></i> {{$ypovoli->file_path}}</a></td>
-                                    <td class="">{{$ypovoli->created_at}}</td>
-                                    <td>{{$ypovoli->grade}}</td>
-                                </tr>
-                        @endforeach
+                        @foreach ($data['ypovoles'] as $ypovoli) <tr>
+                            <td>{{$ypovoli->student->id}}</td>
+                            <td class="">{{$ypovoli->student->name}} {{$ypovoli->student->surname}}</td>
+                            <td class=""><a
+                                    href='/lessons/{{$data['title']}}/homework/{{$data['ergasia']->id}}/{{$ypovoli->file_path}}'><i
+                                        class="fa fa-download" aria-hidden="true"></i> {{$ypovoli->file_path}}</a></td>
+                            <td class="">{{$ypovoli->created_at}}</td>
+                            <td>{{$ypovoli->grade}}</td>
+                            </tr>
+                            @endforeach
                             </tbody>
-                        </table>
-            </div>
-        </div>
-        <hr>
-        <div class="card">
-            <div class="card-header">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-9">
-                            Βαθμολόγηση Εργασίας
-                        </div>
+                            </table>
                     </div>
                 </div>
-            </div>
-            <div class="card-body">
-                {!! Form::open() !!}
+                <hr>
+                <div class="card">
+                    <div class="card-header">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-9">
+                                    Βαθμολόγηση Εργασίας
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        {!! Form::open(['action' =>
+                        ['ErgasiesController@grade_homework',$data['title'],$data['ergasia']->id],
+                        'method'
+                        => 'POST',
+                        'enctype' => 'multipart/form-data']) !!}
 
-                <div class="form-group">
-                    {!! Form::label('name', 'Αρχείο: ', []) !!}
-                    {{Form::file('notes')}}
+                        <div class="form-group">
+                            {{Form::label('bathmologia_file', 'Αρχείο Βαθμών')}}
+                            {{Form::file('bathmologia_file')}}
+                        </div>
+                        {{Form::submit('Υποβολή', ['class'=>'button is-info'])}} {!! Form::close() !!}
+                    </div>
                 </div>
-                {{Form::submit('Υποβολή', ['class'=>'button is-info','disabled'])}} {!! Form::close() !!}
-            </div>
-        </div>
 
-    </div>
-    @endsection
+            </div>
+            @endsection

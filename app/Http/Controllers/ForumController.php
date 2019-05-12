@@ -36,7 +36,7 @@ class ForumController extends Controller
         $sizitisi= Sizitisi::where('id', $sizitisi_id)->first();
         $lesson = Lesson::where('name', $lesson_name)->first();
 
-        $anartiseis = $sizitisi->anartiseis()->get();
+        $anartiseis = $sizitisi->anartiseis()->where('answer_to',0)->paginate(7);
 
         $subtitle = $sizitisi->title;
         $title = $lesson_name;
@@ -99,6 +99,10 @@ class ForumController extends Controller
 
         $anartisi->save();
 
+        if ($post_id!==0) {
+            return $this->show_post($lesson_name, $sizitisi_id, $post_id);
+        }
+
         return $this->show_sizitisi($lesson_name, $sizitisi_id);
     }
 
@@ -106,7 +110,7 @@ class ForumController extends Controller
     {
         $lesson = Lesson::where('name', $lesson_name)->first();
         $anartisi = Anartisi::where('id', $post_id)->first();
-        $apantiseis = Anartisi::where('answer_to', $post_id)->get();
+        $apantiseis = Anartisi::where('answer_to', $post_id)->paginate(5);
 
 
         $subtitle = $anartisi->title;

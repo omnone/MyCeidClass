@@ -16,7 +16,6 @@ Route::get('/', 'LessonsController@index');
 // quick search gia mathimata
 Route::get('search', 'LessonsController@search');
 
-// **student routes////////////////////////////////////////////////////////////////////////////////////////////
 // lesson routes
 Route::post('lessons', 'LessonsController@subscribe_to_lesson')->name('lessons.subscribe_to_lesson');
 Route::get('lessons', 'LessonsController@lesson_show')->name('lessons.lesson_show');
@@ -54,6 +53,7 @@ Route::get('lessons/{lesson_name}/homework/create', 'ErgasiesController@create_e
 Route::post('lessons/{lesson_name}/homework/store', 'ErgasiesController@store_ergasia');
 Route::get('lessons/{lesson_name}/homework/{ergasia_id}', 'ErgasiesController@show_ergasia');
 Route::post('lessons/{lesson_name}/homework/{ergasia_id}', 'ErgasiesController@paradosi_ergasias');
+Route::post('lessons/{lesson_name}/homework/{ergasia_id}/grade', 'ErgasiesController@grade_homework');
 Route::get('lessons/{lesson_name}/homework/{ergasia_id}/{file_name}', 'ErgasiesController@download_file');
 
 

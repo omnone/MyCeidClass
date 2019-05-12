@@ -57,6 +57,7 @@ class ProfileController extends Controller
         $user->name=$request->name;
         $user->surname=$request->surname;
         $user->email=$request->email;
+        $user->save();
 
 
         if ($request->hasFile('profile_photo')) {
@@ -69,24 +70,24 @@ class ProfileController extends Controller
 
             $store_filename = 'profile_photo_' . time() . '.' . $extension;
             $path = $request->file('profile_photo')->storeAs('public/profile_photos', $store_filename);
-        } else {
-            $store_filename = '-';
+
+            $profile_photo = $user->profile_photo()->first();
+
+            if ($profile_photo === null) {
+                $profile_photo = new Fwtografia;
+                $profile_photo->filepath = $store_filename;
+                $profile_photo->user_id = auth()->user()->id;
+            } else {
+                $file_path = 'public/profile_photos/' .  $profile_photo->filepath;
+
+                Storage::disk('local')->delete($file_path);
+                $profile_photo->filepath = $store_filename;
+            }
+
+            $profile_photo->save();
         }
 
-        $profile_photo = $user->profile_photo()->first();
 
-        if ($profile_photo === null) {
-            $profile_photo = new Fwtografia;
-            $profile_photo->filepath = $store_filename;
-            $profile_photo->user_id = auth()->user()->id;
-        } else {
-            $file_path = 'public/profile_photos/' .  $profile_photo->filepath;
-
-            Storage::disk('local')->delete($file_path);
-            $profile_photo->filepath = $store_filename;
-        }
-
-        $profile_photo->save();
 
         return redirect()->action('ProfileController@profile_index');
     }

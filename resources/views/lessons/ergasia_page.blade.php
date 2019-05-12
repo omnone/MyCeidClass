@@ -42,6 +42,11 @@
                             <li>Βαθμός:</li>
                             <li>Συνοδευτικό Αρχείο:</li>
                             <li>Σχόλια:</li>
+                            @if($data['ypovoli'])
+                            <hr>
+                            <li>Παραδόθηκε: {{$data['ypovoli']->updated_at}}</li>
+                            @endif
+
                         </ul>
                     </div>
                     <div class="column is-4">
@@ -50,10 +55,16 @@
                             <li>{{$data['title']}}</li>
                             <li>{{$data['ergasia']->created_at}}</li>
                             <li>{{$data['ergasia']->deadline}}</li>
-                            <li>0</li>
-                            <td class=""><a href='/lessons/{{$data['title']}}/homework/{{$data['ergasia']->id}}/{{$data['ergasia']->file_path}}''><i
-                                        class="fa fa-download" aria-hidden="true"></i>{{$data['ergasia']->file_path}}</a></td>
+                            @if($data['ypovoli'])
+                                <li>{{$data['ypovoli']->grade}}</li>
+                            @else
+                                <li>-</li>
+                            @endif
+                            <li class=""><a
+                                    href='/lessons/{{$data['title']}}/homework/{{$data['ergasia']->id}}/{{$data['ergasia']->file_path}}''><i
+                                        class="fa fa-download" aria-hidden="true"></i>{{$data['ergasia']->file_path}}</a></li>
                             <li>{{$data['ergasia']->description}}</li>
+
                         </ul>
                     </div>
 
@@ -72,16 +83,18 @@
                 </div>
             </div>
             <div class="card-body">
-                {!! Form::open(['action' => ['ErgasiesController@paradosi_ergasias',$data['title'],$data['ergasia']->id], 'method' => 'POST',
-                    'enctype' => 'multipart/form-data']) !!}
-                    <div class="form-group">
-                        {{Form::label('ergasia_file', 'Αρχείο Εργασίας')}}
-                        {{Form::file('ergasia_file')}}
+                {!! Form::open(['action'=>
+                                    ['ErgasiesController@paradosi_ergasias',$data['title'],$data['ergasia']->id],
+                                    'method' => 'POST',
+                                    'enctype' => 'multipart/form-data']) !!}
+                                    <div class="form-group">
+                                        {{Form::label('ergasia_file', 'Αρχείο Εργασίας')}}
+                                        {{Form::file('ergasia_file')}}
+                                    </div>
+                                    {{Form::submit('Παράδοση', ['class'=>'btn btn-primary'])}}
+                                    {!! Form::close() !!}
                     </div>
-                    {{Form::submit('Παράδοση', ['class'=>'btn btn-primary'])}}
-                    {!! Form::close() !!}
-            </div>
-        </div>
+                </div>
 
-    </div>
-    @endsection
+            </div>
+            @endsection
