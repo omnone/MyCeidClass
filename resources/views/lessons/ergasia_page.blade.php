@@ -56,9 +56,9 @@
                             <li>{{$data['ergasia']->created_at}}</li>
                             <li>{{$data['ergasia']->deadline}}</li>
                             @if($data['ypovoli'])
-                                <li>{{$data['ypovoli']->grade}}</li>
+                            <li>{{$data['ypovoli']->grade}}</li>
                             @else
-                                <li>-</li>
+                            <li>-</li>
                             @endif
                             <li class=""><a
                                     href='/lessons/{{$data['title']}}/homework/{{$data['ergasia']->id}}/{{$data['ergasia']->file_path}}''><i

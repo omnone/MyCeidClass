@@ -44,6 +44,11 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Lesson')->withTimestamps();
     }
 
+    public function subscribed_teams()
+    {
+        return $this->belongsToMany('App\Omada')->withTimestamps();
+    }
+
     public function grades_file()
     {
         return $this->hasOne('App\Arxeio');
@@ -57,5 +62,10 @@ class User extends Authenticatable
     public function anartiseis()
     {
         return $this->hasMany('App\Anartisi');
+    }
+
+    public function getFullNameAttribute()
+    {
+        return "{$this->name} {$this->surname} {$this->id}";
     }
 }

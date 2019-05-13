@@ -22,6 +22,11 @@ class Lesson extends Model
         return $this->hasMany('App\Ergasia');
     }
 
+    public function teams()
+    {
+        return $this->hasMany('App\Omada');
+    }
+
     public function sizitiseis()
     {
         return $this->hasMany('App\Sizitisi');

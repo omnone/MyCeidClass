@@ -36,7 +36,7 @@ class ForumController extends Controller
         $sizitisi= Sizitisi::where('id', $sizitisi_id)->first();
         $lesson = Lesson::where('name', $lesson_name)->first();
 
-        $anartiseis = $sizitisi->anartiseis()->where('answer_to',0)->paginate(7);
+        $anartiseis = $sizitisi->anartiseis()->where('answer_to', 0)->paginate(5);
 
         $subtitle = $sizitisi->title;
         $title = $lesson_name;

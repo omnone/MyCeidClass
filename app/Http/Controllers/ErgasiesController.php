@@ -46,7 +46,7 @@ class ErgasiesController extends Controller
             $ergasies = array();
 
             foreach ($user_lessons as $lesson) {
-                $ergasies = $lesson->ergasies()->orderBy('lesson_id')->get()->toArray();
+                $ergasies = $lesson->ergasies()->orderBy('lesson_id')->get();
             }
 
 
@@ -68,14 +68,25 @@ EOD;
                 foreach ($ergasies as $ergasia) {
                     $lesson = Lesson::where('id', $ergasia['lesson_id'])->first();
 
+                    $ypovoli = $ergasia->submittions()->where('user_id', auth()->user()->id)->first();
+
+                    if ($ypovoli) {
+                        $grade = $ypovoli->grade;
+                        $send = 'Ναι';
+                    } else {
+                        $send = 'Όχι';
+                        $grade = '-';
+                    }
+
+
                     $innerHTML = <<<EOD
                 <tr>
                     <td class=""><a href="/lessons/$lesson->name">$lesson->name</a></td>
                     <td class=""><a href="homework/{$ergasia['id']}">{$ergasia['title']}</a>
                     </td>
                     <td class="">{$ergasia['deadline']}</td>
-                    <td class="">Ναι</td>
-                    <td width="30" align="center"></td>
+                    <td class="">$send</td>
+                    <td width="30" align="center">$grade</td>
                 </tr>
 EOD;
                     $table_head = $table_head . $innerHTML;
@@ -98,6 +109,8 @@ EOD;
 
                 foreach ($ergasies as $ergasia) {
                     $lesson = Lesson::where('id', $ergasia['lesson_id'])->first();
+                    $ypovoles = $ergasia->submittions()->get();
+
 
                     $innerHTML = <<<EOD
                 <tr>
@@ -107,7 +120,7 @@ EOD;
                     <td class="" ><a href='/lessons/$lesson_name}/homework/{$ergasia['id']}/{$ergasia['file_path']}'><i class="fa fa-download" aria-hidden="true"></i>{$ergasia['file_path']}</a></td>
                     <td class="">{$ergasia['created_at']}</td>
                     <td class="">{$ergasia['deadline']}</td>
-                    <td class="">0</td>
+                    <td class="">{$ypovoles->count()}</td>
                 </tr>
 EOD;
                     $table_head = $table_head . $innerHTML;
@@ -144,10 +157,10 @@ EOD;
                 foreach ($ergasies as $ergasia) {
                     $ypovoli = $ergasia->submittions()->where('user_id', auth()->user()->id)->first();
 
-                    if($ypovoli){
+                    if ($ypovoli) {
                         $grade = $ypovoli->grade;
                         $send = 'Ναι';
-                    }else{
+                    } else {
                         $send = 'Όχι';
                         $grade = '-';
                     }

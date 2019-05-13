@@ -10,7 +10,7 @@
                 <div class="container ">
                     <ul class="menu-list">
                         <div id='basic-user-info'>
-                          <figure class="image is-128x128">
+                            <figure class="image is-128x128">
                                 @if(Auth::user()->profile_photo!==null)
                                 <img src={{url('/storage/profile_photos/'.Auth::user()->profile_photo->filepath) }}>
                                 @else
@@ -36,7 +36,8 @@
                                 aria-hidden="true"></i> Ανακοινώσεις</a></li>
                     <li><a href="/lessons/{{$data['lesson']->name}}/homework"><i class="fa fa-flask"
                                 aria-hidden="true"></i> Εργασίες</a></li>
-                    <li><a><i class="fa fa-users" aria-hidden="true"></i> Ομάδες Χρηστών</a></li>
+                    <li><a href="/lessons/{{$data['lesson']->name}}/groups"><i class="fa fa-users"
+                                aria-hidden="true"></i> Ομάδες Χρηστών</a></li>
                     {{-- <li><a><i class="fa fa-microchip" aria-hidden="true"></i> Εργαστήριο</a></li> --}}
                     <li><a href="/lessons/{{$data['lesson']->name}}/forum"><i class="fa fa-commenting-o"
                                 aria-hidden="true"></i> Forum</a></li>
@@ -61,7 +62,8 @@
                     <li><a href="/lessons/{{$data['lesson']->name}}/homework"><i class="fa fa-flask"
                                 aria-hidden="true"></i>
                             Εργασίες</a></li>
-                    <li><a><i class="fa fa-users" aria-hidden="true"></i> Ομάδες Χρηστών</a></li>
+                    <li><a href="/lessons/{{$data['lesson']->name}}/groups"><i class="fa fa-users"
+                                aria-hidden="true"></i> Ομάδες Χρηστών</a></li>
                     {{-- <li><a><i class="fa fa-microchip" aria-hidden="true"></i> Εργαστήριο</a></li> --}}
                     <li><a href="/lessons/{{$data['lesson']->name}}/forum"><i class="fa fa-commenting-o"
                                 aria-hidden="true"></i>

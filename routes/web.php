@@ -56,6 +56,13 @@ Route::post('lessons/{lesson_name}/homework/{ergasia_id}', 'ErgasiesController@p
 Route::post('lessons/{lesson_name}/homework/{ergasia_id}/grade', 'ErgasiesController@grade_homework');
 Route::get('lessons/{lesson_name}/homework/{ergasia_id}/{file_name}', 'ErgasiesController@download_file');
 
+// teams routes
+Route::get('lessons/{lesson_name}/groups', 'OmadesController@show_groups');
+Route::get('lessons/{lesson_name}/groups/create', 'OmadesController@create_new_group');
+Route::post('lessons/{lesson_name}/groups/create', 'OmadesController@save_new_group');
+Route::get('lessons/{lesson_name}/groups/{group_id}', 'OmadesController@show_group');
+Route::post('lessons/{lesson_name}/groups/{group_id}', 'OmadesController@subscribe_to_group');
+
 
 // anakoinoseis routes
 

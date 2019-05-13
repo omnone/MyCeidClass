@@ -95,3 +95,7 @@ table.is-scrollable tbody tr {
 .from{
     width:15%;
 }
+
+.container-custom{
+    padding-right:20%;
+}

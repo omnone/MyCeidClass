@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Test extends Migration
+class CreateTeams extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class Test extends Migration
      */
     public function up()
     {
-        Schema::create('bathmologies', function (Blueprint $table) {
+        Schema::create('teams', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('periodos');
-            $table->string('eksamino');
-            $table->double('grade')->default(0)->nullable();
-            $table->integer('user_id');
+            $table->mediumText('description');
+            $table->integer('lesson_id');
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ class Test extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('teams');
     }
 }

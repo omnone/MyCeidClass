@@ -34,13 +34,13 @@
 
 <body>
     <div id="app">
-    @include('layouts.navbar')
-    @include('layouts.messages')
+        @include('layouts.navbar')
+        @include('layouts.messages')
         <main class="py-4">
-    {{-- @include('layouts.messages') --}}
-    @yield('content')
+            {{-- @include('layouts.messages') --}}
+            @yield('content')
         </main>
-    @include('layouts.footer')
+        @include('layouts.footer')
     </div>
 
 </body>
