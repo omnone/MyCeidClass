@@ -31,4 +31,9 @@ class Lesson extends Model
     {
         return $this->hasMany('App\Sizitisi');
     }
+
+    public function eksetasi_mathimatos()
+    {
+        return $this->hasMany('App\Eksetasi');
+    }
 }

@@ -2,7 +2,7 @@
 @section('content') {{-- titlos selidas --}}
 @include('layouts.sidebar-arxiki')
 <div class="card" id='whereami'>
-    {{$data['eksetastiki']->name}}
+    Εξεταστική
 </div>
 
 <br />
@@ -12,54 +12,46 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-9">
-                    Μαθήματα προς εξέταση
+                    Διαχείριση Εξετάσεων
                 </div>
                 <div class="col-md-3">
 
+                    <a class="button is-primary" href="/exams/create">
+                        Δημιουργία Εξέτασης</a>
                 </div>
             </div>
         </div>
     </div>
     <div class="card-body">
-        {!! Form::open(['action' =>
-        ['ParticipationExamsController@apothikeuse_dilosi_eksetastiki'],'method'=> 'POST','enctype' =>
-        'multipart/form-data'])!!}
         <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
             <thead class="has-background-light">
                 <tr>
                     <th>Μάθημα</th>
                     <th>Ημ/νια Εξέτασης</th>
+                    <th>Συμμετοχές</th>
                     <th>Προθεσμία Δήλωσης</th>
-                    <th></th>
+                    <th>Αίθουσες</th>
                 </tr>
             </thead>
             <tbody>
                 {{-- @if(count($data['eksetaseis']) > 0) --}}
-
                 @foreach ($data['eksetaseis'] as $eksetasi)
                 <tr>
                     <td>{{$eksetasi->lesson->name}}</td>
                     <td>{{$eksetasi->imerominia_eksetasis}} {{$eksetasi->ora_eksetasis}}</td>
+                    <td>0</td>
                     <td>{{$eksetasi->prothesmia_dilosis}}</td>
-                    <td>
-                        <div class="form-group">
-                            @if($data['simmetoxes']->contains('eksetasi_id', $eksetasi->id))
-                            {{-- {{ Form::hidden('mode', 'unsubscribe') }} --}}
-                            {!! Form::checkbox('lessons[]', $eksetasi->id,true) !!}
-                            @else
-                            {{-- {{ Form::hidden('mode', 'subscribe') }} --}}
-                            {!! Form::checkbox('lessons[]', $eksetasi->id,false) !!}
-                            @endif
-                        </div>
-                    </td>
+                    <td><a href="">Επιλογή Αιθουσών</a></td>
                 </tr>
                 @endforeach
-            </tbody>
 
+                {{-- @endif --}}
+
+
+            </tbody>
         </table>
-        {{Form::submit('Αποθήκευση Δήλωσης', ['class'=>'btn btn-primary'])}}
-        {!! Form::close() !!}
         {{-- {{$data['eksetaseis']->links()}} --}}
+
 
     </div>
     @endsection

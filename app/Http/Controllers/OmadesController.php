@@ -33,11 +33,14 @@ class OmadesController extends Controller
         $lesson = Lesson::where('name', $lesson_name)->first();
         $title = $lesson_name;
         $subtitle = "Ομάδες Χρηστών";
-        $teams = $lesson->teams()->paginate(6);
+        $teams = $lesson->teams()->paginate(5);
 
+        $user_id = auth()->user()->id;
+        $user = User::find($user_id);
 
-        return view('teams.teams_index')->with('data', [ 'title' =>  $title, 'subtitle' =>  $subtitle,'lesson'=>$lesson,'teams'=>$teams]);
-        ;
+        $user_teams = $user-> subscribed_teams()->get();
+
+        return view('teams.teams_index')->with('data', [ 'title' =>  $title, 'subtitle' =>  $subtitle,'lesson'=>$lesson,'teams'=>$teams,'subscriptions'=>$user_teams]);
     }
 
     public function create_new_group($lesson_name)
@@ -93,11 +96,19 @@ class OmadesController extends Controller
         $subtitle = "Ομάδες Χρηστών";
         $group = Omada::where('id', $group_id)->first();
 
+        if ($group->is_locked) {
+            if ($group->members()->where('user_id', auth()->user()->id)->first()) {
+                return view('teams.team_page')->with('data', [ 'title' =>  $title, 'subtitle' =>  $subtitle,'lesson'=>$lesson,'group'=>$group]);
+            }
+
+            return redirect('lessons/'.$lesson_name.'/groups')->with('error', 'Δεν έχετε δικαίωμα πρόσβασης στην ομάδα: '.$group->name);
+        }
+
         return view('teams.team_page')->with('data', [ 'title' =>  $title, 'subtitle' =>  $subtitle,'lesson'=>$lesson,'group'=>$group]);
         ;
     }
 
-    public function subscribe_to_group($lesson_name, $group_id,Request $request)
+    public function subscribe_to_group($lesson_name, $group_id, Request $request)
     {
         $user_id = auth()->user()->id;
         $user = User::find($user_id);

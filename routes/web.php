@@ -34,8 +34,6 @@ Route::get('lessons/{lesson_name}/forum/{sizitisi_id}/{post_id}', 'ForumControll
 Route::get('lessons/{lesson_name}/forum/create/{sizitisi_id}/{post_id}', 'ForumController@add_post');
 Route::post('lessons/{lesson_name}/forum/create/{sizitisi_id}/{post_id}', 'ForumController@create_post');
 
-
-
 //profile routes
 Route::get('profile/settings', 'ProfileController@profile_index');
 Route::post('profile/settings', 'ProfileController@profile_update');
@@ -43,10 +41,15 @@ Route::get('profile/statistics', 'ProfileController@get_statistika_foititi');
 Route::post('profile/statistics', 'ProfileController@scrape_progress');
 Route::get('profile/statistics/download', 'ProfileController@download_grades_file');
 
-
 // eksetastiki routes
 Route::get('exams/program', 'ExamsController@show_exams_program');
-Route::get('exams/participation', 'ExamsController@participation_index');
+Route::get('exams/participation', 'ParticipationExamsController@show_eksetastiki');
+Route::post('exams/participation', 'ParticipationExamsController@apothikeuse_dilosi_eksetastiki');
+
+Route::get('exams/', 'ExamsController@show_exetastiki_index');
+Route::get('exams/create', 'ExamsController@create_new_exam');
+Route::post('exams/create', 'ExamsController@save_new_exam');
+
 // ergasies routes
 Route::get('lessons/{lesson_name}/homework', 'ErgasiesController@show_homework');
 Route::get('lessons/{lesson_name}/homework/create', 'ErgasiesController@create_ergasia');
@@ -56,7 +59,7 @@ Route::post('lessons/{lesson_name}/homework/{ergasia_id}', 'ErgasiesController@p
 Route::post('lessons/{lesson_name}/homework/{ergasia_id}/grade', 'ErgasiesController@grade_homework');
 Route::get('lessons/{lesson_name}/homework/{ergasia_id}/{file_name}', 'ErgasiesController@download_file');
 
-// teams routes
+// groups routes
 Route::get('lessons/{lesson_name}/groups', 'OmadesController@show_groups');
 Route::get('lessons/{lesson_name}/groups/create', 'OmadesController@create_new_group');
 Route::post('lessons/{lesson_name}/groups/create', 'OmadesController@save_new_group');
@@ -66,5 +69,10 @@ Route::post('lessons/{lesson_name}/groups/{group_id}', 'OmadesController@subscri
 
 // anakoinoseis routes
 
+// admin routes
+Route::get('admin/', 'AdminController@admin_index');
 // authentication routes
 Auth::routes();
+
+
+Route::get('/home', 'HomeController@index')->name('home');

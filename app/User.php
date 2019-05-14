@@ -64,6 +64,11 @@ class User extends Authenticatable
         return $this->hasMany('App\Anartisi');
     }
 
+    public function simmetoxi_se_eksetasi()
+    {
+        return $this->hasMany('App\Dilosi');
+    }
+
     public function getFullNameAttribute()
     {
         return "{$this->name} {$this->surname} {$this->id}";

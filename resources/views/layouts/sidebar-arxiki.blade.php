@@ -70,7 +70,8 @@
                 </p>
                 <ul class="menu-list">
                     <li><a>Προβολή Προγράμματος</a></li>
-                    <li><a>Δήλωση Εξέτασης</a></li>
+                    <li><a href="/exams">Διαχείριση Εξετάσεων</a></li>
+                    <li><a href="/exams/create">Δήλωση Εξέτασης</a></li>
                 </ul>
                 <p class="menu-label">
                     <i class="fa fa-user" aria-hidden="true"></i> Προφίλ

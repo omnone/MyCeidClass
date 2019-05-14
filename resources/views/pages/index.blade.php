@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content') {{-- titlos selidas --}}
-    @include('layouts.sidebar-arxiki')
+@include('layouts.sidebar-arxiki')
 <div class="card" id='whereami'>
     Αρχική Σελίδα
 </div>
@@ -14,13 +14,13 @@
                 <div class="col-md-7">
                     Τα μαθήματά μου
                 </div>
-
                 {{-- search a lesson box - add a form --}}
-                <div class="col-md-5 is-pulled-right">
+               <div class="col-md-3 is-pulled-right">
                     {!! Form::open(array('method' => 'Get', 'route' => array('lessons.search_result'))) !!}
                     <div class="field has-addons ">
                         <div class="control">
-                            {{-- <input class="form-control" type="text" name='searchlesson' id="searchBox" placeholder="Αναζήτηση Μαθήματος">                            --}} {!! Form::text('searchlesson',null,['id' => 'searchBox','class'=>'input','placeholder'=>"Αναζήτηση
+                            {!! Form::text('searchlesson',null,['id' =>
+                            'searchBox','class'=>'input','placeholder'=>"Αναζήτηση
                             Μαθήματος"]) !!}
                         </div>
                         <div class="control">
@@ -37,20 +37,20 @@
         <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
             <thead class="has-background-light">
                 <tr>
-                    <th scope="col">Μάθημα</th>
-                    <th scope="col">Εξάμηνο</th>
-                    <th scope="col">Υπεύθυνος</th>
-                    <th scope="col"></th>
+                    <th>Μάθημα</th>
+                    <th>Εξάμηνο</th>
+                    <th>Υπεύθυνος</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
                 @if($lessons->count() >=1)
                 @foreach ($lessons as $lesson)
                 <tr>
-                    <th scope="row"><a href="/lessons/{{$lesson->name}}">{{$lesson->name}}<a></th>
-                                        <td>{{$lesson->eksamino}}</td>
-                                        <td>{{$lesson->teacher->surname}} {{$lesson->teacher->name}}</td>
-                                        <td><a href="/lessons/{{$lesson->name}}"><i class="fa fa-sign-in" aria-hidden="true"></i></a></td>
+                    <th><a href="/lessons/{{$lesson->name}}">{{$lesson->name}}</a></th>
+                    <td>{{$lesson->eksamino}}</td>
+                    <td>{{$lesson->teacher->surname}} {{$lesson->teacher->name}}</td>
+                    <td><a href="/lessons/{{$lesson->name}}"><i class="fa fa-sign-in" aria-hidden="true"></i></a></td>
                 </tr>
                 @endforeach
                 @endif
@@ -68,13 +68,13 @@
                     Τα μαθήματα μου
                 </div>
 
-               {{-- search a lesson box - add a form --}}
+                {{-- search a lesson box - add a form --}}
                 <div class="col-md-3 is-pulled-right">
                     {!! Form::open(array('method' => 'Get', 'route' => array('lessons.search_result'))) !!}
                     <div class="field has-addons ">
                         <div class="control">
-                            {{-- <input class="form-control" type="text" name='searchlesson' id="searchBox" placeholder="Αναζήτηση Μαθήματος">                            --}}
-                            {!! Form::text('searchlesson',null,['id' => 'searchBox','class'=>'input','placeholder'=>"Αναζήτηση
+                            {!! Form::text('searchlesson',null,['id' =>
+                            'searchBox','class'=>'input','placeholder'=>"Αναζήτηση
                             Μαθήματος"]) !!}
                         </div>
                         <div class="control">
@@ -100,10 +100,10 @@
             <tbody>
                 @isset($lessons) @foreach ($lessons as $lesson)
                 <tr>
-                    <th scope="row"><a href="/lessons/{{$lesson->name}}">{{$lesson->name}}<a></th>
-                                                    <td>{{$lesson->eksamino}}</td>
-                                                    <td>{{$lesson->periodos}}</td>
-                                                    <td>{{count($lesson->subscribers)}}</td>
+                    <th><a href="/lessons/{{$lesson->name}}">{{$lesson->name}}<a></th>
+                    <td>{{$lesson->eksamino}}</td>
+                    <td>{{$lesson->periodos}}</td>
+                    <td>{{count($lesson->subscribers)}}</td>
                 </tr>
                 @endforeach
                 @endisset
@@ -131,9 +131,9 @@
                 </tr>
             </thead>
             <tbody>
-                    @if($lessons->count() >=1)
-                    <tr>
-                    <td scope="row"><a href="/lessons/{{$lesson->name}}">Τεχνολογία Λογισμικού</a></td>
+                @if($lessons->count() >=1)
+                <tr>
+                    <td><a href="/lessons/{{$lesson->name}}">Τεχνολογία Λογισμικού</a></td>
                     <td>Παράδοση Εργασίων Εξαμήνου</td>
                     <td>12-09-2019</td>
                     <td>Ξοε Ντοε</td>
@@ -164,7 +164,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <th scope="row"><a href="/lessons/{{$lesson->name}}">Τεχνολογία Λογισμικού</a></th>
+                    <th><a href="/lessons/{{$lesson->name}}">Τεχνολογία Λογισμικού</a></th>
                     <td>Παράδοση Εργασίων Εξαμήνου</td>
                     <td>12-09-2019</td>
                     <td>Ξοε Ντοε</td>

@@ -17,9 +17,10 @@
                     {{$data['subtitle']}}
                 </div>
                 <div class="col-md-3">
+                    @if(Auth::user()->role !='student')
                     <a class="button is-primary" href="/lessons/{{$data['title']}}/groups/create">
                         Δημιουργία Ομάδας</a>
-
+                    @endif
                 </div>
             </div>
         </div>
@@ -39,7 +40,8 @@
                 @if(count($data['teams']) > 0)
                 @foreach ($data['teams'] as $team)
                 <tr>
-                    <td class=""><a href="/lessons/{{$data['title']}}/groups/{{$team->id}}">
+                    <td class="">
+                        <a href="/lessons/{{$data['title']}}/groups/{{$team->id}}">
                             <b>{{$team->name}}</b>
                         </a>
                         <div class="smaller">{{$team->created_at}}</div>
@@ -48,17 +50,42 @@
                     <td class="">{{$team->members->count()}}</td>
                     <td class="">{{$team->members_limit}}</td>
                     <td>
-                        {!! Form::open(['action' => ['OmadesController@subscribe_to_group',$data['title'],$team->id],
-                        'method' =>
-                        'POST',]) !!}
-                        {{ Form::hidden('mode', 'subscribe') }}
-                        <button class="button is-success">
+                        @if($team->is_locked==false)
+                            @if($data['subscriptions']->contains('id', $team->id))
+                            {!! Form::open(['action' =>
+                            ['OmadesController@subscribe_to_group',$data['title'],$team->id],
+                            'method' =>
+                            'POST',]) !!}
+                            {{ Form::hidden('mode', 'unsubscribe') }}
+                            <button class="button is-danger ">
+                                <span>Απεγγραφή</span>
+                                <span class="icon is-small">
+                                    <i class="fa fa-minus-circle" aria-hidden="true"></i>
+                                </span>
+                            </button>
+                            {!! Form::close() !!}
+                            @else
+                            {!! Form::open(['action' => ['OmadesController@subscribe_to_group',$data['title'],$team->id],
+                            'method' =>
+                            'POST',]) !!}
+                            {{ Form::hidden('mode', 'subscribe') }}
+                            <button class="button is-success">
+                                <span>Εγγραφή</span>
+                                <span class="icon is-small">
+                                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                </span>
+                            </button>
+                            {!! Form::close() !!}
+                            @endif
+                        @else
+                        <button class="button is-success" disabled>
                             <span>Εγγραφή</span>
                             <span class="icon is-small">
                                 <i class="fa fa-plus-circle" aria-hidden="true"></i>
                             </span>
                         </button>
-                        {!! Form::close() !!}
+
+                        @endif
                     </td>
 
                 </tr>

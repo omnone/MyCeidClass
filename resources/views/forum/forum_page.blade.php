@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content') {{-- titlos selidas --}}
-@include('layouts.sidebar-arxiki')
+@include('layouts.sidebar-mathima')
 <div class="card" id='whereami'>
     {{$data['title']}}</div>
 
