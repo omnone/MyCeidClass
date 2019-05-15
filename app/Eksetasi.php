@@ -11,7 +11,7 @@ class Eksetasi extends Model
 
     public function rooms()
     {
-        return $this->hasMany('App\Aithousa');
+        return $this->belongsToMany('App\Aithousa', 'aithouses_eksetasis', 'eksetasi_id');
     }
 
     public function eksetastiki()
@@ -26,6 +26,6 @@ class Eksetasi extends Model
 
     public function simmetoxes()
     {
-        return $this->hasMany('App\Dilosi')->withTimestamps();
+        return $this->hasMany('App\Dilosi');
     }
 }

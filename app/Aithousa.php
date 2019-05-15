@@ -8,8 +8,9 @@ class Aithousa extends Model
 {
     protected $table = 'aithouses';
 
-    public function used_for_exams()
+    public function eksetaseis()
     {
-        return $this->belongsToMany('App\Eksetasi')->withTimestamps();
+        return $this->belongsToMany('App\Eksetasi','aithouses_eksetasis','aithousa_id')->withTimestamps();
+        ;
     }
 }

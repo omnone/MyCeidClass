@@ -11,6 +11,6 @@ class Omada extends Model
 
     public function members()
     {
-        return $this->belongsToMany('App\User')->withTimestamps();;
+        return $this->belongsToMany('App\User')->withTimestamps();
     }
 }

@@ -30,7 +30,8 @@
                     <th>Μάθημα</th>
                     <th>Ημ/νια Εξέτασης</th>
                     <th>Προθεσμία Δήλωσης</th>
-                    <th></th>
+                    <th>Αίθουσες</th>
+                    <th>Συμμετοχή</th>
                 </tr>
             </thead>
             <tbody>
@@ -41,6 +42,9 @@
                     <td>{{$eksetasi->lesson->name}}</td>
                     <td>{{$eksetasi->imerominia_eksetasis}} {{$eksetasi->ora_eksetasis}}</td>
                     <td>{{$eksetasi->prothesmia_dilosis}}</td>
+                    <td>@foreach($eksetasi->rooms as $room)
+                        {{$room->name}},
+                        @endforeach</td>
                     <td>
                         <div class="form-group">
                             @if($data['simmetoxes']->contains('eksetasi_id', $eksetasi->id))

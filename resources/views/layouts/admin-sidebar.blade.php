@@ -26,9 +26,9 @@
                     <i class="fa fa-book" aria-hidden="true"></i> Εξεταστική
                 </p>
                 <ul class="menu-list">
-                    <li><a href="/exams/program">Δημιουργία Εβδ. Προγράμματος</a></li>
-                    <li><a href="/exams/program">Δημιουργία Προγράμματος Εξεταστικής</a></li>
-                    <li><a href="/exams/participation">Δημιουργία Εξεταστικής</a></li>
+                    <li><a>Δημιουργία Εβδ. Προγράμματος</a></li>
+                    <li><a>Δημιουργία Προγράμματος Εξεταστικής</a></li>
+                    <li><a href="/admin/exetastiki/create">Δημιουργία Εξεταστικής</a></li>
                     <li><a href="/exams/participation">Διαχείριση Εξεταστικής</a></li>
                 </ul>
                 <p class="menu-label">

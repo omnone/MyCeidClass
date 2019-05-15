@@ -41,7 +41,12 @@
                     <td>{{$eksetasi->imerominia_eksetasis}} {{$eksetasi->ora_eksetasis}}</td>
                     <td>0</td>
                     <td>{{$eksetasi->prothesmia_dilosis}}</td>
-                    <td><a href="">Επιλογή Αιθουσών</a></td>
+                    <td>
+                        @foreach($eksetasi->rooms as $room)
+                        {{$room->name}},
+                        @endforeach
+                        <br>
+                        <small><a href="/exams/{{$eksetasi->id}}/rooms">Επιλογή Αιθουσών</a></small></td>
                 </tr>
                 @endforeach
 

@@ -9,6 +9,10 @@ use App\Lesson;
 use App\Eksetasi;
 use App\Aithousa;
 use App\Eksetastiki_Periodos;
+use App\Aithousa_Eksetasis;
+
+
+use Illuminate\Database\Eloquent\Builder;
 
 class ExamsController extends Controller
 {
@@ -81,5 +85,51 @@ class ExamsController extends Controller
         $exam->save();
 
         return redirect('http://localhost:8000/exams/')->with('success', 'Η δήλωση του μαθήματος πραγματοποιήθηκε με επιτυχία!');
+    }
+
+    public function epilogi_aithouswn_eksetasis($exam_id)
+    {
+        $eksetasi = Eksetasi::find($exam_id);
+        $epithimiti_imerominia = $eksetasi->imerominia_eksetasis;
+
+        $rooms = Aithousa::whereDoesntHave('eksetaseis', function (Builder $query) use ($epithimiti_imerominia) {
+            $query->whereRaw('`eksetaseis`.`imerominia_eksetasis` = \''.$epithimiti_imerominia.'\'');
+        })->get();
+
+        if ($rooms->isEmpty()) {
+            return redirect('http://localhost:8000/')->with('error', 'Δεν υπάρχουν διαθέσιμες αίθουσες για: '.$epithimiti_imerominia);
+        }
+
+        $already_selected = "";
+
+        foreach (Aithousa::whereHas('eksetaseis', function (Builder $query) use ($epithimiti_imerominia) {
+            $query->whereRaw('`eksetaseis`.`imerominia_eksetasis` = \''.$epithimiti_imerominia.'\'');
+        })->get() as $room) {
+            $already_selected.=$room->name.',';
+        }
+
+        return view("exams.epilogi_aithousas")->with('data', ['eksetasi' => $eksetasi,'rooms'=>$rooms,'selected_rooms'=>$already_selected]);
+    }
+
+    public function save_aithouses_eksetastikis($exam_id, Request $request)
+    {
+        $eksetasi = Eksetasi::find($exam_id);
+
+        foreach ($request->selected_rooms as $selected_room) {
+            $room = Aithousa::find($selected_room);
+
+            // foreach ($room->eksetaseis()->get() as $temp) {
+            //     if ($temp->imerominia_eksetasis == $eksetasi->imerominia_eksetasis) {
+            //         return 'piasmenis';
+            //     }
+            // }
+
+            $aithousa_eksetasis = new Aithousa_Eksetasis;
+            $aithousa_eksetasis->eksetasi_id = $eksetasi->id;
+            $aithousa_eksetasis->aithousa_id = $selected_room;
+            $aithousa_eksetasis->save();
+
+            return redirect('http://localhost:8000/exams/'.$exam_id.'/rooms')->with('success', 'Η δήλωση του μαθήματος πραγματοποιήθηκε με επιτυχία!');
+        }
     }
 }

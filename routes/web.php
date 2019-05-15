@@ -42,13 +42,15 @@ Route::post('profile/statistics', 'ProfileController@scrape_progress');
 Route::get('profile/statistics/download', 'ProfileController@download_grades_file');
 
 // eksetastiki routes
+Route::get('exams/', 'ExamsController@show_exetastiki_index');
 Route::get('exams/program', 'ExamsController@show_exams_program');
 Route::get('exams/participation', 'ParticipationExamsController@show_eksetastiki');
 Route::post('exams/participation', 'ParticipationExamsController@apothikeuse_dilosi_eksetastiki');
-
-Route::get('exams/', 'ExamsController@show_exetastiki_index');
 Route::get('exams/create', 'ExamsController@create_new_exam');
 Route::post('exams/create', 'ExamsController@save_new_exam');
+Route::get('exams/{exam_id}/rooms', 'ExamsController@epilogi_aithouswn_eksetasis');
+Route::post('exams/{exam_id}/rooms', 'ExamsController@save_aithouses_eksetastikis');
+
 
 // ergasies routes
 Route::get('lessons/{lesson_name}/homework', 'ErgasiesController@show_homework');
@@ -71,6 +73,12 @@ Route::post('lessons/{lesson_name}/groups/{group_id}', 'OmadesController@subscri
 
 // admin routes
 Route::get('admin/', 'AdminController@admin_index');
+Route::get('admin/exetastiki/', 'AdminController@eksetastiki_index');
+Route::post('admin/exetastiki/', 'AdminController@save_eksetastiki');
+Route::get('admin/exetastiki/create', 'AdminController@create_eksetastiki');
+
+
+
 // authentication routes
 Auth::routes();
 
