@@ -42,7 +42,7 @@
                         <div class="smaller"></div>
                     </td>
                     <td class="text-center">{{$sizitisi->description}}</td>
-                    <td class="text-center">20</td>
+                    <td class="text-center">{{$sizitisi->anartiseis->count()}}</td>
                     <td class="text-center"><span class="smaller">Ξοε Δοε&nbsp;<a href=""><span class="fa fa-comment-o"
                                     title="" data-toggle="tooltip"
                                     data-original-title="Τελευταία ανάρτηση"></span></a><br>08/04/2019

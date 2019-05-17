@@ -48,7 +48,7 @@
                         <div class="smaller">{{$anartisi->created_at}}</div>
                     </td>
                     <td class="">{{$anartisi->posted_by->name}} {{$anartisi->posted_by->surname}}</td>
-                    <td class="">1</td>
+                    <td class="">{{$anartisi->apantiseis->count()}}</td>
                     <td class=""><span class="smaller">Foit Foititis&nbsp;<a href=""><span class="fa fa-comment-o"
                                     title="" data-toggle="tooltip"
                                     data-original-title="Τελευταία ανάρτηση"></span></a><br>08/04/2019

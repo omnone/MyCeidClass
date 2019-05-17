@@ -2,7 +2,7 @@
 @section('content') {{-- titlos selidas --}}
 @include('layouts.sidebar-arxiki')
 <div class="card" id='whereami'>
-    Εξεταστική
+    {{$data['eksetastiki']->name}}
 </div>
 
 <br />

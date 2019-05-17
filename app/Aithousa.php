@@ -10,7 +10,7 @@ class Aithousa extends Model
 
     public function eksetaseis()
     {
-        return $this->belongsToMany('App\Eksetasi','aithouses_eksetasis','aithousa_id')->withTimestamps();
+        return $this->belongsToMany('App\Eksetasi', 'aithouses_eksetasis', 'aithousa_id')->withTimestamps();
         ;
     }
 }

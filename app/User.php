@@ -73,4 +73,14 @@ class User extends Authenticatable
     {
         return "{$this->name} {$this->surname} {$this->id}";
     }
+
+    public function send_messages()
+    {
+        return $this->hasMany('App\Message', 'sender_id');
+    }
+
+    public function inbox_messages()
+    {
+        return $this->hasMany('App\Message', 'receiver_id');
+    }
 }

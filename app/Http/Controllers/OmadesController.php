@@ -27,22 +27,23 @@ class OmadesController extends Controller
         $this->middleware('auth');
     }
 
-
+    // dikse oles tis diathesimes omades
     public function show_groups($lesson_name)
     {
         $lesson = Lesson::where('name', $lesson_name)->first();
         $title = $lesson_name;
         $subtitle = "Ομάδες Χρηστών";
-        $teams = $lesson->teams()->paginate(5);
+        $teams = $lesson->teams()->orderby('created_at', 'desc')->paginate(5);
 
         $user_id = auth()->user()->id;
         $user = User::find($user_id);
 
-        $user_teams = $user-> subscribed_teams()->get();
+        $user_teams = $user->subscribed_teams()->get();
 
         return view('teams.teams_index')->with('data', [ 'title' =>  $title, 'subtitle' =>  $subtitle,'lesson'=>$lesson,'teams'=>$teams,'subscriptions'=>$user_teams]);
     }
 
+    // dimiourgise mia kainourgia omada gia kathigiti
     public function create_new_group($lesson_name)
     {
         $lesson = Lesson::where('name', $lesson_name)->first();
@@ -55,13 +56,12 @@ class OmadesController extends Controller
         return view('teams.create_team')->with('data', [ 'title' =>  $title, 'subtitle' =>  $subtitle,'lesson'=>$lesson,'students'=>$students]);
     }
 
+    // apothikeuse nea omada
     public function save_new_group($lesson_name, Request $request)
     {
         $lesson = Lesson::where('name', $lesson_name)->first();
 
         $messages = [ 'required' => 'Παρακαλώ συμπληρώστε τα απαραίτητα πεδία.',];
-
-
 
         $validator = \Validator::make($request->all(), [
           'title' => '|required',
@@ -89,6 +89,7 @@ class OmadesController extends Controller
         return $this->show_groups($lesson_name);
     }
 
+    // dikse tin selida sigkekrimenis omadas
     public function show_group($lesson_name, $group_id)
     {
         $lesson = Lesson::where('name', $lesson_name)->first();
@@ -108,6 +109,7 @@ class OmadesController extends Controller
         ;
     }
 
+    // eggrafi se anoixti omada
     public function subscribe_to_group($lesson_name, $group_id, Request $request)
     {
         $user_id = auth()->user()->id;

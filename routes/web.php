@@ -37,9 +37,10 @@ Route::post('lessons/{lesson_name}/forum/create/{sizitisi_id}/{post_id}', 'Forum
 //profile routes
 Route::get('profile/settings', 'ProfileController@profile_index');
 Route::post('profile/settings', 'ProfileController@profile_update');
-Route::get('profile/statistics', 'ProfileController@get_statistika_foititi');
 Route::post('profile/statistics', 'ProfileController@scrape_progress');
 Route::get('profile/statistics/download', 'ProfileController@download_grades_file');
+Route::get('profile/statistics/{mode}', 'ProfileController@get_statistika_foititi');
+
 
 // eksetastiki routes
 Route::get('exams/', 'ExamsController@show_exetastiki_index');
@@ -69,7 +70,18 @@ Route::get('lessons/{lesson_name}/groups/{group_id}', 'OmadesController@show_gro
 Route::post('lessons/{lesson_name}/groups/{group_id}', 'OmadesController@subscribe_to_group');
 
 
-// anakoinoseis routes
+//messages routes
+Route::get('messages/create', 'MessagesController@create_new_message');
+Route::post('messages/create', 'MessagesController@send_message');
+Route::get('messages/user', 'MessagesController@find_user')->name('messages.find_user');
+Route::get('messages/{mode}', 'MessagesController@show_messages');
+Route::get('messages/{mode}/{message_id}', 'MessagesController@read_message');
+Route::get('messages/{mode}/{message_id}/{file_name}', 'MessagesController@download_file');
+
+
+
+
+
 
 // admin routes
 Route::get('admin/', 'AdminController@admin_index');

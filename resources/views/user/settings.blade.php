@@ -2,7 +2,7 @@
 @section('content') {{-- titlos selidas --}}
 @include('layouts.sidebar-arxiki')
 <div class="card" id='whereami'>
-   Διαχείριση Προφίλ
+    Διαχείριση Προφίλ
 </div>
 
 <br />
@@ -23,11 +23,11 @@
             'enctype' => 'multipart/form-data']) !!}
             <div class="form-group">
                 {{Form::label('name', 'Όνομα')}}
-                {{Form::text('name', $user->name, ['class' => 'form-control', 'placeholder' => 'Όνομα'])}}
+                {{Form::text('name', $user->name, ['class' => 'form-control', 'placeholder' => 'Όνομα' ,'disabled'=>'disabled'])}}
             </div>
             <div class="form-group">
                 {{Form::label('surname', 'Επώνυμο')}}
-                {{Form::text('surname', $user->surname, ['class' => 'form-control', 'placeholder' => 'Επώνυμο'])}}
+                {{Form::text('surname', $user->surname, ['class' => 'form-control', 'placeholder' => 'Επώνυμο','disabled'=>'disabled'])}}
             </div>
             <div class="form-group">
                 {{Form::label('email', 'Email')}}
@@ -36,6 +36,10 @@
             <div class="form-group">
                 {{Form::label('password', 'Κωδικός Χρήστη')}}
                 {{ Form::password('password',['class' => 'form-control', 'placeholder' => 'Κωδικός Χρήστη']) }}
+            </div>
+            <div class="form-group">
+                {{Form::label('conf_password', 'Επαλήθευση Κωδικού')}}
+                {{ Form::password('conf_password',['class' => 'form-control', 'placeholder' => 'Επαλήθευση Κωδικού']) }}
             </div>
             <div class="form-group">
                 {{Form::label('profile_photo', 'Φωτογραφία Προφίλ')}}

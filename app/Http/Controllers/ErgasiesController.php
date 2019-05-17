@@ -138,7 +138,7 @@ EOD;
             $title = $lesson_name;
             $subtitle = "Εργασία";
 
-            $ergasies = $lesson->ergasies()->orderBy('created_at')->get();
+            $ergasies = $lesson->ergasies()->orderBy('created_at', 'desc')->get();
 
             if (auth()->user()->role == "student") {
                 $table_head =  <<<EOD

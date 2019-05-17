@@ -88,14 +88,19 @@ table.is-scrollable tbody tr {
     table-layout: fixed;
 }
 
-.table-container{
-    height:30em;
+.table-container {
+    height: 30em;
 }
 
-.from{
-    width:15%;
+.from {
+    width: 15%;
 }
 
-.container-custom{
-    padding-right:20%;
+.container-custom {
+    padding-right: 20%;
+}
+
+
+.message-body {
+    border-left-style: solid;
 }

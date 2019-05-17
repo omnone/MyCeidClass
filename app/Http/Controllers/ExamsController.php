@@ -34,8 +34,11 @@ class ExamsController extends Controller
         $eksetaseis = $eksetastiki->exams()->get();
 
         return view("exams.exams_index_prof")->with('data', ['eksetaseis'=>$eksetaseis ,'eksetastiki' => $eksetastiki]);
-        ;
     }
+
+    // public function show_exams_program()
+    // {
+    // }
 
     public function create_new_exam()
     {

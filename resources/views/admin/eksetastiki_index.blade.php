@@ -16,8 +16,6 @@
                 </div>
                 <div class="col-md-3">
 
-                    <a class="button is-primary" href="/exams/create">
-                        Δημιουργία Εξέτασης</a>
                 </div>
             </div>
         </div>
@@ -61,8 +59,10 @@
                             {{-- {{$eksetasi->ora_eksetasis}} --}}
                         </td>
                     </div>
-                    <td>0</td>
-                    <td>{{$eksetasi->rooms}}</td>
+                    <td>{{$eksetasi->simmetoxes->count()}}</td>
+                    <td>@foreach($eksetasi->rooms as $room)
+                        {{$room->name}},
+                        @endforeach</td>
                     <td>{{Form::submit('Οριστικοποίηση Εξέτασης', ['class'=>'btn btn-primary'])}}
                     </td>
                     {!! Form::close() !!}

@@ -20,6 +20,8 @@ use App\Fwtografia;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 
+use Hash;
+
 class ProfileController extends Controller
 {
     /**
@@ -45,18 +47,18 @@ class ProfileController extends Controller
     public function profile_update(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required',
-            'surname' => 'required',
             'email' => 'required',
-            'profile_photo' => 'file|nullable|max:1999'
+            'profile_photo' => 'file|nullable|max:1999',
+             'password' => '|same:password',
+    'conf_password' => '|same:password',
         ]);
 
         $user_id = auth()->user()->id;
         $user = User::find($user_id);
 
-        $user->name=$request->name;
-        $user->surname=$request->surname;
+
         $user->email=$request->email;
+        $user->password = Hash::make($request->password);
         $user->save();
 
 
@@ -94,24 +96,24 @@ class ProfileController extends Controller
 
 
     //statistika foititi
-    public function get_statistika_foititi()
+    public function get_statistika_foititi($mode)
     {
         $user_id = auth()->user()->id;
         $user = User::find($user_id);
 
         $bathmoi = $user->grades()->get();
-        $perasmena = $user->grades()->where('grade', '>', 5.0)->orderBy('periodos')->get();
-        $xrostoumena = $user->grades()->where('grade', '=', 0.0)->orderBy('periodos')->get();
-
+        $perasmena = $user->grades()->where('grade', '>', 5.0)->orderBy('grade', 'desc')->paginate(10);
+        $xrostoumena = $user->grades()->where('grade', '=', 0.0)->orderBy('periodos')->paginate(10);
 
         if ($bathmoi->isEmpty()) {
             return view('user.connect_to_progress');
         }
 
-        return view('user.student_statistics')->with('data', ['xrostoumena'=>$xrostoumena,'perasmena' =>$perasmena]);
+        return view('user.student_statistics')->with('data', ['xrostoumena'=>$xrostoumena,'perasmena' =>$perasmena,'mode'=>$mode]);
         ;
     }
 
+    // arxeio vathmologias foititi
     public function download_grades_file()
     {
         return $this->generate_grades_file();
@@ -174,7 +176,7 @@ class ProfileController extends Controller
         $grade_file->save();
 
 
-        Storage::disk('local')->move('public/grades_files/grades.csv', 'public/grades_files/grades_'.auth()->user()->id.'.csv');
+        Storage::disk('local')->move('public/grades_files/grades.csv', 'public/grades_files/grades_'.auth()->user()->surname.'_'.auth()->user()->id.'.csv');
 
 
         array_shift($all_lessons);

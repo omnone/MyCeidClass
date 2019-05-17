@@ -7,7 +7,7 @@
                 <p class="menu-label">
 
                 </p>
-                <div class="container ">
+                {{-- <div class="container ">
                     <ul class="menu-list">
                         <div id='basic-user-info'>
                             <figure class="image is-128x128">
@@ -22,7 +22,7 @@
                             <li><a>{{ Auth::user()->email }}</a></li>
                         </div>
                     </ul>
-                </div>
+                </div> --}}
 
                 <hr> {{-- student sidebar --}} @if(Auth::user()->role =='student')
                 <p class="menu-label">
@@ -32,6 +32,18 @@
                     <li><a href="/lessons">Όλα τα μαθήματα</a></li>
                     <li><a href="/lessons/subscriptions">Τα μαθήματά μου</a></li>
                     <li><a href="/lessons/all/homework">Οι εργασίες μου</a></li>
+                </ul>
+                <p class="menu-label">
+                    <i class="fa fa-comments" aria-hidden="true"></i> Μηνύματα
+                </p>
+                <ul class="menu-list">
+                    <li><a href="/messages/inbox">Εισερχόμενα Μηνύματα
+                            @if($num_inbox>0)
+                            ({{$num_inbox}})
+                            @endif
+                        </a></li>
+                    <li><a href="/messages/send">Σταλμένα Μηνύματα</a></li>
+                    {{-- <li><a href="/messages/create">Δημιουργία Μηνύματος</a></li> --}}
                 </ul>
                 <p class="menu-label">
                     <i class="fa fa-book" aria-hidden="true"></i> Εξεταστική
@@ -45,7 +57,7 @@
                 </p>
                 <ul class="menu-list">
                     <li><a href="/profile/settings">Διαχείριση Προφίλ</a></li>
-                    <li><a href="/profile/statistics">Στατιστικά Στοιχεία</a></li>
+                    <li><a href="/profile/statistics/general">Στατιστικά Στοιχεία</a></li>
                     <li>
                         <hr>
                     </li>
@@ -56,7 +68,8 @@
                         </a>
                     </li>
                 </ul>
-                {{-- profesor sidebar --}} @else
+                {{-- profesor sidebar --}}
+                @else
                 <p class="menu-label">
                     <i class="fa fa-university" aria-hidden="true"></i> Μαθήματα
                 </p>
@@ -64,6 +77,18 @@
                     <li><a href="/lessons/subscriptions">Τα μαθήματά μου</a></li>
                     <li><a href="/lessons/all/homework">Οι εργασίες μου</a></li>
                     <li><a>Τα εργαστηριά μου</a></li>
+                </ul>
+                <p class="menu-label">
+                    <i class="fa fa-comments" aria-hidden="true"></i> Μηνύματα
+                </p>
+                <ul class="menu-list">
+                    <li><a href="/messages/inbox">Εισερχόμενα Μηνύματα
+                            @if($num_inbox>0)
+                            ({{$num_inbox}})
+                            @endif
+                        </a></li>
+                    <li><a href="/messages/send">Σταλμένα Μηνύματα</a></li>
+                    {{-- <li><a href="/messages/create">Δημιουργία Μηνύματος</a></li> --}}
                 </ul>
                 <p class="menu-label">
                     <i class="fa fa-book" aria-hidden="true"></i> Εξεταστική
@@ -78,7 +103,7 @@
                 </p>
                 <ul class="menu-list">
                     <li><a href="/profile/settings">Διαχείριση Προφίλ</a></li>
-                    <li><a>Στατιστικά Στοιχεία</a></li>
+                    <li><a disabled>Στατιστικά Στοιχεία</a></li>
                     <li>
                         <hr>
                     </li>

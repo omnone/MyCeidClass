@@ -51,32 +51,46 @@
                     <td class="">{{$team->members_limit}}</td>
                     <td>
                         @if($team->is_locked==false)
-                            @if($data['subscriptions']->contains('id', $team->id))
-                            {!! Form::open(['action' =>
-                            ['OmadesController@subscribe_to_group',$data['title'],$team->id],
-                            'method' =>
-                            'POST',]) !!}
-                            {{ Form::hidden('mode', 'unsubscribe') }}
-                            <button class="button is-danger ">
-                                <span>Απεγγραφή</span>
-                                <span class="icon is-small">
-                                    <i class="fa fa-minus-circle" aria-hidden="true"></i>
-                                </span>
-                            </button>
-                            {!! Form::close() !!}
-                            @else
-                            {!! Form::open(['action' => ['OmadesController@subscribe_to_group',$data['title'],$team->id],
-                            'method' =>
-                            'POST',]) !!}
-                            {{ Form::hidden('mode', 'subscribe') }}
-                            <button class="button is-success">
-                                <span>Εγγραφή</span>
-                                <span class="icon is-small">
-                                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                                </span>
-                            </button>
-                            {!! Form::close() !!}
-                            @endif
+                        @if($data['subscriptions']->contains('id', $team->id))
+                        {!! Form::open(['action' =>
+                        ['OmadesController@subscribe_to_group',$data['title'],$team->id],
+                        'method' =>
+                        'POST',]) !!}
+                        {{ Form::hidden('mode', 'unsubscribe') }}
+                        <button class="button is-danger ">
+                            <span>Απεγγραφή</span>
+                            <span class="icon is-small">
+                                <i class="fa fa-minus-circle" aria-hidden="true"></i>
+                            </span>
+                        </button>
+                        {!! Form::close() !!}
+                        @else
+                        {!! Form::open(['action' => ['OmadesController@subscribe_to_group',$data['title'],$team->id],
+                        'method' =>
+                        'POST',]) !!}
+                        {{ Form::hidden('mode', 'subscribe') }}
+                        <button class="button is-success">
+                            <span>Εγγραφή</span>
+                            <span class="icon is-small">
+                                <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                            </span>
+                        </button>
+                        {!! Form::close() !!}
+                        @endif
+                        @else
+                        @if($data['subscriptions']->contains('id', $team->id))
+                        {!! Form::open(['action' =>
+                        ['OmadesController@subscribe_to_group',$data['title'],$team->id],
+                        'method' =>
+                        'POST',]) !!}
+                        {{ Form::hidden('mode', 'unsubscribe') }}
+                        <button class="button is-danger ">
+                            <span>Απεγγραφή</span>
+                            <span class="icon is-small">
+                                <i class="fa fa-minus-circle" aria-hidden="true"></i>
+                            </span>
+                        </button>
+                        {!! Form::close() !!}
                         @else
                         <button class="button is-success" disabled>
                             <span>Εγγραφή</span>
@@ -84,6 +98,7 @@
                                 <i class="fa fa-plus-circle" aria-hidden="true"></i>
                             </span>
                         </button>
+                        @endif
 
                         @endif
                     </td>

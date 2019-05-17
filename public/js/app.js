@@ -18,6 +18,12 @@ $(document).ready(function () {
     // back_button.addEventListener('click', event => {
     //     window.history.back();
     // });
+    var baseUrlb = getUrl.protocol + "//" + getUrl.host + "/messages/user";
+    $("#userbox").autocomplete({
+
+        source: baseUrlb
+
+    });
 
 
 });
