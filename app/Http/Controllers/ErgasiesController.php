@@ -67,7 +67,7 @@ class ErgasiesController extends Controller
         if (auth()->user()->role == "student") {
             $ypovoli  = $ergasia->submittions()->where('user_id', auth()->user()->id)->first();
 
-            return view("lessons.ergasia_page")->with('data', ['lesson' => $lesson, 'title' => $title, 'subtitle' => $subtitle, 'go_url' => $url, 'ergasia' => $ergasia ,'ypovoli'=>$ypovoli]);
+            return view("ergasies.ergasia_page")->with('data', ['lesson' => $lesson, 'title' => $title, 'subtitle' => $subtitle, 'go_url' => $url, 'ergasia' => $ergasia ,'ypovoli'=>$ypovoli]);
         } else {
             $ypovoles  = $ergasia->submittions()->get();
 

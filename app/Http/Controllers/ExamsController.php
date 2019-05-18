@@ -145,8 +145,11 @@ class ExamsController extends Controller
             ->join('eksetaseis', 'eksetaseis.id', '=', 'diloseis.eksetasi_id')
             ->get();
 
+        $eksetasi = Eksetasi::find($exam_id);
+
 
         $csvExporter = new \Laracsv\Export();
-        $csvExporter->build($users, ['user_id' =>'Αριθμός Μητρώου', 'name'=>'Όνομα','surname' =>'Eπώνυμο','email','created_at'=>'Ημ/νια Δήλωσης'])->download();
+        $csvExporter->build($users, ['user_id' =>'Αριθμός Μητρώου', 'name'=>'Όνομα','surname' =>'Eπώνυμο','email','created_at'=>'Ημ/νια Δήλωσης'])
+        ->download('συμμετοχές_εξέτασης_'.$eksetasi->lesson->name.'_'.$eksetasi->imerominia_eksetasis.'.csv');
     }
 }

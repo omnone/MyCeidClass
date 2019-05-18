@@ -42,7 +42,8 @@
                     <td>{{$eksetasi->lesson->name}}</td>
                     <td>{{$eksetasi->imerominia_eksetasis}} {{$eksetasi->ora_eksetasis}}</td>
                     @if(Carbon\Carbon::today() > $eksetasi->prothesmia_dilosis)
-                    <td class="">{{$eksetasi->prothesmia_dilosis}}<br><small>(<span class="text-danger">έχει λήξει</span>)</small>
+                    <td class="">{{$eksetasi->prothesmia_dilosis}}<br><small>(<span class="text-danger">έχει
+                                λήξει</span>)</small>
                     </td>
                     @else
                     <td class="">{{$eksetasi->prothesmia_dilosis}}</td>

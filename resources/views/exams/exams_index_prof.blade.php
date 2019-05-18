@@ -48,7 +48,8 @@
                         @endforeach
                         <br>
                         <small><a href="/exams/{{$eksetasi->id}}/rooms">Επιλογή Αιθουσών</a></small></td>
-                    <td><a title='Κατάσταση Συμμετοχών' href="/exams/{{$eksetasi->id}}/download"><i class="fa fa-download" aria-hidden="true"></i></a></td>
+                    <td><a title='Κατάσταση Συμμετοχών' href="/exams/{{$eksetasi->id}}/download"><i
+                                class="fa fa-download" aria-hidden="true"></i></a></td>
                 </tr>
                 @endforeach
 
