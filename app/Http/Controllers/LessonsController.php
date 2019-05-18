@@ -27,12 +27,17 @@ class LessonsController extends Controller
 
         if ($user->role =="student") {
             // vriskw ta mathimata pou einai eggegramenos o foititis
-            $user_lessons = $user->subscribed_lessons()->orderBy('eksamino')->get();
+            $user_lessons = $user->subscribed_lessons()->orderBy('eksamino')->paginate(5);
             return view('pages.index')->with('lessons', $user_lessons);
         } else {
             // vriskw mathimata pou didaskei o kathigitis
-            $user_lessons = $user->teaching_lessons()->orderBy('eksamino')->get();
-            return view('pages.index')->with('lessons', $user_lessons);
+            $lessons = $user->teaching_lessons()->orderBy('eksamino')->paginate(5);
+            $forum_mes = [];
+            foreach($lessons as $lesson){
+               $forum_mes[]=$lesson->anartiseis_gia_mathima()->where('answer_to','0')->orderby('created_at','desc')->paginate(5);
+            }
+
+            return view('pages.index',compact('lessons','forum_mes'));
         }
     }
 

@@ -51,6 +51,8 @@ Route::get('exams/create', 'ExamsController@create_new_exam');
 Route::post('exams/create', 'ExamsController@save_new_exam');
 Route::get('exams/{exam_id}/rooms', 'ExamsController@epilogi_aithouswn_eksetasis');
 Route::post('exams/{exam_id}/rooms', 'ExamsController@save_aithouses_eksetastikis');
+Route::get('exams/{exam_id}/download', 'ExamsController@download_katastasi');
+
 
 
 // ergasies routes

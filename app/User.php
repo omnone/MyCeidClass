@@ -64,6 +64,11 @@ class User extends Authenticatable
         return $this->hasMany('App\Anartisi');
     }
 
+    public function ypovoles()
+    {
+        return $this->hasMany('App\Ypovoli', 'user_id');
+    }
+
     public function simmetoxi_se_eksetasi()
     {
         return $this->hasMany('App\Dilosi');

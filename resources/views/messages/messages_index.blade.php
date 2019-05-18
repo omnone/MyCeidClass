@@ -71,11 +71,11 @@
                     <td>{{$message->created_at}}</td>
 
 
-    </div>
-    </td>
-    </tr>
-    @endforeach
-    @endif
+        </div>
+        </td>
+        </tr>
+        @endforeach
+        @endif
     @else
     @if(count($data['inbox_messages']) > 0)
 
@@ -88,7 +88,7 @@
         <td>-</td>
         @endif
         <td><a href="/messages/{{$data['mode']}}/{{$message->id}}">{{$message->title}}</a></td>
-        <td>{{$message->receiver->name}} {{$message->receiver->surname}}</td>
+        <td>{{$message->sender->name}} {{$message->sender->surname}}</td>
         <td>{{$message->created_at}}</td>
 
 

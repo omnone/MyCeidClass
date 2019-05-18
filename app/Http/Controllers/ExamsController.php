@@ -10,6 +10,8 @@ use App\Eksetasi;
 use App\Aithousa;
 use App\Eksetastiki_Periodos;
 use App\Aithousa_Eksetasis;
+use Illuminate\Support\Facades\DB;
+
 
 
 use Illuminate\Database\Eloquent\Builder;
@@ -134,5 +136,17 @@ class ExamsController extends Controller
 
             return redirect('http://localhost:8000/exams/'.$exam_id.'/rooms')->with('success', 'Η δήλωση του μαθήματος πραγματοποιήθηκε με επιτυχία!');
         }
+    }
+
+    public function download_katastasi($exam_id)
+    {
+        $users = DB::table('users')
+            ->join('diloseis', 'users.id', '=', 'diloseis.user_id')
+            ->join('eksetaseis', 'eksetaseis.id', '=', 'diloseis.eksetasi_id')
+            ->get();
+
+
+        $csvExporter = new \Laracsv\Export();
+        $csvExporter->build($users, ['user_id' =>'Αριθμός Μητρώου', 'name'=>'Όνομα','surname' =>'Eπώνυμο','email','created_at'=>'Ημ/νια Δήλωσης'])->download();
     }
 }

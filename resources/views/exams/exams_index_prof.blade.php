@@ -31,6 +31,7 @@
                     <th>Συμμετοχές</th>
                     <th>Προθεσμία Δήλωσης</th>
                     <th>Αίθουσες</th>
+                    <th>Κατάσταση <br>Συμμετοχών</th>
                 </tr>
             </thead>
             <tbody>
@@ -39,7 +40,7 @@
                 <tr>
                     <td>{{$eksetasi->lesson->name}}</td>
                     <td>{{$eksetasi->imerominia_eksetasis}} {{$eksetasi->ora_eksetasis}}</td>
-                    <td>0</td>
+                    <td>{{$eksetasi->simmetoxes->count()}}</td>
                     <td>{{$eksetasi->prothesmia_dilosis}}</td>
                     <td>
                         @foreach($eksetasi->rooms as $room)
@@ -47,6 +48,7 @@
                         @endforeach
                         <br>
                         <small><a href="/exams/{{$eksetasi->id}}/rooms">Επιλογή Αιθουσών</a></small></td>
+                    <td><a title='Κατάσταση Συμμετοχών' href="/exams/{{$eksetasi->id}}/download"><i class="fa fa-download" aria-hidden="true"></i></a></td>
                 </tr>
                 @endforeach
 

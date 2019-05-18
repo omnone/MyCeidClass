@@ -1,8 +1,10 @@
 @extends('layouts.app')
-@section('content') {{-- titlos selidas --}} @if ($data['title'] != "Μαθήματα")
+@section('content') {{-- titlos selidas --}}
+@if ($data['title'] != "Μαθήματα")
 @include('layouts.sidebar-mathima')
 @else
-@include('layouts.sidebar-arxiki') @endif
+@include('layouts.sidebar-arxiki')
+@endif
 <div class="card" id='whereami'>
     {{$data['title']}}
 </div>
@@ -36,9 +38,10 @@
 
                     {!! Form::open(['action' => ['ErgasiesController@store_ergasia',$data['title']], 'method' => 'POST',
                     'enctype' => 'multipart/form-data']) !!}
-                     <div class="form-group">
+                    <div class="form-group">
                         {{Form::label('lesson_id', 'Μάθημα')}}
-                        {{ Form::select('lesson_id', $data['lessons'], null, array('class'=>'form-control', 'placeholder'=>'Επίλεξε Μάθημα...')) }}                    </div>
+                        {{ Form::select('lesson_id', $data['lessons'], null, array('class'=>'form-control', 'placeholder'=>'Επίλεξε Μάθημα...')) }}
+                    </div>
                     <div class="form-group">
                         {{Form::label('title', 'Τίτλος')}}
                         {{Form::text('title', '', ['class' => 'form-control', 'placeholder' => 'Τίτλος'])}}
@@ -59,7 +62,7 @@
                         {{Form::label('ergasia_file', 'Αρχείο Εργασίας')}}
                         {{Form::file('ergasia_file')}}
                     </div>
-                    {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
+                    {{Form::submit('Προσθήκη Εργασίας', ['class'=>'btn btn-primary'])}}
                     {!! Form::close() !!}
                 </div>
             </div>

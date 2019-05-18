@@ -11,11 +11,11 @@
     <div class="card-header">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-7">
+                <div class="col-md-9">
                     Τα μαθήματά μου
                 </div>
                 {{-- search a lesson box - add a form --}}
-               <div class="col-md-3 is-pulled-right">
+                <div class="col-md-3 is-pulled-right">
                     {!! Form::open(array('method' => 'Get', 'route' => array('lessons.search_result'))) !!}
                     <div class="field has-addons ">
                         <div class="control">
@@ -56,6 +56,7 @@
                 @endif
             </tbody>
         </table>
+        {{$lessons->links()}}
     </div>
 </div>
 @else {{-- kathigitis------------------------------------------------------------------------------------------------------------
@@ -98,7 +99,8 @@
                 </tr>
             </thead>
             <tbody>
-                @isset($lessons) @foreach ($lessons as $lesson)
+                @isset($lessons)
+                @foreach ($lessons as $lesson)
                 <tr>
                     <th><a href="/lessons/{{$lesson->name}}">{{$lesson->name}}<a></th>
                     <td>{{$lesson->eksamino}}</td>
@@ -109,6 +111,7 @@
                 @endisset
             </tbody>
         </table>
+        {{$lessons->links()}}
     </div>
 </div>
 @endif
@@ -155,6 +158,7 @@
             <thead class="has-background-light">
                 <tr>
                     <th scope="col">Μάθημα</th>
+                    <th scope="col">Συζήτηση</th>
                     <th scope="col">Θέμα</th>
                     <th scope="col">Ημερομηνία</th>
                     <th scope="col">Από</th>
@@ -163,13 +167,25 @@
                 </tr>
             </thead>
             <tbody>
+                @isset($forum_mes)
+
+                @foreach($forum_mes as $messages)
+                @foreach ($messages as $mes)
                 <tr>
-                    <th><a href="/lessons/{{$lesson->name}}">Τεχνολογία Λογισμικού</a></th>
-                    <td>Παράδοση Εργασίων Εξαμήνου</td>
-                    <td>12-09-2019</td>
-                    <td>Ξοε Ντοε</td>
-                    <td>12</td>
+                    <th><a href="/lessons/{{$mes->mathima->name}}">{{$mes->mathima->name}}</a></th>
+                    <td>{{$mes->sizitisi->title}}</td>
+                    <td>
+                        <a href="/lessons/{{$mes->mathima->name}}/forum/{{$mes->sizitisi->id}}/{{$mes->id}}">
+                            <b>{{$mes->title}}</b>
+                        </a>
+                    </td>
+                    <td>{{$mes->created_at}}</td>
+                    <td>{{$mes->posted_by->name}}<br>{{$mes->posted_by->surname}}</td>
+                    <td>{{$mes->apantiseis->count()}}</td>
                 </tr>
+                @endforeach
+                @endforeach
+                @endisset
             </tbody>
         </table>
     </div>

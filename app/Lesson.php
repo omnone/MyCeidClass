@@ -32,6 +32,11 @@ class Lesson extends Model
         return $this->hasMany('App\Sizitisi');
     }
 
+    public function anartiseis_gia_mathima()
+    {
+        return $this->hasMany('App\Anartisi', 'lesson_id');
+    }
+
     public function eksetasi_mathimatos()
     {
         return $this->hasMany('App\Eksetasi');

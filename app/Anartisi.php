@@ -23,4 +23,9 @@ class Anartisi extends Model
     {
         return $this->hasMany('App\Anartisi', 'answer_to');
     }
+
+    public function mathima()
+    {
+        return $this->belongsTo('App\Lesson', 'lesson_id');
+    }
 }

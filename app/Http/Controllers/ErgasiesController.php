@@ -34,184 +34,22 @@ class ErgasiesController extends Controller
 
         //girna oles tis energes ergasies tou foititi gia ola ta mathimata
         if ($lesson_name == "all") {
-            $title = "Μαθήματα";
-            $subtitle = "Οι εργασίες μου";
+            $title = 'Μαθήματα';
+            $subtitle = 'Οι Εργασίες μου';
 
-            if ($user->role == "student") {
-                $user_lessons = $user->subscribed_lessons()->orderBy('eksamino')->get();
+            if ($user->role == 'student') {
+                $lessons = $user->subscribed_lessons()->get();
             } else {
-                $user_lessons = $user->teaching_lessons()->orderBy('eksamino')->get();
+                $lessons = $user->teaching_lessons()->get();
             }
 
-            $ergasies = array();
-
-            foreach ($user_lessons as $lesson) {
-                $ergasies = $lesson->ergasies()->orderBy('lesson_id')->get();
-            }
-
-
-            if (auth()->user()->role == "student") {
-                $table_head =  <<<EOD
-           <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
-            <thead class="has-background-light">
-                <tr>
-                    <th class="">Μάθημα</th>
-                    <th class="">Τίτλος</th>
-                    <th class="">Προθεσμία Υποβολής</th>
-                    <th class="">Έχει Αποσταλέι</th>
-                    <th class="">Βαθμός</th>
-                </tr>
-            </thead>
-            <tbody>
-EOD;
-
-                foreach ($ergasies as $ergasia) {
-                    $lesson = Lesson::where('id', $ergasia['lesson_id'])->first();
-
-                    $ypovoli = $ergasia->submittions()->where('user_id', auth()->user()->id)->first();
-
-                    if ($ypovoli) {
-                        $grade = $ypovoli->grade;
-                        $send = 'Ναι';
-                    } else {
-                        $send = 'Όχι';
-                        $grade = '-';
-                    }
-
-
-                    $innerHTML = <<<EOD
-                <tr>
-                    <td class=""><a href="/lessons/$lesson->name">$lesson->name</a></td>
-                    <td class=""><a href="homework/{$ergasia['id']}">{$ergasia['title']}</a>
-                    </td>
-                    <td class="">{$ergasia['deadline']}</td>
-                    <td class="">$send</td>
-                    <td width="30" align="center">$grade</td>
-                </tr>
-EOD;
-                    $table_head = $table_head . $innerHTML;
-                }
-            } else {
-                $table_head =  <<<EOD
-           <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
-            <thead class="has-background-light">
-                <tr>
-                    <th class="">Μάθημα</th>
-                    <th class="">Τίτλος</th>
-                    <th class="">Αρχείο</th>
-                    <th class="">Ημ/νια Δημιουργίας</th>
-                    <th class="">Προθεσμία Υποβολής</th>
-                    <th class="">Υποβολές</th>
-                </tr>
-            </thead>
-            <tbody>
-EOD;
-
-                foreach ($ergasies as $ergasia) {
-                    $lesson = Lesson::where('id', $ergasia['lesson_id'])->first();
-                    $ypovoles = $ergasia->submittions()->get();
-
-
-                    $innerHTML = <<<EOD
-                <tr>
-                    <td class=""><a href="/lessons/$lesson->name">$lesson->name</a></td>
-                    <td class=""><a href="homework/{$ergasia['id']}">{$ergasia['title']}</a>
-                    </td>
-                    <td class="" ><a href='/lessons/$lesson_name}/homework/{$ergasia['id']}/{$ergasia['file_path']}'><i class="fa fa-download" aria-hidden="true"></i>{$ergasia['file_path']}</a></td>
-                    <td class="">{$ergasia['created_at']}</td>
-                    <td class="">{$ergasia['deadline']}</td>
-                    <td class="">{$ypovoles->count()}</td>
-                </tr>
-EOD;
-                    $table_head = $table_head . $innerHTML;
-                }
-            }
-
-            $table = $table_head . '
-            </tbody>
-        </table>';
-
-            return view('lessons.lessons_main')->with('data', ['table' => $table, 'title' => $title, 'subtitle' => $subtitle]);
+            return view('ergasies.ergasies_index')->with('data', ['lessons' =>$lessons, 'title'=> $title, 'subtitle'=>$subtitle]);
         } else { //girna tis ergasies gia to sigkekrimeno mathima
+            $title = $lesson_name;
+            $subtitle = 'Οι Εργασίες μου';
 
             $lesson = Lesson::where('name', $lesson_name)->first();
-            $title = $lesson_name;
-            $subtitle = "Εργασία";
-
-            $ergasies = $lesson->ergasies()->orderBy('created_at', 'desc')->get();
-
-            if (auth()->user()->role == "student") {
-                $table_head =  <<<EOD
-           <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
-            <thead class="has-background-light">
-                <tr>
-                    <th class="">Τίτλος</th>
-                    <th class="">Προθεσμία Υποβολής</th>
-                    <th class="">Έχει Αποσταλέι</th>
-                    <th class="">Βαθμός</th>
-                </tr>
-            </thead>
-            <tbody>
-EOD;
-
-                foreach ($ergasies as $ergasia) {
-                    $ypovoli = $ergasia->submittions()->where('user_id', auth()->user()->id)->first();
-
-                    if ($ypovoli) {
-                        $grade = $ypovoli->grade;
-                        $send = 'Ναι';
-                    } else {
-                        $send = 'Όχι';
-                        $grade = '-';
-                    }
-
-                    $innerHTML = <<<EOD
-                <tr>
-                    <td class=""><a href="homework/$ergasia->id">$ergasia->title</a>
-                    </td>
-                    <td class="">$ergasia->deadline</td>
-                    <td class="">$send</td>
-                    <td width="30" align="center">$grade</td>
-                </tr>
-EOD;
-                    $table_head = $table_head . $innerHTML;
-                }
-            } else {
-                $table_head =  <<<EOD
-           <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
-            <thead class="has-background-light">
-                <tr>
-                    <th class="">Τίτλος</th>
-                    <th class="">Αρχείο</th>
-                    <th class="">Ημ/νια Δημιουργίας</th>
-                    <th class="">Προθεσμία Υποβολής</th>
-                    <th class="">Υποβολές</th>
-                </tr>
-            </thead>
-            <tbody>
-EOD;
-
-                foreach ($ergasies as $ergasia) {
-                    $innerHTML = <<<EOD
-                <tr>
-                    <td class=""><a href="homework/$ergasia->id">$ergasia->title</a>
-                    </td>
-                    <td class="" ><a href='/lessons/$lesson_name}/homework/$ergasia->id/$ergasia->file_path'><i class="fa fa-download" aria-hidden="true"></i> $ergasia->file_path</a></td>
-                    <td class="">$ergasia->created_at</td>
-                    <td class="">$ergasia->deadline</td>
-                    <td class="">0</td>
-                </tr>
-EOD;
-                    $table_head = $table_head . $innerHTML;
-                }
-            }
-
-            $table = $table_head . '
-            </tbody>
-        </table>';
-
-
-            return view('lessons.lessons_main')->with('data', ['lesson' => $lesson, 'table' => $table, 'title' => $title, 'subtitle' => $subtitle]);
+            return view('ergasies.ergasies_index')->with('data', ['lesson' =>$lesson, 'title'=> $title, 'subtitle'=>$subtitle]);
         }
     }
 
@@ -233,7 +71,7 @@ EOD;
         } else {
             $ypovoles  = $ergasia->submittions()->get();
 
-            return view("lessons.ergasia_vathmologisi")->with('data', ['lesson' => $lesson, 'title' => $title, 'subtitle' => $subtitle, 'go_url' => $url, 'ergasia' => $ergasia, 'ypovoles' => $ypovoles]);
+            return view("ergasies.ergasia_vathmologisi")->with('data', ['lesson' => $lesson, 'title' => $title, 'subtitle' => $subtitle, 'go_url' => $url, 'ergasia' => $ergasia, 'ypovoles' => $ypovoles]);
             ;
         }
     }
@@ -242,13 +80,21 @@ EOD;
     public function create_ergasia($lesson_name)
     {
         // $lesson = Lesson::where('name', $lesson_name)->first();
+        if ($lesson_name == 'Μαθήματα') {
+            $lessons = auth()->user()->teaching_lessons()->pluck('name', 'id');
 
-        $lessons = auth()->user()->teaching_lessons()->orderBy('eksamino')->get()->pluck('name', 'id');
+            $title = $lesson_name;
+            $subtitle = 'Δημιουργία Εργασίας';
 
-        $title = $lesson_name;
-        $subtitle = 'Δημιουργία Εργασίας';
+            return view("ergasies.ergasia_create")->with('data', ['lessons' => $lessons, 'title' => $title, 'subtitle' => $subtitle]);
+        } else {
+            $lessons = Lesson::where('name', $lesson_name)->pluck('name', 'id');
+            $lesson = Lesson::where('name', $lesson_name)->first();
+            $title = $lesson_name;
+            $subtitle = 'Δημιουργία Εργασίας';
 
-        return view("lessons.ergasia_create")->with('data', ['lessons' => $lessons, 'title' => $title, 'subtitle' => $subtitle]);
+            return view("ergasies.ergasia_create")->with('data', ['lesson' => $lesson,'lessons'=>$lessons, 'title' => $title, 'subtitle' => $subtitle]);
+        }
     }
 
 
