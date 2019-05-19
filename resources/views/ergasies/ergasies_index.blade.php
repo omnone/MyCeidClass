@@ -20,8 +20,7 @@
                 </div>
                 <div class="col-md-3">
                     @if(Auth::user()->role =='prof')
-                    <a class="button is-primary"
-                        href="/lessons/{{$data['title']}}/homework/create">
+                    <a class="button is-primary" href="/lessons/{{$data['title']}}/homework/create">
                         Δημιουργία Εργασίας</a>
                     @endif
                 </div>
@@ -52,7 +51,9 @@
                     <td class="">{{$ergasia->deadline}}<br><small>(<span class="text-danger">έχει λήξει</span>)</small>
                     </td>
                     @else
-                    <td class="">{{$ergasia->deadline}}</td>
+                    <td class="">{{$ergasia->deadline}}<br><small>(Απομένουν
+                            {{ \Carbon\Carbon::parse($ergasia->deadline)->diff(\Carbon\Carbon::now())->days }} μέρες)
+                    </td>
                     @endif
 
                     @if($ergasia->submittions->where('user_id',auth()->user()->id)->count() > 0)
@@ -77,7 +78,9 @@
                     <td class="">{{$ergasia->deadline}}<br><small>(<span class="text-danger">έχει λήξει</span>)</small>
                     </td>
                     @else
-                    <td class="">{{$ergasia->deadline}}</td>
+                    <td class="">{{$ergasia->deadline}}<br><small>(Απομένουν
+                            {{ \Carbon\Carbon::parse($ergasia->deadline)->diff(\Carbon\Carbon::now())->days }} μέρες)
+                    </td>
                     @endif
 
                     @if($ergasia->submittions->where('user_id',auth()->user()->id)->count() > 0)
@@ -94,6 +97,9 @@
                 @endif
             </tbody>
         </table>
+        @if(isset($data['lessons']))
+        {{$data['lessons']->links()}}
+        @endif
         @else
         <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
             <thead class="has-background-light">
@@ -118,7 +124,9 @@
                     <td class="">{{$ergasia->deadline}}<br><small>(<span class="text-danger">έχει λήξει</span>)</small>
                     </td>
                     @else
-                    <td class="">{{$ergasia->deadline}}</td>
+                    <td class="">{{$ergasia->deadline}}<br><small>(Απομένουν
+                            {{ \Carbon\Carbon::parse($ergasia->deadline)->diff(\Carbon\Carbon::now())->days }} μέρες)
+                    </td>
                     @endif
                     <td>{{$ergasia->submittions->count()}}</td>
 
@@ -136,7 +144,9 @@
                     <td class="">{{$ergasia->deadline}}<br><small>(<span class="text-danger">έχει λήξει</span>)</small>
                     </td>
                     @else
-                    <td class="">{{$ergasia->deadline}}</td>
+                    <td class="">{{$ergasia->deadline}}<br><small>(Απομένουν
+                            {{ \Carbon\Carbon::parse($ergasia->deadline)->diff(\Carbon\Carbon::now())->days }} μέρες)
+                    </td>
                     @endif
                     <td>{{$ergasia->submittions->count()}}</td>
 

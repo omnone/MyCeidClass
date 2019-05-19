@@ -139,7 +139,7 @@
                     <td><a href="/lessons/{{$lesson->name}}">Τεχνολογία Λογισμικού</a></td>
                     <td>Παράδοση Εργασίων Εξαμήνου</td>
                     <td>12-09-2019</td>
-                    <td>Ξοε Ντοε</td>
+                    <td>{{$lesson->teacher->surname}} {{$lesson->teacher->name}}</td>
                 </tr>
                 @endif
 

@@ -38,7 +38,7 @@ class ErgasiesController extends Controller
             $subtitle = 'Οι Εργασίες μου';
 
             if ($user->role == 'student') {
-                $lessons = $user->subscribed_lessons()->get();
+                $lessons = $user->subscribed_lessons()->has('ergasies')->paginate(1);
             } else {
                 $lessons = $user->teaching_lessons()->get();
             }
@@ -147,7 +147,7 @@ class ErgasiesController extends Controller
 
         $ergasia->save();
 
-        return $ergasia;
+
 
         return redirect('http://localhost:8000/lessons/' . $lesson->name . '/homework')->with('success', 'Η εργασία δημιουργήθηκε επιτυχώς!');
     }
