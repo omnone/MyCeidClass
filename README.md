@@ -11,4 +11,6 @@
 6. Έπειτα πληκτρολογίστε: "php artisan key:generate"  
 7. Πληκτρολογήστε "php artisan migrate" ,"php artisan db:seed","php artisan serve".
 
-**Σημείωση:** Για να συνδεθείτε ως φοιτητής στο σύστημα χρησιμοποιήστε τα στοιχεία email:"foit@ceid.upatras.gr" pass:"kodikos" και ως καθηγητής με τα στοιχεία email:"papad@ceid.upatras.gr" pass:"kodikos".
+**Σημείωση1:** Για να συνδεθείτε ως φοιτητής στο σύστημα χρησιμοποιήστε τα στοιχεία email:"foit@ceid.upatras.gr" pass:"kodikos" και ως καθηγητής με τα στοιχεία email:"papad@ceid.upatras.gr" pass:"kodikos".
+
+**Σημείωση2:** Για την άντληση της βαθμολογίας από το progress γίνεται χρήση της γλώσσας Python. Επομένως προκειμένου να τρέξετε το πρόγραμμα πρέπει 1)Να έχετε την έκδοση 3 της γλώσσας και 2)να εγκαταστήσετε τα requirements που θα βρείτε στον φάκελο "progress" 3)να έχετε εγκατεστημένο το firefox στην συγκεκριμένη περίπτωση. Τέλος θα πρέπει να καταβάσετε το πρόγραμμα [geckodriver.exe](https://github.com/mozilla/geckodriver/releases).
