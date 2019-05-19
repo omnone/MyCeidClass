@@ -59,48 +59,114 @@ class MessagesController extends Controller
 
     public function send_message(Request $request)
     {
-        $messages = [ 'required' => 'Παρακαλώ συμπληρώστε τα απαραίτητα πεδία.',];
+        $messages = [ 'required' => 'Παρακαλώ συμπληρώστε τα απαραίτητα πεδία.','required_without'=>'Παρακαλώ επιλέξτε παραλήπτη!'];
 
         $validator = \Validator::make($request->all(), [
           'title' => '|required',
-          ''
+          'recipients'=>'required_without:receiver'
         ], $messages)->validate();
 
-        $receiver_details =  str_replace("]", "", explode("[", $request->receiver));
+        if ($request->receiver!=null) {
+            $receiver_details =  str_replace("]", "", explode("[", $request->receiver));
 
-        $receiver_id = $receiver_details[1];
+            $receiver_id = $receiver_details[1];
 
-        $mes = new Message;
-        $mes->title = $request->title;
-        $mes->content = $request->content;
-        $mes->sender_id = auth()->user()->id;
-        $mes->receiver_id = $receiver_id;
+            $mes = new Message;
+            $mes->title = $request->title;
+            $mes->content = $request->content;
+            $mes->sender_id = auth()->user()->id;
+            $mes->receiver_id = $receiver_id;
 
-        if ($request->hasFile('file')) {
-            // filename with the extension
-            $filename_full = $request->file('file')->getClientOriginalName();
-            // filename
-            $filename = pathinfo($filename_full, PATHINFO_FILENAME);
-            //ext
-            $extension = $request->file('file')->getClientOriginalExtension();
+            if ($request->hasFile('file')) {
+                // filename with the extension
+                $filename_full = $request->file('file')->getClientOriginalName();
+                // filename
+                $filename = pathinfo($filename_full, PATHINFO_FILENAME);
+                //ext
+                $extension = $request->file('file')->getClientOriginalExtension();
 
-            $store_filename =  $filename . time() . '.' . $extension;
-            $path = $request->file('file')->storeAs('public/messages_files', $store_filename);
+                $store_filename =  $filename . time() . '.' . $extension;
+                $path = $request->file('file')->storeAs('public/messages_files', $store_filename);
 
-            $message_file = new Arxeio;
-            $message_file->filepath =  $store_filename;
-            $message_file->user_id = auth()->user()->id;
-            $message_file->save();
+                $message_file = new Arxeio;
+                $message_file->filepath =  $store_filename;
+                $message_file->user_id = auth()->user()->id;
+                $message_file->save();
 
-            $mes->file_id = $message_file->id;
+                $mes->file_id = $message_file->id;
+            }
+
+            $mes->save();
+            return redirect('http://localhost:8000/messages/send')->with('success', 'Το μήνυμα στον χρήστη: '.$receiver_details[0].' εστάλη επιτυχώς!');
+        } elseif ($request->recipients == 'all_profs') {
+            $all_profs = User::where('role', 'prof')->get();
+
+            if ($request->hasFile('file')) {
+                // filename with the extension
+                $filename_full = $request->file('file')->getClientOriginalName();
+                // filename
+                $filename = pathinfo($filename_full, PATHINFO_FILENAME);
+                //ext
+                $extension = $request->file('file')->getClientOriginalExtension();
+
+                $store_filename =  $filename . time() . '.' . $extension;
+                $path = $request->file('file')->storeAs('public/messages_files', $store_filename);
+
+                $message_file = new Arxeio;
+                $message_file->filepath =  $store_filename;
+                $message_file->user_id = auth()->user()->id;
+                $message_file->save();
+            }
+
+            foreach ($all_profs as $prof) {
+                $mes = new Message;
+                $mes->title = $request->title;
+                $mes->content = $request->content;
+                $mes->sender_id = auth()->user()->id;
+                $mes->receiver_id = $prof->id;
+                if ($request->hasFile('file')) {
+                    $mes->file_id = $message_file->id;
+                }
+                $mes->save();
+            }
+
+            return redirect('http://localhost:8000/messages/send')->with('success', 'Το μήνυμα προς όλους τους καθηγητές εστάλη επιτυχώς!');
+        } else {
+            $all_studs = User::where('role', 'student')->get();
+
+            if ($request->hasFile('file')) {
+                // filename with the extension
+                $filename_full = $request->file('file')->getClientOriginalName();
+                // filename
+                $filename = pathinfo($filename_full, PATHINFO_FILENAME);
+                //ext
+                $extension = $request->file('file')->getClientOriginalExtension();
+
+                $store_filename =  $filename . time() . '.' . $extension;
+                $path = $request->file('file')->storeAs('public/messages_files', $store_filename);
+
+                $message_file = new Arxeio;
+                $message_file->filepath =  $store_filename;
+                $message_file->user_id = auth()->user()->id;
+                $message_file->save();
+            }
+
+            foreach ($all_studs as $stud) {
+                $mes = new Message;
+                $mes->title = $request->title;
+                $mes->content = $request->content;
+                $mes->sender_id = auth()->user()->id;
+                $mes->receiver_id = $stud->id;
+                if ($request->hasFile('file')) {
+                    $mes->file_id = $message_file->id;
+                }
+                $mes->save();
+            }
+
+            return redirect('http://localhost:8000/messages/send')->with('success', 'Το μήνυμα προς όλους τους φοιτητές εστάλη επιτυχώς!');
         }
-
-        $mes->save();
-
-
-
-        return redirect('http://localhost:8000/messages/send')->with('success', 'Το μήνυμα στον χρήστη: '.$receiver_details[0].' εστάλη επιτυχώς!');
     }
+
 
     public function read_message($mode, $message_id)
     {

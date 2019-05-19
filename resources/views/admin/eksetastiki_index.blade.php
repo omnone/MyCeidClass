@@ -71,5 +71,5 @@
                 {{-- @endif --}}
             </tbody>
         </table>
-        {{-- {{$data['eksetaseis']->links()}} --}}
+        {{$data['eksetaseis']->links()}}
     </div> @endsection

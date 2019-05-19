@@ -47,27 +47,27 @@ Route::get('exams/', 'ExamsController@show_exetastiki_index');
 Route::get('exams/program', 'ExamsController@show_exams_program');
 Route::get('exams/participation', 'ParticipationExamsController@show_eksetastiki');
 Route::post('exams/participation', 'ParticipationExamsController@apothikeuse_dilosi_eksetastiki');
-Route::get('exams/create', 'ExamsController@create_new_exam');
-Route::post('exams/create', 'ExamsController@save_new_exam');
-Route::get('exams/{exam_id}/rooms', 'ExamsController@epilogi_aithouswn_eksetasis');
-Route::post('exams/{exam_id}/rooms', 'ExamsController@save_aithouses_eksetastikis');
-Route::get('exams/{exam_id}/download', 'ExamsController@download_katastasi');
+Route::get('exams/create', 'ExamsController@create_new_exam')->middleware('prof');
+Route::post('exams/create', 'ExamsController@save_new_exam')->middleware('prof');
+Route::get('exams/{exam_id}/rooms', 'ExamsController@epilogi_aithouswn_eksetasis')->middleware('prof');
+Route::post('exams/{exam_id}/rooms', 'ExamsController@save_aithouses_eksetastikis')->middleware('prof');
+Route::get('exams/{exam_id}/download', 'ExamsController@download_katastasi')->middleware('prof');
 
 
 
 // ergasies routes
 Route::get('lessons/{lesson_name}/homework', 'ErgasiesController@show_homework');
-Route::get('lessons/{lesson_name}/homework/create', 'ErgasiesController@create_ergasia');
-Route::post('lessons/{lesson_name}/homework/store', 'ErgasiesController@store_ergasia');
+Route::get('lessons/{lesson_name}/homework/create', 'ErgasiesController@create_ergasia')->middleware('prof');
+Route::post('lessons/{lesson_name}/homework/store', 'ErgasiesController@store_ergasia')->middleware('prof');
 Route::get('lessons/{lesson_name}/homework/{ergasia_id}', 'ErgasiesController@show_ergasia');
 Route::post('lessons/{lesson_name}/homework/{ergasia_id}', 'ErgasiesController@paradosi_ergasias');
-Route::post('lessons/{lesson_name}/homework/{ergasia_id}/grade', 'ErgasiesController@grade_homework');
+Route::post('lessons/{lesson_name}/homework/{ergasia_id}/grade', 'ErgasiesController@grade_homework')->middleware('prof');
 Route::get('lessons/{lesson_name}/homework/{ergasia_id}/{file_name}', 'ErgasiesController@download_file');
 
 // groups routes
 Route::get('lessons/{lesson_name}/groups', 'OmadesController@show_groups');
-Route::get('lessons/{lesson_name}/groups/create', 'OmadesController@create_new_group');
-Route::post('lessons/{lesson_name}/groups/create', 'OmadesController@save_new_group');
+Route::get('lessons/{lesson_name}/groups/create', 'OmadesController@create_new_group')->middleware('prof');
+Route::post('lessons/{lesson_name}/groups/create', 'OmadesController@save_new_group')->middleware('prof');
 Route::get('lessons/{lesson_name}/groups/{group_id}', 'OmadesController@show_group');
 Route::post('lessons/{lesson_name}/groups/{group_id}', 'OmadesController@subscribe_to_group');
 
@@ -84,12 +84,20 @@ Route::get('messages/{mode}/{message_id}/{file_name}', 'MessagesController@downl
 
 
 
-
 // admin routes
-Route::get('admin/', 'AdminController@admin_index');
-Route::get('admin/exetastiki/', 'AdminController@eksetastiki_index');
-Route::post('admin/exetastiki/', 'AdminController@save_eksetastiki');
-Route::get('admin/exetastiki/create', 'AdminController@create_eksetastiki');
+Route::get('admin/', 'AdminController@admin_index')->middleware('admin');
+Route::get('admin/exetastiki/', 'AdminController@eksetastiki_index')->middleware('admin');
+Route::get('admin/schedule/', 'ProgramController@show_program')->middleware('admin');
+Route::post('admin/exetastiki/', 'AdminController@save_eksetastiki')->middleware('admin');
+Route::get('admin/exetastiki/create', 'AdminController@create_eksetastiki')->middleware('admin');
+Route::post('admin/exetastiki/create', 'AdminController@save_eksetastiki')->middleware('admin');
+Route::get('admin/schedule/create/', 'ProgramController@create_new_program')->middleware('admin');
+Route::post('admin/schedule/create/', 'ProgramController@save_program')->middleware('admin');
+//schedule routes
+Route::get('schedule/', 'ProgramController@show_program');
+
+
+
 
 
 

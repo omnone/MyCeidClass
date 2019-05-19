@@ -13,4 +13,9 @@ class Aithousa extends Model
         return $this->belongsToMany('App\Eksetasi', 'aithouses_eksetasis', 'aithousa_id')->withTimestamps();
         ;
     }
+
+    public function paradoseis()
+    {
+        return $this->belongsToMany('App\Program', 'aithousa_id');
+    }
 }

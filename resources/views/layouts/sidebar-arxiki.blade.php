@@ -32,6 +32,7 @@
                     <li><a href="/lessons">Όλα τα μαθήματα</a></li>
                     <li><a href="/lessons/subscriptions">Τα μαθήματά μου</a></li>
                     <li><a href="/lessons/all/homework">Οι εργασίες μου</a></li>
+                    <li><a href="/schedule/">Εβδομαδιαίο Πρόγραμμα</a></li>
                 </ul>
                 <p class="menu-label">
                     <i class="fa fa-comments" aria-hidden="true"></i> Μηνύματα

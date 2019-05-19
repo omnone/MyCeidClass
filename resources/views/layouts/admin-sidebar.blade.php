@@ -19,17 +19,17 @@
                     <i class="fa fa-comments-o" aria-hidden="true"></i> Μηνύματα
                 </p>
                 <ul class="menu-list">
-                    <li><a href="/lessons">Όλα τα μηνύματα</a></li>
-                    <li><a href="/lessons/subscriptions">Αποστολή Μηνύματος</a></li>
+                    <li><a href="/messages/inbox">Εισερχόμενα Μηνύματα</a></li>
+                    <li><a href="/messages/send">Σταλμένα Μηνύματα</a></li>
+                    <li><a href="/messages/create">Αποστολή Μηνύματος</a></li>
                 </ul>
                 <p class="menu-label">
                     <i class="fa fa-book" aria-hidden="true"></i> Εξεταστική
                 </p>
                 <ul class="menu-list">
-                    <li><a>Δημιουργία Εβδ. Προγράμματος</a></li>
-                    <li><a>Δημιουργία Προγράμματος Εξεταστικής</a></li>
+                    <li><a href="/admin/schedule/create">Δημιουργία Εβδομαδιαίου<br> Προγράμματος</a></li>
+                    <li><a href="/admin/exetastiki/">Δημιουργία Προγράμματος<br> Εξεταστικής</a></li>
                     <li><a href="/admin/exetastiki/create">Δημιουργία Εξεταστικής</a></li>
-                    <li><a href="/exams/participation">Διαχείριση Εξεταστικής</a></li>
                 </ul>
                 <p class="menu-label">
                     <i class="fa fa-user" aria-hidden="true"></i>Χρήστες

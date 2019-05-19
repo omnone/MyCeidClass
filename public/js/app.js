@@ -25,6 +25,17 @@ $(document).ready(function () {
 
     });
 
+    $add_btn = document.getElementById("add-button");
+
+    $add_btn.addEventListener('click', event => {
+
+        var row = document.getElementById("row1");
+        var table = document.getElementById("program-table");
+        var clone = row.cloneNode(true);
+        clone.id = "addedrow";
+        table.appendChild(clone);
+    });
+
 
 });
 

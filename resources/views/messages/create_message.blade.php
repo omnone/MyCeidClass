@@ -29,15 +29,17 @@
 
             <div class="form-group">
                 {{Form::label('receiver', 'Παραλήπτης')}}
-                {!! Form::text('receiver',null,['id' => 'userbox','class'=>'input','placeholder'=>"Παραλήπτης",'required' => 'required'])!!}
+                {!! Form::text('receiver',null,['id' => 'userbox','class'=>'input','placeholder'=>"Παραλήπτης"])!!}
             </div>
+            @if(Auth::user()->role == 'admin')
             <div class="form-group">
                 {{Form::label('all_prof', 'Προς Καθηγητές')}}
-                {{ Form::radio('all_prof', 'all_prof' , false) }}
+                {{ Form::radio('recipients', 'all_profs' , false) }}
 
                 {{Form::label('all_stud', 'Προς Φοιτητές')}}
-                {{ Form::radio('all_stud', 'all_stud' , false) }}
+                {{ Form::radio('recipients', 'all_studs' , false) }}
             </div>
+            @endif
             <hr>
             <div class="form-group">
                 {{Form::label('title', 'Τίτλος')}}

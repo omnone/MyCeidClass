@@ -41,4 +41,9 @@ class Lesson extends Model
     {
         return $this->hasMany('App\Eksetasi');
     }
+
+    public function paradoseis_mathimatos()
+    {
+        return $this->hasMany('App\Program', 'lesson_id');
+    }
 }
