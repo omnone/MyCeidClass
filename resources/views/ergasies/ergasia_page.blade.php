@@ -1,8 +1,10 @@
 @extends('layouts.app')
-@section('content') {{-- titlos selidas --}} @if ($data['title'] != "Μαθήματα")
+@section('content') {{-- titlos selidas --}}
+@if ($data['title'] != "Μαθήματα")
 @include('layouts.sidebar-mathima')
 @else
-@include('layouts.sidebar-arxiki') @endif
+@include('layouts.sidebar-arxiki')
+@endif
 <div class="card" id='whereami'>
     {{$data['title']}}
 </div>
@@ -33,7 +35,7 @@
             </div>
             <div class="card-body">
                 <div class="columns is-0">
-                    <div class="column is-2">
+                    <div class="column is-4">
                         <ul>
                             <li>Όνομα:</li>
                             <li>Μάθημα:</li>
@@ -49,7 +51,7 @@
 
                         </ul>
                     </div>
-                    <div class="column is-4">
+                    <div class="column is-8">
                         <ul>
                             <li>{{$data['ergasia']->title}}</li>
                             <li>{{$data['title']}}</li>

@@ -25,6 +25,11 @@ body {
 /* ids */
 #side-menu {
     margin-left: 5% !important;
+    /* width: 25%; */
+    height: 100%;
+    overflow: auto !important;
+    position: sticky!important;
+    top: 1% !important;
 }
 
 #main-content {

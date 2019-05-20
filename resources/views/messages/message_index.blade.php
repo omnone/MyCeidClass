@@ -46,7 +46,7 @@
     </div>
     <div class="card-body ">
 
-        <h4 class="title is-4">Θέμα: {{$data['message']->title}}</h4>
+        <h4 class="title is-4">Θέμα: "{{$data['message']->title}}"</h4>
         <h6 class="subtitle is-6">Ημερομηνία: {{$data['message']->created_at}} |
             @if($data['message']->sender->name=='Admin')
             Από: {{$data['message']->sender->name}}

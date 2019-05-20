@@ -19,13 +19,29 @@ use Illuminate\Database\Eloquent\Builder;
 class ExamsController extends Controller
 {
     /**
-   * Create a new controller instance.
-   *
-   * @return void
-   */
+     * Create a new controller instance.
+     *
+     * @return void
+     */
     public function __construct()
     {
         $this->middleware('auth');
+    }
+
+    public function show_exams_program()
+    {
+        $eksetaseis = Eksetasi::where('confirmed', 1)->whereHas('eksetastiki', function ($query) {
+            $query->where('finished', '=', 0);
+        })->orderby('imerominia_eksetasis','asc')->get();
+
+        $eksetastiki = Eksetastiki_Periodos::where('finished', 0)->first();
+
+        if(!$eksetastiki){
+            return redirect('http://localhost:8000/')->with('error', 'Δεν υπάρχει ενεργή εξεταστική περίοδος.');
+
+        }
+
+        return view("exams.exams_program")->with('data', ['eksetaseis' => $eksetaseis, 'eksetastiki' => $eksetastiki]);
     }
 
 
@@ -35,7 +51,7 @@ class ExamsController extends Controller
         $eksetastiki = Eksetastiki_Periodos::where('finished', 0)->first();
         $eksetaseis = $eksetastiki->exams()->get();
 
-        return view("exams.exams_index_prof")->with('data', ['eksetaseis'=>$eksetaseis ,'eksetastiki' => $eksetastiki]);
+        return view("exams.exams_index_prof")->with('data', ['eksetaseis' => $eksetaseis, 'eksetastiki' => $eksetastiki]);
     }
 
 
@@ -52,25 +68,25 @@ class ExamsController extends Controller
 
         $lessons = auth()->user()->teaching_lessons()->orderBy('eksamino')->get()->pluck('name', 'id');
 
-        return view("exams.create_exam")->with('data', ['lessons' => $lessons ,'eksetastiki' => $eksetastiki]);
+        return view("exams.create_exam")->with('data', ['lessons' => $lessons, 'eksetastiki' => $eksetastiki]);
     }
 
     // apothikeusi kainourgias eksetasis mathimatos
     public function save_new_exam(Request $request)
     {
-        $messages = [ 'required' => 'Παρακαλώ συμπληρώστε τα απαραίτητα πεδία.',];
+        $messages = ['required' => 'Παρακαλώ συμπληρώστε τα απαραίτητα πεδία.',];
 
         $validator = \Validator::make($request->all(), [
-          'lesson_id'=> '|required',
-          'date'=> '|required',
-          'hour'=> '|required',
-          'deadline_date'=> '|required',
-          'deadline_hour'=> '|required',
+            'lesson_id' => '|required',
+            'date' => '|required',
+            'hour' => '|required',
+            'deadline_date' => '|required',
+            'deadline_hour' => '|required',
         ], $messages)->validate();
 
-        $exam = new Eksetasi ;
+        $exam = new Eksetasi;
 
-        $exam->lesson_id=$request->lesson_id;
+        $exam->lesson_id = $request->lesson_id;
 
         $time = $request->input('deadline_hour');
         $date = $request->input('deadline_date');
@@ -98,22 +114,22 @@ class ExamsController extends Controller
         $epithimiti_imerominia = $eksetasi->imerominia_eksetasis;
 
         $rooms = Aithousa::whereDoesntHave('eksetaseis', function (Builder $query) use ($epithimiti_imerominia) {
-            $query->whereRaw('`eksetaseis`.`imerominia_eksetasis` = \''.$epithimiti_imerominia.'\'');
+            $query->whereRaw('`eksetaseis`.`imerominia_eksetasis` = \'' . $epithimiti_imerominia . '\'');
         })->get();
 
         if ($rooms->isEmpty()) {
-            return redirect('http://localhost:8000/')->with('error', 'Δεν υπάρχουν διαθέσιμες αίθουσες για: '.$epithimiti_imerominia);
+            return redirect('http://localhost:8000/')->with('error', 'Δεν υπάρχουν διαθέσιμες αίθουσες για: ' . $epithimiti_imerominia);
         }
 
         $already_selected = "";
 
         foreach (Aithousa::whereHas('eksetaseis', function (Builder $query) use ($epithimiti_imerominia) {
-            $query->whereRaw('`eksetaseis`.`imerominia_eksetasis` = \''.$epithimiti_imerominia.'\'');
+            $query->whereRaw('`eksetaseis`.`imerominia_eksetasis` = \'' . $epithimiti_imerominia . '\'');
         })->get() as $room) {
-            $already_selected.=$room->name.',';
+            $already_selected .= $room->name . ',';
         }
 
-        return view("exams.epilogi_aithousas")->with('data', ['eksetasi' => $eksetasi,'rooms'=>$rooms,'selected_rooms'=>$already_selected]);
+        return view("exams.epilogi_aithousas")->with('data', ['eksetasi' => $eksetasi, 'rooms' => $rooms, 'selected_rooms' => $already_selected]);
     }
 
     // apothikeuse tis aithouses eksetasis
@@ -130,7 +146,7 @@ class ExamsController extends Controller
             $aithousa_eksetasis->aithousa_id = $selected_room;
             $aithousa_eksetasis->save();
 
-            return redirect('http://localhost:8000/exams/'.$exam_id.'/rooms')->with('success', 'Η επιλογή αίθουσας πραγματοποιήθηκε με επιτυχία!');
+            return redirect('http://localhost:8000/exams/' . $exam_id . '/rooms')->with('success', 'Η επιλογή αίθουσας πραγματοποιήθηκε με επιτυχία!');
         }
     }
 
@@ -147,7 +163,7 @@ class ExamsController extends Controller
 
 
         $csvExporter = new \Laracsv\Export();
-        $csvExporter->build($users, ['user_id' =>'Αριθμός Μητρώου', 'name'=>'Όνομα','surname' =>'Eπώνυμο','email','created_at'=>'Ημ/νια Δήλωσης'])
-        ->download('συμμετοχές_εξέτασης_'.$eksetasi->lesson->name.'_'.$eksetasi->imerominia_eksetasis.'.csv');
+        $csvExporter->build($users, ['user_id' => 'Αριθμός Μητρώου', 'name' => 'Όνομα', 'surname' => 'Eπώνυμο', 'email', 'created_at' => 'Ημ/νια Δήλωσης'])
+            ->download('συμμετοχές_εξέτασης_' . $eksetasi->lesson->name . '_' . $eksetasi->imerominia_eksetasis . '.csv');
     }
 }

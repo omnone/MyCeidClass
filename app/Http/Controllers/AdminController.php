@@ -13,10 +13,10 @@ use App\Message;
 class AdminController extends Controller
 {
     /**
-   * Create a new controller instance.
-   *
-   * @return void
-   */
+     * Create a new controller instance.
+     *
+     * @return void
+     */
     public function __construct()
     {
         $this->middleware('auth');
@@ -36,12 +36,23 @@ class AdminController extends Controller
         }
         $eksetaseis = $eksetastiki->exams()->paginate(6);
 
-        return view("admin.eksetastiki_index")->with('data', ['eksetaseis'=>$eksetaseis ,'eksetastiki' => $eksetastiki]);
+        return view("admin.eksetastiki_index")->with('data', ['eksetaseis' => $eksetaseis, 'eksetastiki' => $eksetastiki]);
     }
 
     public function create_eksetastiki()
     {
         return view("admin.create_eksetastiki");
+    }
+
+    public function update_eksetastiki(Request $request)
+    {
+        $eksetasi = Eksetasi::where('lesson_id', $request->lesson_id)->where('confirmed', 0)->first();
+        $eksetasi->confirmed = true;
+        $eksetasi->imerominia_eksetasis = $request->imerominia_eksetasis;
+        $eksetasi->ora_eksetasis = $request->ora_eksetasis;
+        $eksetasi->save();
+
+        return redirect('http://localhost:8000/admin/exetastiki/')->with('success', 'Η εξέταση οριστικοποιήθηκε!');
     }
 
     public function save_eksetastiki(Request $request)
@@ -69,16 +80,16 @@ class AdminController extends Controller
 
         foreach ($all_profs as $prof) {
             $mes = new Message;
-            $mes->title = 'Έναρξη Δηλώσεων Μαθημάτων για: '.$eksetastiki_name;
-            $mes->content = 'Αγαπητοί συνάδερφοι , η περίοδος δήλωσης μαθημάτων προς εξέταση για την '.$eksetastiki_name.
-            ' έχει ανοίξει. Παρακαλώ όποιος επιθυμεί να δήλωσει κάποιο μάθημα για εξέταση να προβεί σε δήλωση μέχρι '
-            .$deadline.'. Ευχαριστώ εκ των προτέρων.';
+            $mes->title = 'Έναρξη Δηλώσεων Μαθημάτων για: ' . $eksetastiki_name;
+            $mes->content = 'Αγαπητοί συνάδερφοι , η περίοδος δήλωσης μαθημάτων προς εξέταση για την ' . $eksetastiki_name .
+                ' έχει ανοίξει. Παρακαλώ όποιος επιθυμεί να δήλωσει κάποιο μάθημα για εξέταση να προβεί σε δήλωση μέχρι '
+                . $deadline . '. Ευχαριστώ εκ των προτέρων.';
             $mes->sender_id = auth()->user()->id;
             $mes->receiver_id = $prof->id;
 
             $mes->save();
         }
 
-        return redirect('http://localhost:8000/admin/exetastiki')->with('success', 'Η εξεταστική περίοδος "'.$eksetastiki_name.'" δημιουργήθηκε επιτυχώς');
+        return redirect('http://localhost:8000/admin/exetastiki')->with('success', 'Η εξεταστική περίοδος "' . $eksetastiki_name . '" δημιουργήθηκε επιτυχώς');
     }
 }

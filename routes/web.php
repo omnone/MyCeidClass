@@ -90,6 +90,7 @@ Route::get('admin/exetastiki/', 'AdminController@eksetastiki_index')->middleware
 Route::get('admin/schedule/', 'ProgramController@show_program')->middleware('admin');
 Route::post('admin/exetastiki/', 'AdminController@save_eksetastiki')->middleware('admin');
 Route::get('admin/exetastiki/create', 'AdminController@create_eksetastiki')->middleware('admin');
+Route::post('admin/exetastiki/update', 'AdminController@update_eksetastiki')->middleware('admin');
 Route::post('admin/exetastiki/create', 'AdminController@save_eksetastiki')->middleware('admin');
 Route::get('admin/schedule/create/', 'ProgramController@create_new_program')->middleware('admin');
 Route::post('admin/schedule/create/', 'ProgramController@save_program')->middleware('admin');

@@ -5,8 +5,6 @@
             <aside class="menu">
                 {{-- basikes plirofories xristi --}}
                 <br>
-                Πίνακας Ελέγχου
-                <hr>
 
                 <p class="menu-label">
                     <i class="fa fa-university" aria-hidden="true"></i> Μαθήματα
@@ -21,7 +19,6 @@
                 <ul class="menu-list">
                     <li><a href="/messages/inbox">Εισερχόμενα Μηνύματα</a></li>
                     <li><a href="/messages/send">Σταλμένα Μηνύματα</a></li>
-                    <li><a href="/messages/create">Αποστολή Μηνύματος</a></li>
                 </ul>
                 <p class="menu-label">
                     <i class="fa fa-book" aria-hidden="true"></i> Εξεταστική
@@ -40,12 +37,12 @@
                     <li>
                         <hr>
                     </li>
-                    <li>
+                    {{-- <li>
                         <a class="button is-info is-outlined" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                             <i class="fa fa-sign-out" aria-hidden="true"></i> Αποσύνδεση
                         </a>
-                    </li>
+                    </li> --}}
                 </ul>
 
             </aside>

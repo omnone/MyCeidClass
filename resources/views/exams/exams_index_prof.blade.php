@@ -35,7 +35,7 @@
                 </tr>
             </thead>
             <tbody>
-                {{-- @if(count($data['eksetaseis']) > 0) --}}
+                @if(count($data['eksetaseis']) > 0)
                 @foreach ($data['eksetaseis'] as $eksetasi)
                 <tr>
                     <td>{{$eksetasi->lesson->name}}</td>
@@ -53,7 +53,7 @@
                 </tr>
                 @endforeach
 
-                {{-- @endif --}}
+                @endif
 
 
             </tbody>

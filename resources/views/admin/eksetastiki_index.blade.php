@@ -5,7 +5,7 @@
     Διαχείριση Εξεταστικών Περιόδων
 </div>
 
-<br />
+<br>
 
 <div class="card">
     <div class="card-header">
@@ -14,9 +14,7 @@
                 <div class="col-md-9">
                     {{$data['eksetastiki']->name}}
                 </div>
-                <div class="col-md-3">
 
-                </div>
             </div>
         </div>
     </div>
@@ -28,17 +26,15 @@
                     <th>Υπεύθυνος</th>
                     <th>Ημ/νια Εξέτασης</th>
                     <th>Ώρα Εξέτασης</th>
-                    <th>Συμμετοχές</th>
                     <th>Αίθουσες</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                {{-- @if(count($data['eksetaseis']) > 0) --}}
                 @foreach ($data['eksetaseis'] as $eksetasi)
                 <tr>
                     {!!Form::open(['action' =>
-                    ['AdminController@save_eksetastiki'], 'method'
+                    ['AdminController@update_eksetastiki'], 'method'
                     => 'POST',
                     'enctype' => 'multipart/form-data']) !!}
                     <div class="form-group">
@@ -50,26 +46,24 @@
                     </td>
                     <div class="form-group">
                         <td>
-                            {{ Form::date('date_eksetasi',$eksetasi->imerominia_eksetasis,['class' => 'form-control']) }}
-                            {{-- {{$eksetasi->imerominia_eksetasis}} --}}
+                            {{ Form::date('imerominia_eksetasis',$eksetasi->imerominia_eksetasis,['class' => 'form-control']) }}
                         </td>
                     </div>
                     <div class="form-group">
-                        <td>{{ Form::time('deadline_hour', $eksetasi->ora_eksetasis,['class' => 'form-control']) }}
-                            {{-- {{$eksetasi->ora_eksetasis}} --}}
+                        <td>{{ Form::time('ora_eksetasis', $eksetasi->ora_eksetasis,['class' => 'form-control']) }}
                         </td>
                     </div>
-                    <td>{{$eksetasi->simmetoxes->count()}}</td>
                     <td>@foreach($eksetasi->rooms as $room)
                         {{$room->name}},
                         @endforeach</td>
-                    <td>{{Form::submit('Οριστικοποίηση Εξέτασης', ['class'=>'btn btn-primary'])}}
+                    <td>{{Form::submit('Οριστικοποίηση', ['class'=>'btn btn-primary'])}}
                     </td>
                     {!! Form::close() !!}
                 </tr>
                 @endforeach
-                {{-- @endif --}}
             </tbody>
         </table>
         {{$data['eksetaseis']->links()}}
-    </div> @endsection
+    </div>
+</div>
+    @endsection
