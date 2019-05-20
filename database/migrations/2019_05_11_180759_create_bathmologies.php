@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateArxeioTable extends Migration
+class CreateBathmologies extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class CreateArxeioTable extends Migration
      */
     public function up()
     {
-        Schema::create('arxeia', function (Blueprint $table) {
+        Schema::create('bathmologies', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('filepath');
+            $table->string('name');
+            $table->string('periodos');
+            $table->string('eksamino');
+            $table->double('grade')->default(0)->nullable();
             $table->integer('user_id');
             $table->timestamps();
         });
@@ -28,6 +31,6 @@ class CreateArxeioTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('arxeia');
+        //
     }
 }
