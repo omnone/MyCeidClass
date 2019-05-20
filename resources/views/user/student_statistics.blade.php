@@ -76,6 +76,7 @@
                         @endforeach
                     </tbody>
                 </table>
+                {{$data['xrostoumena']->links()}}
 
             </div>
         </div>
@@ -118,6 +119,7 @@
                 @else
                 {{$data['xrostoumena']->links()}}
                 @endif
+
             </div>
         </div>
         @else
