@@ -23,6 +23,8 @@
         <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
             <thead class="has-background-light">
                 <tr>
+                    <th></th>
+                    <th>Αριθμός Μητρώου</th>
                     <th>Μέλος</th>
                     <th>Email</th>
                 </tr>
@@ -40,9 +42,12 @@
                             <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
                             @endif
                         </figure>
-                        <b>{{$member->name}} {{$member->surname}}</b>
+
                     </td>
+                    <td>{{$member->id}}</td>
+                    <td><b>{{$member->name}} {{$member->surname}}</b></td>
                     <td class="">{{$member->email}}</td>
+
 
                 </tr>
                 @endforeach

@@ -134,7 +134,7 @@ class ExamsController extends Controller
             $aithousa_eksetasis->aithousa_id = $selected_room;
             $aithousa_eksetasis->save();
 
-            return redirect('http://localhost:8000/exams/'.$exam_id.'/rooms')->with('success', 'Η δήλωση του μαθήματος πραγματοποιήθηκε με επιτυχία!');
+            return redirect('http://localhost:8000/exams/'.$exam_id.'/rooms')->with('success', 'Η επιλογή αίθουσας πραγματοποιήθηκε με επιτυχία!');
         }
     }
 

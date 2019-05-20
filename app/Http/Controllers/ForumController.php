@@ -24,6 +24,7 @@ class ForumController extends Controller
     {
         $lesson = Lesson::where('name', $lesson_name)->first();
         $sizitiseis = Sizitisi::where('lesson_id', $lesson->id)->get();
+        $latest_post =
 
         $subtitle = "Forum";
         $title = $lesson_name;

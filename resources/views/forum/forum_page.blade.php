@@ -26,27 +26,33 @@
         <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
             <thead class="has-background-light ">
                 <tr>
-                    <th class="has-text-centered">Συζήτηση</th>
-                    <th class="has-text-centered">Περιγραφή</th>
-                    <th class="has-text-centered">Αναρτήσεις</th>
-                    <th class="has-text-centered">Τελευταία ανάρτηση</th>
+                    <th class="">Συζήτηση</th>
+                    <th class="">Περιγραφή</th>
+                    <th class="">Αναρτήσεις</th>
+                    <th class="">Τελευταία ανάρτηση</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($data['sizitiseis'] as $sizitisi)
                 <tr>
-                    <td class="has-text-centered"><a href="/lessons/{{$data['title']}}/forum/{{$sizitisi->id}}">
+                    <td class=""><a href="/lessons/{{$data['title']}}/forum/{{$sizitisi->id}}">
                             <b>{{$sizitisi->title}}</b>
                         </a>
                         <div class="smaller">{{$sizitisi->created_at}}</div>
                         <div class="smaller"></div>
                     </td>
-                    <td class="text-center">{{$sizitisi->description}}</td>
-                    <td class="text-center">{{$sizitisi->anartiseis->count()}}</td>
-                    <td class="text-center"><span class="smaller">Ξοε Δοε&nbsp;<a href=""><span class="fa fa-comment-o"
-                                    title="" data-toggle="tooltip"
-                                    data-original-title="Τελευταία ανάρτηση"></span></a><br>08/04/2019
-                            - 13:05</span>
+                    <td class="">{{$sizitisi->description}}</td>
+                    <td class="">{{$sizitisi->anartiseis->count()}}</td>
+                    <td class=""><span class="smaller">
+                            @if($sizitisi->latest_post)
+                            {{$sizitisi->latest_post->posted_by->surname}}
+                            {{$sizitisi->latest_post->posted_by->name}}&nbsp;
+                            <a href=""><span class="fa fa-comment-o" title=""
+                                    data-original-title="Τελευταία ανάρτηση"></span></a>
+                            <br>{{$sizitisi->latest_post->created_at}}</span>
+                        @else
+                        Δεν υπάρχουν αναρτήσεις.
+                        @endif
                     </td>
 
                 </tr>

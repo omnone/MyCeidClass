@@ -33,7 +33,7 @@
             </div>
             <div class="card-body">
                 <div class="columns is-0">
-                    <div class="column is-4">
+                    <div class="column is-2">
                         <ul>
                             <li>Όνομα:</li>
                             <li>Μάθημα:</li>
@@ -54,15 +54,20 @@
                             <li>{{$data['ergasia']->title}}</li>
                             <li>{{$data['title']}}</li>
                             <li>{{$data['ergasia']->created_at}}</li>
-                            <li>{{$data['ergasia']->deadline}}</li>
+                            <li><b>{{$data['ergasia']->deadline}}</b></li>
                             @if($data['ypovoli'])
                             <li>{{$data['ypovoli']->grade}}</li>
                             @else
                             <li>-</li>
                             @endif
-                            <li class=""><a
-                                    href='/lessons/{{$data['title']}}/homework/{{$data['ergasia']->id}}/{{$data['ergasia']->file_path}}''><i
-                                        class="fa fa-download" aria-hidden="true"></i>{{$data['ergasia']->file_path}}</a></li>
+                            <li class="">
+                                @if($data['ergasia']->file_path !='-')
+                                <a href='/lessons/{{$data['title']}}/homework/{{$data['ergasia']->id}}/{{$data['ergasia']->file_path}}''><i
+                                        class="fa fa-download" aria-hidden="true"></i>{{$data['ergasia']->file_path}}</a>
+                                @else
+                                Δεν υπάρχει αρχείο.
+                                @endif
+                                </li>
                             <li>{{$data['ergasia']->description}}</li>
 
                         </ul>

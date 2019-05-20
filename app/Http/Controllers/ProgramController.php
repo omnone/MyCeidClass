@@ -131,7 +131,7 @@ class ProgramController extends Controller
         $program->title = 'εβδομαδιαίο πρόγραμμα '.$request->periodos;
 
         $check = Program::where('day', $program->day)
-        ->where('aithousa_id', $program->aithousa_id)->where('periodos', $program->periodos)->first();
+        ->where('aithousa_id', $program->aithousa_id)->where('periodos', $program->periodos)->where('hour', $program->hour)->first();
 
         if ($request->periodos == 'Εαρινό') {
             $cur_period = 0 ;
@@ -141,7 +141,7 @@ class ProgramController extends Controller
 
 
 
-        if ($check == null) {
+        if (!$check) {
             $program->save();
             return redirect('http://localhost:8000/schedule')->with('success', 'Το πρόγραμμα ενημερώθηκε επιτυχώς!');
         } else {

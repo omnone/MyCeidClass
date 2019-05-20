@@ -23,7 +23,12 @@ class ParticipationExamsController extends Controller
             return redirect('http://localhost:8000/')->with('error', 'Δεν υπάρχει ενεργή εξεταστική περίοδος!');
         }
 
-        $eksetaseis = $eksetastiki->exams()->get();
+         $eksetaseis = $eksetastiki->exams()->get();
+
+        if ($eksetaseis->isEmpty()) {
+            return redirect('http://localhost:8000/')->with('error', 'Δεν υπάρχουν μαθήματα προς εξέταση.');
+        }
+
 
         $user_id = auth()->user()->id;
         $user = User::find($user_id);

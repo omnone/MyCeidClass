@@ -67,7 +67,13 @@
                 <tr>
                     <td>-</td>
                     <td><a href="/messages/{{$data['mode']}}/{{$message->id}}">{{$message->title}}</a></td>
-                    <td>{{$message->receiver->name}} {{$message->receiver->surname}}</td>
+                    <td>
+                        @if($message->sender->name == 'Admin')
+                        Admin
+                        @else
+                        {{$message->receiver->name}} {{$message->receiver->surname}}
+                        @endif
+                    </td>
                     <td>{{$message->created_at}}</td>
 
 
@@ -88,7 +94,13 @@
         <td>-</td>
         @endif
         <td><a href="/messages/{{$data['mode']}}/{{$message->id}}">{{$message->title}}</a></td>
-        <td>{{$message->sender->name}} {{$message->sender->surname}}</td>
+        <td>
+            @if($message->sender->name == 'Admin')
+            Admin
+            @else
+            {{$message->sender->name}} {{$message->sender->surname}}
+            @endif
+        </td>
         <td>{{$message->created_at}}</td>
 
 

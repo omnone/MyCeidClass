@@ -116,6 +116,10 @@ class OmadesController extends Controller
         $user = User::find($user_id);
         $group = Omada::where('id', $group_id)->first();
 
+        if ($group->members()->count()+1 > $group->members_limit) {
+            return redirect('lessons/'.$lesson_name.'/groups')->with('error', 'Η ομάδα '.$group->name.' είναι πλήρης.');
+        }
+
         // grapse ton xristi stin omada
         if ($request->input('mode') == 'subscribe') {
             $user->subscribed_teams()->attach($group_id);

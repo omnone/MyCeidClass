@@ -24,6 +24,12 @@ class Anartisi extends Model
         return $this->hasMany('App\Anartisi', 'answer_to');
     }
 
+     public function latest_post()
+    {
+        return $this->hasOne('App\Anartisi', 'answer_to')
+                ->latest();
+    }
+
     public function mathima()
     {
         return $this->belongsTo('App\Lesson', 'lesson_id');

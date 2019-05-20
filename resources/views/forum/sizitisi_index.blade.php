@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 {{-- @if ($data['title'] != "Μαθήματα") --}}
-    @include('layouts.sidebar-mathima')
+@include('layouts.sidebar-mathima')
 {{-- @else
     @include('layouts.sidebar-arxiki')
 @endif --}}
@@ -49,10 +49,15 @@
                     </td>
                     <td class="">{{$anartisi->posted_by->name}} {{$anartisi->posted_by->surname}}</td>
                     <td class="">{{$anartisi->apantiseis->count()}}</td>
-                    <td class=""><span class="smaller">Foit Foititis&nbsp;<a href=""><span class="fa fa-comment-o"
-                                    title="" data-toggle="tooltip"
-                                    data-original-title="Τελευταία ανάρτηση"></span></a><br>08/04/2019
-                            - 13:05</span>
+                    <td class="">
+                        @if($anartisi->latest_post)
+                        <span
+                            class="smaller">{{$anartisi->latest_post->posted_by->surname}} {{$anartisi->latest_post->posted_by->name}}&nbsp;<a
+                                href="">
+                                <span class="fa fa-comment-o" title="" data-toggle="tooltip"
+                                    data-original-title="Τελευταία ανάρτηση"></span></a><br>
+                            {{$anartisi->latest_post->created_at}}</span>
+                        @endif
                     </td>
 
                 </tr>

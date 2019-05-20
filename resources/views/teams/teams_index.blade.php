@@ -41,10 +41,17 @@
                 @foreach ($data['teams'] as $team)
                 <tr>
                     <td class="">
+                        @if($team->is_locked==false)
                         <a href="/lessons/{{$data['title']}}/groups/{{$team->id}}">
                             <b>{{$team->name}}</b>
                         </a>
                         <div class="smaller">{{$team->created_at}}</div>
+                        @else
+                        <a href="/lessons/{{$data['title']}}/groups/{{$team->id}}">
+                            <b>{{$team->name}} <i class="fa fa-lock" aria-hidden="true"></i></b>
+                        </a>
+                        <div class="smaller">{{$team->created_at}}</div>
+                        @endif
                     </td>
                     <td class="">{{$team->description}}</td>
                     <td class="">{{$team->members->count()}}</td>

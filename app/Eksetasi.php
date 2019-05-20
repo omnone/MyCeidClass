@@ -16,7 +16,7 @@ class Eksetasi extends Model
 
     public function eksetastiki()
     {
-        return $this->belongsTo('App\Eksetastiki_Periodos');
+        return $this->belongsTo('App\Eksetastiki_Periodos','eksetastiki__periodos_id');
     }
 
     public function lesson()

@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Lesson;
 
-
 class PagesController extends Controller
 {
 
@@ -28,7 +27,7 @@ class PagesController extends Controller
 
         if ($user->role =="student") {
             // vriskw ta mathimata pou einai eggegramenos o foititis
-            $user_lessons = $user->subscribed_lessons()->orderBy('eksamino')->get();
+            $user_lessons = $user->subscribed_lessons()->orderBy('eksamino')->paginate(4);
             return view('pages.index')->with('lessons', $user_lessons);
         } else {
             // vriskw mathimata pou didaskei o kathigitis
@@ -38,10 +37,9 @@ class PagesController extends Controller
     }
 
 
-    public function lesson_index($lesson_name){
-
-        $lesson = Lesson::where('name',$lesson_name)->first();
+    public function lesson_index($lesson_name)
+    {
+        $lesson = Lesson::where('name', $lesson_name)->first();
         return view('lessons.lesson_page')->with('lesson', $lesson);
-
     }
 }
