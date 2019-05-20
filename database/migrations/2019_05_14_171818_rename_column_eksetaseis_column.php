@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddToEksetastikesPeriodoi extends Migration
+class RenameColumnEksetaseisColumn extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class AddToEksetastikesPeriodoi extends Migration
      */
     public function up()
     {
-        Schema::table('eksetastikes_periodoi', function (Blueprint $table) {
-            //
-            $table->string('name')->nullable();
+        Schema::table('eksetaseis', function (Blueprint $table) {
+            $table->renameColumn('eksetastiki_periodos_id', 'eksetastiki__periodos_id');
         });
     }
 
@@ -26,8 +25,6 @@ class AddToEksetastikesPeriodoi extends Migration
      */
     public function down()
     {
-        Schema::table('eksetastikes_periodoi', function (Blueprint $table) {
-            //
-        });
+        //
     }
 }

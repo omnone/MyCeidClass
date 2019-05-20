@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class RenameEksetaseisColumn extends Migration
+class AddFileToMessages extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class RenameEksetaseisColumn extends Migration
      */
     public function up()
     {
-        Schema::table('eksetaseis', function (Blueprint $table) {
-            $table->renameColumn('eksetastiki_periodos_id', 'eksetastiki__periodos_id');
+        Schema::table('messages', function (Blueprint $table) {
+            $table->string('file')->nullable();
         });
     }
 
@@ -25,6 +25,8 @@ class RenameEksetaseisColumn extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('messages', function (Blueprint $table) {
+            //
+        });
     }
 }

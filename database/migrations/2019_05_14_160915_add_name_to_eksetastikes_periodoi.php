@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddToAnartiseis extends Migration
+class AddNameToEksetastikesPeriodoi extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class AddToAnartiseis extends Migration
      */
     public function up()
     {
-        Schema::table('anartiseis', function (Blueprint $table) {
-            $table->integer('sizitisi_id');
+        Schema::table('eksetastikes_periodoi', function (Blueprint $table) {
+            //
+            $table->string('name')->nullable();
         });
     }
 
@@ -25,7 +26,7 @@ class AddToAnartiseis extends Migration
      */
     public function down()
     {
-        Schema::table('anartiseis', function (Blueprint $table) {
+        Schema::table('eksetastikes_periodoi', function (Blueprint $table) {
             //
         });
     }

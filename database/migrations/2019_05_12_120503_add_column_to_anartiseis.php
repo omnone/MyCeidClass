@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddToMessages extends Migration
+class AddColumnToAnartiseis extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddToMessages extends Migration
      */
     public function up()
     {
-        Schema::table('messages', function (Blueprint $table) {
-            $table->string('file')->nullable();
+        Schema::table('anartiseis', function (Blueprint $table) {
+            $table->integer('sizitisi_id');
         });
     }
 
@@ -25,7 +25,7 @@ class AddToMessages extends Migration
      */
     public function down()
     {
-        Schema::table('messages', function (Blueprint $table) {
+        Schema::table('anartiseis', function (Blueprint $table) {
             //
         });
     }
