@@ -29,7 +29,7 @@ class ExamsController extends Controller
     }
 
 
-
+    // dikse oles tis diloseis eksetasewn
     public function show_exetastiki_index()
     {
         $eksetastiki = Eksetastiki_Periodos::where('finished', 0)->first();
@@ -38,10 +38,8 @@ class ExamsController extends Controller
         return view("exams.exams_index_prof")->with('data', ['eksetaseis'=>$eksetaseis ,'eksetastiki' => $eksetastiki]);
     }
 
-    // public function show_exams_program()
-    // {
-    // }
 
+    // dimiourgia neas eksetasis
     public function create_new_exam()
     {
         // $available_rooms = Aithousa::all()->pluck('name', 'id');
@@ -57,6 +55,7 @@ class ExamsController extends Controller
         return view("exams.create_exam")->with('data', ['lessons' => $lessons ,'eksetastiki' => $eksetastiki]);
     }
 
+    // apothikeusi kainourgias eksetasis mathimatos
     public function save_new_exam(Request $request)
     {
         $messages = [ 'required' => 'Παρακαλώ συμπληρώστε τα απαραίτητα πεδία.',];
@@ -92,6 +91,7 @@ class ExamsController extends Controller
         return redirect('http://localhost:8000/exams/')->with('success', 'Η δήλωση του μαθήματος πραγματοποιήθηκε με επιτυχία!');
     }
 
+    // epilogi aithouswn eksetasis
     public function epilogi_aithouswn_eksetasis($exam_id)
     {
         $eksetasi = Eksetasi::find($exam_id);
@@ -116,6 +116,7 @@ class ExamsController extends Controller
         return view("exams.epilogi_aithousas")->with('data', ['eksetasi' => $eksetasi,'rooms'=>$rooms,'selected_rooms'=>$already_selected]);
     }
 
+    // apothikeuse tis aithouses eksetasis
     public function save_aithouses_eksetastikis($exam_id, Request $request)
     {
         $eksetasi = Eksetasi::find($exam_id);
@@ -123,11 +124,6 @@ class ExamsController extends Controller
         foreach ($request->selected_rooms as $selected_room) {
             $room = Aithousa::find($selected_room);
 
-            // foreach ($room->eksetaseis()->get() as $temp) {
-            //     if ($temp->imerominia_eksetasis == $eksetasi->imerominia_eksetasis) {
-            //         return 'piasmenis';
-            //     }
-            // }
 
             $aithousa_eksetasis = new Aithousa_Eksetasis;
             $aithousa_eksetasis->eksetasi_id = $eksetasi->id;
@@ -138,14 +134,16 @@ class ExamsController extends Controller
         }
     }
 
+    // katevase arxeio me simmetoxes foititwn stn eksetasi
     public function download_katastasi($exam_id)
     {
+        $eksetasi = Eksetasi::find($exam_id);
+
         $users = DB::table('users')
             ->join('diloseis', 'users.id', '=', 'diloseis.user_id')
             ->join('eksetaseis', 'eksetaseis.id', '=', 'diloseis.eksetasi_id')
-            ->get();
+            ->where('eksetaseis.id', '=', $eksetasi->id)->get();
 
-        $eksetasi = Eksetasi::find($exam_id);
 
 
         $csvExporter = new \Laracsv\Export();
