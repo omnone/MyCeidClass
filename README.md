@@ -10,7 +10,7 @@
 5. Μεταβείτε στον αρχικό φάκελο του project και τρέξτε την εντολή "composer install".
 6. Έπειτα πληκτρολογίστε: "php artisan key:generate"  
 7. Πληκτρολογήστε "php artisan migrate" ,"php artisan db:seed","php artisan serve".
-8. (Προαιρετικά)Μπορείτα να κάνετε import τον φάκελο "database_dump" στην βάση σας για να έχετε μια αρχική αρχικοποίηση του συστήματος με δεδομένα.
+8. (Προαιρετικά) Μπορείτε να κάνετε import τον φάκελο "database_dump" στην βάση σας για να έχετε μια αρχική αρχικοποίηση του συστήματος με δεδομένα.
 
 **Σημείωση1:** Για να συνδεθείτε ως φοιτητής στο σύστημα χρησιμοποιήστε τα στοιχεία email:"konst@ceid.upatras.gr" pass:"kodikos" και ως καθηγητής με τα στοιχεία email:"nikolaou@ceid.upatras.gr" pass:"kodikos". Ως διαχειριστής μπορείτε να μπείτε με τα στοιχεία "admin@ceid.upatras.gr" pass:"kodikos".
 
