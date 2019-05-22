@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.17, for macos10.12 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: localhost    Database: myceidclass
 -- ------------------------------------------------------
--- Server version	8.0.16
+-- Server version	5.7.17-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -24,7 +24,7 @@ DROP TABLE IF EXISTS `arxeia`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `arxeia` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `filepath` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `filepath` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_id` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -38,7 +38,7 @@ CREATE TABLE `arxeia` (
 
 LOCK TABLES `arxeia` WRITE;
 /*!40000 ALTER TABLE `arxeia` DISABLE KEYS */;
-INSERT INTO `arxeia` VALUES (1,'grades_2.csv',2,'2019-05-11 14:55:13','2019-05-11 14:55:13'),(2,'grades_2.csv',2,'2019-05-11 14:57:46','2019-05-11 14:57:46'),(3,'grades_2.csv',2,'2019-05-11 15:10:40','2019-05-11 15:10:40'),(4,'grades_2.csv',2,'2019-05-11 15:12:32','2019-05-11 15:12:32'),(5,'file_example',3,'2019-05-17 12:15:27','2019-05-17 12:15:27'),(6,'example1558106459.py',3,'2019-05-17 12:20:59','2019-05-17 12:20:59'),(7,'example_hs1558108549.ppt',2,'2019-05-17 12:55:49','2019-05-17 12:55:49');
+INSERT INTO `arxeia` VALUES (1,'grades_2.csv',2,'2019-05-11 14:55:13','2019-05-11 14:55:13'),(2,'grades_2.csv',2,'2019-05-11 14:57:46','2019-05-11 14:57:46'),(3,'grades_2.csv',2,'2019-05-11 15:10:40','2019-05-11 15:10:40'),(4,'grades_2.csv',2,'2019-05-11 15:12:32','2019-05-11 15:12:32'),(5,'example-file.txt',3,'2019-05-17 12:15:27','2019-05-17 12:15:27'),(6,'example-file.txt',3,'2019-05-17 12:20:59','2019-05-17 12:20:59'),(7,'example-file.txt',2,'2019-05-17 12:55:49','2019-05-17 12:55:49');
 /*!40000 ALTER TABLE `arxeia` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-21 21:23:55
+-- Dump completed on 2019-05-22 20:06:47

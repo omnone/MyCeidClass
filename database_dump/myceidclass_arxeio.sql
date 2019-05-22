@@ -16,31 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `aithouses`
+-- Table structure for table `arxeio`
 --
 
-DROP TABLE IF EXISTS `aithouses`;
+DROP TABLE IF EXISTS `arxeio`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `aithouses` (
+CREATE TABLE `arxeio` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `capacity` int(11) NOT NULL,
+  `filepath` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `eksetasi_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `aithouses`
+-- Dumping data for table `arxeio`
 --
 
-LOCK TABLES `aithouses` WRITE;
-/*!40000 ALTER TABLE `aithouses` DISABLE KEYS */;
-INSERT INTO `aithouses` VALUES (1,'B4',200,'2019-05-13 14:12:05','2019-05-13 14:12:05',0),(2,'BA',300,'2019-05-13 14:12:32','2019-05-13 14:12:32',0),(3,'B3',50,'2019-05-13 14:12:47','2019-05-13 14:12:47',0),(4,'ΑΦΕ',400,'2019-05-13 14:13:10','2019-05-13 14:13:10',0);
-/*!40000 ALTER TABLE `aithouses` ENABLE KEYS */;
+LOCK TABLES `arxeio` WRITE;
+/*!40000 ALTER TABLE `arxeio` DISABLE KEYS */;
+/*!40000 ALTER TABLE `arxeio` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-22 20:06:48
+-- Dump completed on 2019-05-22 20:06:47

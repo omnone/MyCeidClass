@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.17, for macos10.12 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: localhost    Database: myceidclass
 -- ------------------------------------------------------
--- Server version	8.0.16
+-- Server version	5.7.17-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -28,10 +28,10 @@ CREATE TABLE `ypovoles` (
   `ergasia_id` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `file_path` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `file_path` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `grade` double NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +40,7 @@ CREATE TABLE `ypovoles` (
 
 LOCK TABLES `ypovoles` WRITE;
 /*!40000 ALTER TABLE `ypovoles` DISABLE KEYS */;
-INSERT INTO `ypovoles` VALUES (1,2,8,'2019-05-10 04:20:06','2019-05-13 13:37:15','example_Bourantas_1557472806.py',8.5),(2,2,3,'2019-05-11 15:16:32','2019-05-12 16:33:11','custom_iterator_Bourantas_1557598592.py',8.5),(3,2,9,'2019-05-20 18:58:24','2019-05-20 18:58:24','ask1_Konstantinou_1558378704.cpp',0);
+INSERT INTO `ypovoles` VALUES (1,2,8,'2019-05-10 04:20:06','2019-05-13 13:37:15','example_Bourantas_1557472806.py',8.5),(2,2,3,'2019-05-11 15:16:32','2019-05-12 16:33:11','custom_iterator_Bourantas_1557598592.py',8.5);
 /*!40000 ALTER TABLE `ypovoles` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-21 21:23:56
+-- Dump completed on 2019-05-22 20:06:48

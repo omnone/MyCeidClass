@@ -37,11 +37,17 @@ $(document).ready(function () {
         }
     });
 
+    $('#connect-progress-btn').click(function (event) {
+        $('#form-progress').hide();
+        $('#progress-body').append("<p>Παρακαλώ Περιμένετε... <i class=\"fa fa-spinner fa-spin  fa-fw\"></i\><span class=\"sr-only\"> Loading...</span ></p>");
+    });
+
 
 
 
     $add_btn = document.getElementById("add-button");
 
+    if($add_btn){
     $add_btn.addEventListener('click', event => {
 
         var row = document.getElementById("row1");
@@ -51,7 +57,7 @@ $(document).ready(function () {
         table.appendChild(clone);
     });
 
-
+    }
 
 
 });

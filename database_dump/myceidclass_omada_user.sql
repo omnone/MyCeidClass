@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.17, for macos10.12 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: localhost    Database: myceidclass
 -- ------------------------------------------------------
--- Server version	8.0.16
+-- Server version	5.7.17-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -29,7 +29,7 @@ CREATE TABLE `omada_user` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +38,7 @@ CREATE TABLE `omada_user` (
 
 LOCK TABLES `omada_user` WRITE;
 /*!40000 ALTER TABLE `omada_user` DISABLE KEYS */;
-INSERT INTO `omada_user` VALUES (1,1,6,NULL,NULL),(3,1,7,NULL,NULL),(6,1,8,'2019-05-13 13:11:14','2019-05-13 13:11:14'),(7,2,9,'2019-05-13 13:25:07','2019-05-13 13:25:07'),(9,2,2,'2019-05-14 18:29:24','2019-05-14 18:29:24');
+INSERT INTO `omada_user` VALUES (1,1,6,NULL,NULL),(3,1,7,NULL,NULL),(6,1,8,'2019-05-13 13:11:14','2019-05-13 13:11:14'),(7,2,9,'2019-05-13 13:25:07','2019-05-13 13:25:07'),(9,2,2,'2019-05-14 18:29:24','2019-05-14 18:29:24'),(10,2,10,'2019-05-22 15:53:02','2019-05-22 15:53:02');
 /*!40000 ALTER TABLE `omada_user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-21 21:23:56
+-- Dump completed on 2019-05-22 20:06:48

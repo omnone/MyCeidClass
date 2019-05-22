@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.17, for macos10.12 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: localhost    Database: myceidclass
 -- ------------------------------------------------------
--- Server version	8.0.16
+-- Server version	5.7.17-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -29,7 +29,7 @@ CREATE TABLE `aithouses_eksetasis` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +38,7 @@ CREATE TABLE `aithouses_eksetasis` (
 
 LOCK TABLES `aithouses_eksetasis` WRITE;
 /*!40000 ALTER TABLE `aithouses_eksetasis` DISABLE KEYS */;
-INSERT INTO `aithouses_eksetasis` VALUES (1,1,1,'2019-05-15 08:18:48','2019-05-15 08:18:48'),(2,1,2,'2019-05-15 08:18:48','2019-05-15 08:18:48'),(3,1,3,'2019-05-15 09:05:54','2019-05-15 09:05:54'),(4,1,4,'2019-05-15 09:19:29','2019-05-15 09:19:29'),(5,2,1,'2019-05-20 10:26:51','2019-05-20 10:26:51');
+INSERT INTO `aithouses_eksetasis` VALUES (1,1,1,'2019-05-15 08:18:48','2019-05-15 08:18:48'),(2,1,2,'2019-05-15 08:18:48','2019-05-15 08:18:48'),(3,1,3,'2019-05-15 09:05:54','2019-05-15 09:05:54'),(4,1,4,'2019-05-15 09:19:29','2019-05-15 09:19:29'),(5,2,1,'2019-05-20 10:26:51','2019-05-20 10:26:51'),(6,3,4,'2019-05-22 15:55:42','2019-05-22 15:55:42');
 /*!40000 ALTER TABLE `aithouses_eksetasis` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-21 21:23:55
+-- Dump completed on 2019-05-22 20:06:47

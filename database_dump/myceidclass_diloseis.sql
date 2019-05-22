@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.17, for macos10.12 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: localhost    Database: myceidclass
 -- ------------------------------------------------------
--- Server version	8.0.16
+-- Server version	5.7.17-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -29,7 +29,7 @@ CREATE TABLE `diloseis` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +38,7 @@ CREATE TABLE `diloseis` (
 
 LOCK TABLES `diloseis` WRITE;
 /*!40000 ALTER TABLE `diloseis` DISABLE KEYS */;
-INSERT INTO `diloseis` VALUES (1,2,1,'2019-05-14 15:56:55','2019-05-14 15:56:55'),(2,2,2,'2019-05-20 10:26:13','2019-05-20 10:26:13');
+INSERT INTO `diloseis` VALUES (1,2,1,'2019-05-14 15:56:55','2019-05-14 15:56:55'),(2,2,2,'2019-05-20 10:26:13','2019-05-20 10:26:13'),(3,2,3,'2019-05-22 15:56:16','2019-05-22 15:56:16');
 /*!40000 ALTER TABLE `diloseis` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-21 21:23:55
+-- Dump completed on 2019-05-22 20:06:47

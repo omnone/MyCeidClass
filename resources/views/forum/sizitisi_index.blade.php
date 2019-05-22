@@ -43,7 +43,7 @@
                 <tr>
                     <td class=""><a
                             href="/lessons/{{$data['title']}}/forum/{{$data['sizitisi']->id}}/{{$anartisi->id}}">
-                            <b>{{$anartisi->title}}</b>
+                            <b><i class="fa fa-comments" aria-hidden="true"></i> {{$anartisi->title}}</b>
                         </a>
                         <div class="smaller">{{$anartisi->created_at}}</div>
                     </td>

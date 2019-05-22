@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.17, for macos10.12 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: localhost    Database: myceidclass
 -- ------------------------------------------------------
--- Server version	8.0.16
+-- Server version	5.7.17-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -33,7 +33,7 @@ CREATE TABLE `eksetaseis` (
   `eksetastiki__periodos_id` int(11) NOT NULL,
   `confirmed` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +42,7 @@ CREATE TABLE `eksetaseis` (
 
 LOCK TABLES `eksetaseis` WRITE;
 /*!40000 ALTER TABLE `eksetaseis` DISABLE KEYS */;
-INSERT INTO `eksetaseis` VALUES (1,1,'2019-06-12','16:19:00','2019-05-31 16:19:00','2019-05-14 14:02:09','2019-05-14 14:02:09',1,0),(2,2,'2019-06-26','22:00:00','2019-05-22 13:23:00','2019-05-20 10:25:47','2019-05-20 21:03:53',4,1);
+INSERT INTO `eksetaseis` VALUES (1,1,'2019-06-12','16:00:00','2019-05-31 16:19:00','2019-05-14 14:02:09','2019-05-14 14:02:09',1,0),(2,2,'2019-06-27','10:00:00','2019-05-22 13:23:00','2019-05-20 10:25:47','2019-05-21 08:18:26',4,1),(3,5,'2019-06-21','11:00:00','2019-06-13 23:00:00','2019-05-22 15:55:35','2019-05-22 15:56:03',4,1);
 /*!40000 ALTER TABLE `eksetaseis` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-21 21:23:55
+-- Dump completed on 2019-05-22 20:06:47

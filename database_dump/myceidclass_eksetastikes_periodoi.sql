@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.17, for macos10.12 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: localhost    Database: myceidclass
 -- ------------------------------------------------------
--- Server version	8.0.16
+-- Server version	5.7.17-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -28,9 +28,9 @@ CREATE TABLE `eksetastikes_periodoi` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `finished` tinyint(1) NOT NULL DEFAULT '0',
-  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE `eksetastikes_periodoi` (
 
 LOCK TABLES `eksetastikes_periodoi` WRITE;
 /*!40000 ALTER TABLE `eksetastikes_periodoi` DISABLE KEYS */;
-INSERT INTO `eksetastikes_periodoi` VALUES (1,'2019-06-01 17:23:51','2019-05-14 13:02:20','2019-05-19 06:06:35',1,'Εξεταστική Εαρινό 2019'),(2,'2019-05-24 09:06:00','2019-05-19 06:06:35','2019-05-19 06:06:55',1,'Εξεταστική Εαρινό 2019'),(3,'2019-05-24 09:06:00','2019-05-19 06:06:55','2019-05-19 06:07:17',1,'Εξεταστική Εαρινό 2019'),(4,'2019-05-24 09:06:00','2019-05-19 06:07:17','2019-05-20 20:45:54',0,'Εξεταστική Εαρινό 2019');
+INSERT INTO `eksetastikes_periodoi` VALUES (1,'2019-06-01 17:23:51','2019-05-14 13:02:20','2019-05-19 06:06:35',1,'Εξεταστική Εαρινό 2019'),(2,'2019-05-24 09:06:00','2019-05-19 06:06:35','2019-05-19 06:06:55',1,'Εξεταστική Εαρινό 2019'),(3,'2019-05-24 09:06:00','2019-05-19 06:06:55','2019-05-19 06:07:17',1,'Εξεταστική Εαρινό 2019'),(4,'2019-05-24 09:06:00','2019-05-19 06:07:17','2019-05-19 06:07:17',0,'Εξεταστική Εαρινό 2019');
 /*!40000 ALTER TABLE `eksetastikes_periodoi` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-21 21:23:55
+-- Dump completed on 2019-05-22 20:06:47

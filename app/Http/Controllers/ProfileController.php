@@ -19,7 +19,9 @@ use App\Fwtografia;
 
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
+use Illuminate\Support\Facades\DB;
 
+use Carbon\Carbon;
 use Hash;
 
 class ProfileController extends Controller
@@ -124,20 +126,30 @@ class ProfileController extends Controller
         $user_id = auth()->user()->id;
         $user = User::find($user_id);
 
-        $file= $user->grades_file()->first();
-
-        $file_path = 'public/grades_files/' . $file->filepath;
-
-        if (!Storage::disk('local')->exists($file_path)) {
-            $file_path = 'public/ypovoles_ergasiwn/' . $file_name;
-
-            if (!Storage::disk('local')->exists($file_path)) {
-                return redirect('http://localhost:8000/lessons/' . $lesson_name . '/homework')->with('error', 'Το αρχείο δεν βρέθηκε!');
-            }
-        }
+        $grades = DB::table('users')
+            ->join('bathmologies', 'users.id', '=', 'bathmologies.user_id')
+            ->orderby('periodos')->orderby('eksamino')->orderby('grade')->get();
 
 
-        return Storage::disk('local')->download($file_path);
+        // $file= $user->grades_file()->first();
+
+        // $file_path = 'public/grades_files/' . $file->filepath;
+
+        // if (!Storage::disk('local')->exists($file_path)) {
+        //     $file_path = 'public/ypovoles_ergasiwn/' . $file_name;
+
+        //     if (!Storage::disk('local')->exists($file_path)) {
+        //         return redirect('http://localhost:8000/lessons/' . $lesson_name . '/homework')->with('error', 'Το αρχείο δεν βρέθηκε!');
+        //     }
+        // }
+
+        $csvExporter = new \Laracsv\Export();
+        $csvExporter->build($grades, ['name'=>'Μάθημα','periodos'=>'Περίοδος','eksamino'=>'Εξάμηνο','grade'=>'Βαθμός'])
+            ->download('grades_' . $user->surname . '_' . $user->id .'_'.Carbon::now(). '.csv');
+
+
+
+        // return Storage::disk('local')->download($file_path);
     }
 
 
@@ -145,7 +157,13 @@ class ProfileController extends Controller
     // scrape progress grades
     public function scrape_progress(Request $request)
     {
-        set_time_limit(10000);
+        set_time_limit(1000);
+
+        $this->validate($request, [
+            'username' => 'required',
+             'password' =>  'required',
+        ]);
+
 
         $username = $request->username;
         $password = $request->password;
@@ -170,13 +188,13 @@ class ProfileController extends Controller
         }
         fclose($file);
 
-        $grade_file = new Arxeio;
-        $grade_file->filepath = 'grades_'.auth()->user()->id.'_'.auth()->user()->surname.'.csv';
-        $grade_file->user_id = auth()->user()->id;
-        $grade_file->save();
+        // $grade_file = new Arxeio;
+        // $grade_file->filepath = 'grades_'.auth()->user()->id.'_'.auth()->user()->surname.'.csv';
+        // $grade_file->user_id = auth()->user()->id;
+        // $grade_file->save();
 
 
-        Storage::disk('local')->move('public/grades_files/grades.csv', 'public/grades_files/grades_'.auth()->user()->surname.'_'.auth()->user()->id.'.csv');
+        // Storage::disk('local')->move('public/grades_files/grades.csv', 'public/grades_files/grades_'.auth()->user()->surname.'_'.auth()->user()->id.'.csv');
 
 
         array_shift($all_lessons);
@@ -191,6 +209,6 @@ class ProfileController extends Controller
             $bathmologia->save();
         }
 
-        return redirect()->action('ProfileController@get_statistika_foititi');
+        return redirect()->action('ProfileController@get_statistika_foititi',['general']);
     }
 }

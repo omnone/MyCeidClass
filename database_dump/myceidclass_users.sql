@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.17, for macos10.12 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: localhost    Database: myceidclass
 -- ------------------------------------------------------
--- Server version	8.0.16
+-- Server version	5.7.17-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -24,13 +24,13 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `surname` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `role` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `surname` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `role` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `remember_token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -44,7 +44,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Νίκος','Νικολάου','nikolaou@ceid.upatras.gr','prof',NULL,'$2y$10$tap1goPVgiAzC0Yl2xe8PuwXLtNFUwfVvnX88nYLcWlN57F/uDRWe','Tcb6p0WtX1wR2E2CkbNAhl6fLKMAw2oeouo7ecnwvvna1NTQLfYyvC2BIhMp',NULL,NULL),(2,'Kostas','Konstantinou','konst@ceid.upatras.gr','student',NULL,'$2y$10$.EeVCTnB3lgeR/E6Mx.CgOPGtkg.taI9f8tw5wpTdL.3pk5wzybiW','G5hPzI48VGOKitpeiVx2Wz3AmdqJr8aPRotqWvI5QWJ7TSGhMKNaB70kDMZQ',NULL,'2019-05-20 21:24:18'),(3,'Γιώργος','Δημητρίου','dim@ceid.upatras.gr','prof',NULL,'$2y$10$oRMht8bAUgbIYe8pMDSD.OjuwHDIBlcNqVemtqlFq/Q2OHo7Ll5xO','5jk3jMpfgE74OIc4cL8V8pIaqzOADQcezUnaKNpgQqyXIauzbP38DboyWePD',NULL,'2019-05-17 12:03:33'),(4,'Admin','Admin','admin@ceid.upatras.gr','admin',NULL,'$2y$10$.EeVCTnB3lgeR/E6Mx.CgOPGtkg.taI9f8tw5wpTdL.3pk5wzybiW','8a0C40C4yWpM8F69rEUttIx0pGXdPCEv5EkJLIZmUA7RM7Im4KYCyVGNU20Z','2019-05-13 14:41:14','2019-05-13 14:41:14');
+INSERT INTO `users` VALUES (1,'Νίκος','Νικολάου','nikolaou@ceid.upatras.gr','prof',NULL,'$2y$10$tap1goPVgiAzC0Yl2xe8PuwXLtNFUwfVvnX88nYLcWlN57F/uDRWe','CussZllTF1dE7LSW2gGE753oYrcfYslgJbXgVNHMrlb4ko6B9nfHrsmpT1Ap',NULL,NULL),(2,'Kostas','Konstantinou','konst@ceid.upatras.gr','student',NULL,'$2y$10$xr79aUwgknLwOBQHsk7MueojfLUjx8nNOMfGBwEDfXsTJZ4tAzv5O','O88clFJXkXHiFPH9nmsHjIb4elkEltvSi8vQeGfFM502zIlsmnCCjLfhVt6s',NULL,NULL),(3,'Γιώργος','Δημητρίου','dim@ceid.upatras.gr','prof',NULL,'$2y$10$oRMht8bAUgbIYe8pMDSD.OjuwHDIBlcNqVemtqlFq/Q2OHo7Ll5xO','UNCuxi3RDJByl3SrDP9BiYkudAydyDL8lDNJfM5DitLCh0IOqIQAsuHShLbL',NULL,'2019-05-17 12:03:33'),(4,'Admin','Admin','admin@ceid.upatras.gr','admin',NULL,'$2y$10$.EeVCTnB3lgeR/E6Mx.CgOPGtkg.taI9f8tw5wpTdL.3pk5wzybiW','xA0yMBwKZdKOwDmV7hvdCk1SMeDEKeoFYpDeV4HX2NW77bIYOoXRm3SIGqUQ','2019-05-13 14:41:14','2019-05-13 14:41:14');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -57,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-21 21:23:54
+-- Dump completed on 2019-05-22 20:06:47
