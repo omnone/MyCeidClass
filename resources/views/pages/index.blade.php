@@ -20,8 +20,7 @@
                     <div class="field has-addons ">
                         <div class="control">
                             {!! Form::text('searchlesson',null,['id' =>
-                            'searchBox','class'=>'input','placeholder'=>"Αναζήτηση
-                            Μαθήματος"]) !!}
+                            'searchBox','class'=>'input','placeholder'=>"Αναζήτηση Μαθήματος"]) !!}
                         </div>
                         <div class="control">
                             <button class='button is-primary'>Αναζήτηση</button>

@@ -25,7 +25,7 @@ body {
 /* ids */
 #side-menu {
     margin-left: 5% !important;
-    width: 21%!important;
+    width: 15%!important;
     height: 100%;
     overflow: auto !important;
     position: sticky!important;
@@ -116,6 +116,6 @@ table.is-scrollable tbody tr {
     border-left-style: solid;
 }
 
-.button{
+button{
     padding:3%;
 }
