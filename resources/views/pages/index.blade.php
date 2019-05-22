@@ -11,11 +11,11 @@
     <div class="card-header">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-9">
+                <div class="col-md-8">
                     Τα μαθήματά μου
                 </div>
                 {{-- search a lesson box - add a form --}}
-                <div class="col-md-3 is-pulled-right">
+                <div class="col-md-4 is-pulled-right">
                     {!! Form::open(array('method' => 'Get', 'route' => array('lessons.search_result'))) !!}
                     <div class="field has-addons ">
                         <div class="control">
@@ -65,12 +65,12 @@
     <div class="card-header">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-9">
+                <div class="col-md-8">
                     Τα μαθήματα μου
                 </div>
 
                 {{-- search a lesson box - add a form --}}
-                <div class="col-md-3 is-pulled-right">
+                <div class="col-md-4 is-pulled-right">
                     {!! Form::open(array('method' => 'Get', 'route' => array('lessons.search_result'))) !!}
                     <div class="field has-addons ">
                         <div class="control">
