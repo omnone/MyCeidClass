@@ -110,6 +110,9 @@
                         </div>
                     </div>
                     <div class="card-body">
+                        <b>Σημείωση: Το αρχείο .csv πρέπει να έχει στην πρώτη στήλη τον αριθμό μητρώου του φοιτητή και στην δεύτερη στήλη το βαθμό.</b>
+                        <br>
+                        <br>
                         {!! Form::open(['action' =>
                         ['ErgasiesController@grade_homework',$data['title'],$data['ergasia']->id],
                         'method'

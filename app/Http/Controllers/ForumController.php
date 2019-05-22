@@ -100,7 +100,7 @@ class ForumController extends Controller
 
         $anartisi->save();
 
-        if ($post_id!==0) {
+        if ($post_id!=0) {
             return $this->show_post($lesson_name, $sizitisi_id, $post_id);
         }
 

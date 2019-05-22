@@ -171,7 +171,7 @@ class ProfileController extends Controller
         fclose($file);
 
         $grade_file = new Arxeio;
-        $grade_file->filepath = 'grades_'.auth()->user()->id.'.csv';
+        $grade_file->filepath = 'grades_'.auth()->user()->id.'_'.auth()->user()->surname.'.csv';
         $grade_file->user_id = auth()->user()->id;
         $grade_file->save();
 

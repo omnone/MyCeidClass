@@ -25,6 +25,21 @@ $(document).ready(function () {
 
     });
 
+
+
+    $('.btn-link').click(function (event) {
+
+        if ($(this).hasClass('collapsed')) {
+            $(this).find("i.fa-chevron-down").addClass('fa-chevron-up').removeClass('fa-chevron-down');
+        } else {
+            $(this).find("i.fa-chevron-up").addClass('fa-chevron-down').removeClass('fa-chevron-up');
+
+        }
+    });
+
+
+
+
     $add_btn = document.getElementById("add-button");
 
     $add_btn.addEventListener('click', event => {
@@ -35,6 +50,8 @@ $(document).ready(function () {
         clone.id = "addedrow";
         table.appendChild(clone);
     });
+
+
 
 
 });
