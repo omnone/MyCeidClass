@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Crypt;
 
 use App\User;
 use App\Message;
@@ -73,7 +74,7 @@ class MessagesController extends Controller
 
             $mes = new Message;
             $mes->title = $request->title;
-            $mes->content = $request->content;
+            $mes->content = Crypt::encryptString($request->content);
             $mes->sender_id = auth()->user()->id;
             $mes->receiver_id = $receiver_id;
 

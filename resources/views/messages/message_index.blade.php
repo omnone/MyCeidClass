@@ -56,7 +56,7 @@
         </h6>
         <hr>
         <div class="message-body">
-            {{$data['message']->content}}
+            {{$data['message']->text}}
         </div>
         <hr>
         @if($data['message']->file)
