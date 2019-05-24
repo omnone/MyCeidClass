@@ -153,14 +153,22 @@ def calculate_ECTS(ects, xeim, ear, period):
 ##################################################################################################################
 def data_manipulation(rows):
     sorted_lessons = []
+    rows.pop(0)
 
     for row in rows:
         if row.find_elements_by_xpath(".//td")[0] != ' ':
             lesson = [td.text for td in row.find_elements_by_xpath(
                 ".//td") if td.text != '']
             if len(lesson) > 10:
-                sorted_lessons.append(lesson)
+                if(lesson[4] == 'NS' or lesson[4] == ' '):
+                    lesson[4] = 0.0
+                elif(lesson[4] != 'NS' and lesson[4] != ' ' and lesson[4] != 'Grade Symbol'):
 
+                    try:
+                        lesson[4] = float(lesson[4].replace(',', '.'))
+                    except ValueError:
+                        print(lesson[4])
+                sorted_lessons.append(lesson)
 
     seen = []
     xrostoumena = []
@@ -171,14 +179,14 @@ def data_manipulation(rows):
     ECTS_xeim = 0
     ECTS_ear = 0
 
-    for item in sorted(sorted_lessons, key=lambda grade:  float(item[4].replace(',', '.')),reverse=True):
+    for item in sorted(sorted_lessons, key=lambda grade:  grade[4], reverse=True):
         temp_lesson = []
         lesson_name = item[3]
 
         if len(item) >= 19 and lesson_name not in seen:
             seen.append(lesson_name)
             try:
-                grade = float(item[4].replace(',', '.'))
+                grade = item[4]
 
                 if int(grade) >= 5:
                     temp_lesson = [lesson_name, item[6],
@@ -210,7 +218,7 @@ def data_manipulation(rows):
 
 ##################################################################################################################
 
-#prevent firefox from opening windows
+# prevent firefox from opening windows
 options = Options()
 
 options.headless = True
