@@ -1,7 +1,6 @@
 import os
 from csv import DictWriter
 
-from progress.bar import Bar
 from selenium import webdriver
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.by import By
@@ -11,7 +10,7 @@ from selenium.webdriver.firefox.options import Options
 import sys
 
 # ***DISCLAIMER: To sigkekrimeno programma anaptixthike sta plaisia tou mathimatos gia akadimaikous logous.
-# Gia tin pragmatopoihsh scraping se opoiadipote selida apaitite adeia tou katoxou tis.
+# Gia tin pragmatopoihsh scraping se opoiadipote selida apaititai adeia tou katoxou tis.
 
 ##################################################################################################################
 
@@ -154,9 +153,7 @@ def calculate_ECTS(ects, xeim, ear, period):
 ##################################################################################################################
 def data_manipulation(rows):
     sorted_lessons = []
-    # print('------------------------------------------------')
-    # progress_bar = Bar('Harvesting Lessons', max=len(rows))
-
+ 
     for row in rows:
         if row.find_elements_by_xpath(".//td")[0] != ' ':
             lesson = [td.text for td in row.find_elements_by_xpath(
@@ -164,8 +161,6 @@ def data_manipulation(rows):
             if len(lesson) > 10:
                 sorted_lessons.append(lesson)
 
-    #     progress_bar.next()
-    # progress_bar.finish()
 
     seen = []
     xrostoumena = []
@@ -215,7 +210,7 @@ def data_manipulation(rows):
 
 ##################################################################################################################
 
-# mprevent firefox from opening windows
+#prevent firefox from opening windows
 options = Options()
 
 options.headless = True
@@ -251,11 +246,9 @@ finally:
 
 
 try:
-    # data_manipulation(rows)
     # save results to csv file
     xrostoumena, perasmena = data_manipulation(lessons)
     save_results_csv(xrostoumena, perasmena)
 finally:
     # close browser
-    # browser.quit()
     browser.close()
