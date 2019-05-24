@@ -12,7 +12,7 @@
 7. Πληκτρολογήστε "php artisan migrate" ,"php artisan serve".
 8. Κάντε import τον φάκελο "database_dump" στην βάση σας για να έχετε μια αρχική αρχικοποίηση του συστήματος με δεδομένα.
 
-**Σημείωση1:** Για να συνδεθείτε ως φοιτητής στο σύστημα χρησιμοποιήστε τα στοιχεία email:"konst@ceid.upatras.gr" pass:"kodikos" και ως καθηγητής με τα στοιχεία email:"dim@ceid.upatras.gr" pass:"kodikos". Ως διαχειριστής μπορείτε να μπείτε με τα στοιχεία "admin@ceid.upatras.gr" pass:"kodikos".
+**Σημείωση1:** Για να συνδεθείτε ως φοιτητής στο σύστημα χρησιμοποιήστε τα στοιχεία email:"konst@ceid.upatras.gr" pass:"kodikos" και ως καθηγητής με τα στοιχεία email:"dim@ceid.upatras.gr" pass:"kodikos". Ως διαχειριστής μπορείτε να μπείτε με τα στοιχεία "admin@ceid.upatras.gr" pass:"kodikos"
 
 # Άντληση Βαθμολογίας από το Progress
 Για την άντληση της βαθμολογίας από το progress γίνεται χρήση της γλώσσας Python και της βιβλιοθήκης Selenium. Επομένως προκειμένου να τρέξετε το πρόγραμμα πρέπει: 
