@@ -8,7 +8,7 @@
 3. Μετανομάστε το αρχείο .env.example σε .env (βρίσκεται στον αρχικό φάκελο).
 4. Μέσα στο .env αρχείο αλλάξτε τα στοιχεία για να μπορέσετε να συνδεθείτε στην βάση που δημιουργήσατε.
 5. Μεταβείτε στον αρχικό φάκελο του project και τρέξτε την εντολή "composer install".
-6. Έπειτα πληκτρολογίστε: "php artisan key:generate"  
+6. Έπειτα πληκτρολογίστε: "php artisan key:generate" .
 7. Πληκτρολογήστε "php artisan migrate" ,"php artisan serve".
 8. Κάντε import τον φάκελο "database_dump" στην βάση σας για να έχετε μια αρχική αρχικοποίηση του συστήματος με δεδομένα.
 
@@ -19,7 +19,7 @@
 1. Να έχετε την έκδοση 3 της γλώσσας Python. 
 2. Nα εγκαταστήσετε τα requirements που θα βρείτε στον φάκελο "progress". 
 3. Nα έχετε εγκατεστημένο το firefox στην συγκεκριμένη περίπτωση. 
-4. Τέλος θα πρέπει να καταβάσετε το πρόγραμμα [geckodriver.exe](https://github.com/mozilla/geckodriver/releases). Οδηγίες χρήσης του Selinium μπορείτε να βρείτε [εδώ](https://selenium-python.readthedocs.io/getting-started.html). 
+4. Οδηγίες χρήσης του Selinium μπορείτε να βρείτε [εδώ](https://selenium-python.readthedocs.io/getting-started.html). 
 5. **Τέλος , εάν χρησιμοποιήσετε το dump της βάσης , θα πρέπει να αδείασετε τον πίνακα "bathmologies" για να γίνει εκ νέου αρχικοποίηση από το σύστημα**.
 
 
