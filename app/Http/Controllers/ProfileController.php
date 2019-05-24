@@ -104,7 +104,7 @@ class ProfileController extends Controller
         $user = User::find($user_id);
 
         $bathmoi = $user->grades()->get();
-        $perasmena = $user->grades()->where('grade', '>', 5.0)->orderBy('grade', 'desc')->paginate(7);
+        $perasmena = $user->grades()->where('grade', '>=', 5.0)->orderBy('grade', 'desc')->paginate(7);
         $xrostoumena = $user->grades()->where('grade', '=', 0.0)->orderBy('periodos')->paginate(7);
 
         if ($bathmoi->isEmpty()) {

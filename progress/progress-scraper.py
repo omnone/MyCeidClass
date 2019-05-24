@@ -153,7 +153,7 @@ def calculate_ECTS(ects, xeim, ear, period):
 ##################################################################################################################
 def data_manipulation(rows):
     sorted_lessons = []
- 
+
     for row in rows:
         if row.find_elements_by_xpath(".//td")[0] != ' ':
             lesson = [td.text for td in row.find_elements_by_xpath(
@@ -171,7 +171,7 @@ def data_manipulation(rows):
     ECTS_xeim = 0
     ECTS_ear = 0
 
-    for item in sorted(sorted_lessons, key=lambda grade: grade[4]):
+    for item in sorted(sorted_lessons, key=lambda grade:  float(item[4].replace(',', '.')),reverse=True):
         temp_lesson = []
         lesson_name = item[3]
 
