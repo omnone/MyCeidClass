@@ -19,7 +19,7 @@
 1. Να έχετε την έκδοση 3 της γλώσσας Python. 
 2. Nα εγκαταστήσετε τα requirements που θα βρείτε στον φάκελο "progress". 
 3. Nα έχετε εγκατεστημένο το firefox στην συγκεκριμένη περίπτωση. 
-4. Οδηγίες χρήσης του Selinium μπορείτε να βρείτε [εδώ](https://selenium-python.readthedocs.io/getting-started.html). 
+4. Οδηγίες χρήσης του Selenium μπορείτε να βρείτε [εδώ](https://selenium-python.readthedocs.io/getting-started.html). 
 5. **Τέλος , εάν χρησιμοποιήσετε το dump της βάσης , θα πρέπει να αδείασετε τον πίνακα "bathmologies" για να γίνει εκ νέου αρχικοποίηση από το σύστημα**.
 
 
