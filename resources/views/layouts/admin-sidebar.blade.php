@@ -10,8 +10,8 @@
                     <i class="fa fa-university" aria-hidden="true"></i> Μαθήματα
                 </p>
                 <ul class="menu-list">
-                    <li><a href="/lessons">Όλα τα μαθήματα</a></li>
-                    <li><a href="/lessons/subscriptions">Δημιουργία Μαθήματος</a></li>
+                    <li><a href="" class="disabled">Όλα τα μαθήματα</a></li>
+                    <li><a href="" class="disabled">Δημιουργία Μαθήματος</a></li>
                 </ul>
                 <p class="menu-label">
                     <i class="fa fa-comments-o" aria-hidden="true"></i> Μηνύματα
@@ -32,8 +32,8 @@
                     <i class="fa fa-user" aria-hidden="true"></i>Χρήστες
                 </p>
                 <ul class="menu-list">
-                    <li><a href="/profile/settings">Προσθήκη Χρήστη</a></li>
-                    <li><a href="/profile/statistics">Όλοι οι Χρήστες</a></li>
+                    <li><a href="" class="disabled">Προσθήκη Χρήστη</a></li>
+                    <li><a href="" class="disabled">Όλοι οι Χρήστες</a></li>
                     <li>
                         <hr>
                     </li>

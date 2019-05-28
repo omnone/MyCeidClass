@@ -119,3 +119,8 @@ table.is-scrollable tbody tr {
 button{
     padding:3%;
 }
+
+a.disabled {
+    pointer-events: none;
+    cursor: default;
+  }

@@ -107,12 +107,14 @@ class ProfileController extends Controller
         $perasmena = $user->grades()->where('grade', '>=', 5.0)->orderBy('grade', 'desc')->paginate(7);
         $xrostoumena = $user->grades()->where('grade', '=', 0.0)->orderBy('periodos')->paginate(7);
 
+        $n_perasmena = $user->grades()->where('grade', '>=', 5.0)->count();
+        $n_xrostoumena = $user->grades()->where('grade', '=', 0.0)->count();
+
         if ($bathmoi->isEmpty()) {
             return view('user.connect_to_progress');
         }
 
-        return view('user.student_statistics')->with('data', ['xrostoumena'=>$xrostoumena,'perasmena' =>$perasmena,'mode'=>$mode]);
-        ;
+        return view('user.student_statistics')->with('data', ['xrostoumena'=>$xrostoumena,'perasmena' =>$perasmena,'mode'=>$mode,'n_xrostoumena'=>$n_xrostoumena,'n_perasmena'=>$n_perasmena]);
     }
 
     // arxeio vathmologias foititi

@@ -69,7 +69,7 @@
                     <td><a href="/messages/{{$data['mode']}}/{{$message->id}}">{{$message->title}}</a></td>
                     <td>
                         @if($message->sender->name == 'Admin')
-                        Admin
+                        {{$message->receiver->name}} {{$message->receiver->surname}}
                         @else
                         {{$message->receiver->name}} {{$message->receiver->surname}}
                         @endif

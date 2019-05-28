@@ -24,7 +24,10 @@ class AdminController extends Controller
 
     public function admin_index()
     {
-        return view("admin.admin_index");
+        $students = User::where('role','student')->get();
+        $profs = User::where('role','prof')->get();
+
+        return view("admin.admin_index")->with('data',['students'=>$students,'profs'=>$profs]);
     }
 
     public function eksetastiki_index()

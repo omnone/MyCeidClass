@@ -16,31 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `aithouses`
+-- Table structure for table `posts`
 --
 
-DROP TABLE IF EXISTS `aithouses`;
+DROP TABLE IF EXISTS `posts`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `aithouses` (
+CREATE TABLE `posts` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `capacity` int(11) NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `body` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `eksetasi_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `aithouses`
+-- Dumping data for table `posts`
 --
 
-LOCK TABLES `aithouses` WRITE;
-/*!40000 ALTER TABLE `aithouses` DISABLE KEYS */;
-INSERT INTO `aithouses` VALUES (1,'B4',200,'2019-05-13 14:12:05','2019-05-13 14:12:05',0),(2,'BA',300,'2019-05-13 14:12:32','2019-05-13 14:12:32',0),(3,'B3',50,'2019-05-13 14:12:47','2019-05-13 14:12:47',0),(4,'ΑΦΕ',400,'2019-05-13 14:13:10','2019-05-13 14:13:10',0);
-/*!40000 ALTER TABLE `aithouses` ENABLE KEYS */;
+LOCK TABLES `posts` WRITE;
+/*!40000 ALTER TABLE `posts` DISABLE KEYS */;
+/*!40000 ALTER TABLE `posts` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
