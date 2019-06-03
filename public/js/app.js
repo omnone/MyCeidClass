@@ -39,7 +39,7 @@ $(document).ready(function () {
 
     $('#connect-progress-btn').click(function (event) {
         $('#form-progress').hide();
-        $('#progress-body').append("<p>Παρακαλώ Περιμένετε... <i class=\"fa fa-spinner fa-spin  fa-fw\"></i\><span class=\"sr-only\"> Loading...</span ></p>");
+        $('#progress-body').append("<p>Άντληση μαθημάτων από το Progress, <br> Παρακαλώ περιμένετε... <i class=\"fa fa-spinner fa-spin  fa-fw\"></i\><span class=\"sr-only\"> Loading...</span ></p>");
     });
 
 

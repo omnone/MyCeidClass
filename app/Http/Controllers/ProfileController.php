@@ -50,9 +50,9 @@ class ProfileController extends Controller
     {
         $this->validate($request, [
             'email' => 'required',
-            'profile_photo' => 'file|nullable|max:1999',
-             'password' => '|same:password',
-    'conf_password' => '|same:password',
+            'profile_photo' => 'mimes:jpeg,jpg,png,gif|nullable|max:1999',
+            'password' => '|same:password',
+            'conf_password' => '|same:password',
         ]);
 
         $user_id = auth()->user()->id;
@@ -171,7 +171,6 @@ class ProfileController extends Controller
         $password = $request->password;
 
 
-
         $cmd = 'python '.base_path().'\progress\progress-scraper.py '.$username.' '.$password.' 2>&1';
         $output = [];
 
@@ -179,7 +178,7 @@ class ProfileController extends Controller
 
 
         $all_lessons = [];
-        $file = fopen(base_path().'\storage\app\public\grades_files\grades.csv', 'r');
+        $file = fopen(base_path().'\storage\app\public\grades_files\grades_'.$username.'.csv', 'r');
         while (($line = fgetcsv($file)) !== false) {
             $lesson = [];
 
@@ -211,6 +210,6 @@ class ProfileController extends Controller
             $bathmologia->save();
         }
 
-        return redirect()->action('ProfileController@get_statistika_foititi',['general']);
+        return redirect()->action('ProfileController@get_statistika_foititi', ['general']);
     }
 }
