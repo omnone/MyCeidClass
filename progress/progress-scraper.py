@@ -44,7 +44,7 @@ def login(user, passw):
 ##################################################################################################################
 
 def get_lessons_from_progress():
-    """Finds specific elements from the HTML source code in order to get their values - dirty workaround because progress don't like scraping it"""
+    """Finds specific elements from the HTML source code in order to get their values - dirty workaround because progress doesn't like scraping it"""
     wait_for_element(5, 'contentAreaFrame')
 
     frame1 = WebDriverWait(browser, delay).until(
@@ -56,9 +56,7 @@ def get_lessons_from_progress():
     wait_for_element(5, 'isolatedWorkAreaForm')
     lessons_table = browser.find_element_by_id('isolatedWorkAreaForm')
     val = lessons_table.get_attribute("action")
-
-    # print(val)
-
+    
     browser.get(val)
 
     wait_for_element(5, 'WD3F-contentTBody')
